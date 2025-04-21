@@ -1,0 +1,52 @@
+---
+const { id, name, username, role, imageUrl, socials = [] } = Astro.props;
+---
+
+<!-- <button
+  data-popover-target={`popover-${id}`}
+  type="button"
+  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+>
+  {name}
+</button> -->
+
+<img data-popover-target={`popover-${id}`} class="object-cover cursor-pointer inline-block size-28 rounded-full ring-2 ring-white dark:ring-neutral-900" src={imageUrl} alt="Avatar">
+<div
+    data-popover
+    id={`popover-${id}`}
+    role="tooltip"
+    class="absolute z-10 invisible inline-block w-auto text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-600"
+>
+    <div class="p-3">
+    <p class="text-base font-semibold leading-none text-gray-900 dark:text-white">
+        <a href="#">{name}</a>
+    </p>
+    <p class="mb-3 text-sm font-normal">
+        <a href="#" class="hover:underline">@{username}</a>
+    </p>
+    <p class="mb-4 text-sm">{role}</p>
+    <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center justify-center h-full gap-2">
+            {socials.length > 0 && (
+                // <img class="object-cover w-10 h-10 inline-block size-28 rounded-full ring-2 ring-white dark:ring-neutral-900 m-0" src={imageUrl} alt={name} />  
+                <div class="flex gap-2">
+                  {socials.map((social: { name: string; url: string; icon: any }) => {
+                    const Icon = social.icon;
+                    return (
+                      <a href={social.url} target="_blank" rel="noopener noreferrer" title={social.name}>
+                        <Icon class="w-10 h-10 text-gray-500 dark:text-white hover:text-blue-500 transition" />
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+        </div>
+        <!-- <div>
+            <a href="" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Follow</a>
+        </div> -->
+    </div>
+    </div>
+    <div data-popper-arrow></div>
+</div>
+
+

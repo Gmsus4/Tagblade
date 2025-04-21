@@ -1,0 +1,44 @@
+---
+import Instagram from "./Instagram.astro"
+import Popover from "./Popover.astro"
+
+
+const users = [
+  { 
+    id: 'fernando',
+    name: 'Fernando Gómez',
+    username: 'gmsus4',
+    role: 'CEO - Web Developer',
+    imageUrl: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    socials: [
+      {
+        name: 'Instagram',
+        url: 'https://instagram.com/gmsus4',
+        icon: Instagram
+      },
+    ]
+  },
+  {
+    id: 'ana',
+    name: 'Ana Torres',
+    username: 'ana_dev',
+    role: 'UI Designer',
+    imageUrl: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  },
+  {
+    id: 'lily',
+    name: 'Liliana Islas',
+    username: 'lily_18',
+    role: 'Web Design',
+    imageUrl: 'https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  },
+  // Agrega más si quieres
+]
+
+---
+
+<div class="flex -space-x-2 items-center justify-center h-full">
+  {users.map(user => (
+    <Popover {...user} />
+  ))}
+</div>
