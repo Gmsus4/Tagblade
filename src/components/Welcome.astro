@@ -1,6 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from './Footer.astro';
+import Footer2 from './Footer2.astro';
 import Hero from './Hero.astro';
 import Servicios from './Servicios.astro';
 import Contacto from './Contacto.astro';
@@ -9,15 +10,15 @@ import SobreNosotros from './Sobre-nosotros.astro';
 
 ---
 
-<div id="container">
+<div id="container" class="overflow-x-hidden">
 	<header>
 		<Navbar/>
 	</header>
 	<main>
 		<Hero />
-		<Proyectos />
 		<Servicios />
 		<SobreNosotros />
+		<Proyectos />
 		<Contacto />
 	</main>
 	<Footer/>
