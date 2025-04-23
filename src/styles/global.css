@@ -5,36 +5,33 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-
     @theme {
         /* Modo Claro */
-        --color-background: #F8F4F0;        /* Fondo principal claro */
+        --color-background2: #F8F4F0;        /* Fondo principal claro */
+        --color-background: #fafafa;        /* Fondo principal claro */
         --color-surface: #F7C8B5;           /* Superficies como tarjetas o secciones */
         --color-primary: #E9560A;           /* Naranja fuerte (botones/acento) */
+        --color-primary-dark: #bd470a;           /* Naranja fuerte (botones/acento) */
         --color-primary-hover: #F47B42;     /* Hover o variante más suave del acento */
         --color-text: #1E1E1E;              /* Texto oscuro suave (no negro puro) */
         --color-subtle-text: #4B4B4B;       /* Texto secundario, gris oscuro cálido */
-        --color-border: #F5AA8C;            /* Bordes, líneas divisoras suaves */
-      
+        --color-border: #F5AA8C;    
+        
         /* Modo Oscuro */
-        --color-dark-background: #2A2523;   /* Fondo principal oscuro con calidez */
-        --color-dark-surface: #3B322F;      /* Tarjetas u otras superficies oscuras */
-        --color-dark-primary: #F47B42;      /* Acento naranja menos saturado */
-        --color-dark-primary-hover: #F5AA8C;/* Hover en naranja claro */
-        --color-dark-text: #EFEAE6;         /* Texto principal en modo oscuro */
-        --color-dark-subtle-text: #CFCAC6;  /* Texto secundario en modo oscuro */
-        --color-dark-border: #4A403C;       /* Bordes sutiles pero visibles */
+        --color-dark-background: #171717;       /* Fondo principal muy oscuro y neutro */
+        --color-dark-surface: #222222;          /* Superficies como tarjetas (más claras para contraste) */
+        --color-dark-primary: #F47B42;          /* Naranja suave pero cálido para mantener identidad */
+        --color-dark-primary-hover: #F5AA8C;    /* Variante clara del acento, para hovers o énfasis */
+        --color-dark-text: #F5F5F5;             /* Texto principal muy claro para alto contraste */
+        --color-dark-subtle-text: #CCCCCC;      /* Texto secundario gris claro para jerarquía */
+        --color-dark-border: #2E2E2E;           /* Bordes oscuros apenas visibles pero funcionales */
       }
-
-      
-      
-    --color-white: #F8F4F0;
-    --color-dark: #2B2522;
-    --color-grayLight: #d1d5db;
-    --color-grayStrong: #374151;
-  }
 
 html {
     scroll-behavior: smooth;
 }
+
+body {
+    font-family: 'Inter Variable', sans-serif;
+    font-family: 'Onest Variable', sans-serif;
+  }
