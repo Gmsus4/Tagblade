@@ -1,9 +1,14 @@
-<footer class="bg-background dark:bg-dark-background">
-    <div class="mx-auto w-full max-w-screen-xl px-4 pt-20 pb-6 lg:py-8">
+---
+import Image from "astro/components/Image.astro";
+---
+
+<footer class="md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background">
+    <div class=" mx-auto w-full max-w-screen-xl pt-20 pb-6 lg:py-8 px-4">
       <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
-          <a href="#" class="flex items-center">
-            <img src="/tagblade.jpg" class="h-8 me-3 rounded-full" alt="Tagblade Logo" />
+          <a href="/" class="flex items-center">
+            <Image src={"/tagblade.jpg"} alt={"Tagblade Logo"} width={30} height={30} class={"me-3 rounded-xl"} loading="lazy"/>
+            <!-- <img src="/tagblade.jpg" class="h-8 me-3 rounded-xl" alt="Tagblade Logo" /> -->
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-background">Tagblade</span>
           </a>
         </div>
@@ -26,7 +31,7 @@
                 <a href="https://github.com/tagblade" class="hover:underline">GitHub</a>
               </li>
               <li>
-                <a href="https://www.instagram.com/tagblade.dev" class="hover:underline">Instagram</a>
+                <a href="https://www.instagram.com/tagblade" class="hover:underline" target="_blank">Instagram</a>
               </li>
             </ul>
           </div>
@@ -45,7 +50,7 @@
       </div>
       <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div class="sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="#" class="hover:underline">Tagblade™</a>. Todos los derechos reservados.</span>
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="/" class="hover:underline">Tagblade™</a>. Todos los derechos reservados.</span>
         <div class="flex mt-4 sm:justify-center sm:mt-0">
           <!-- Puedes enlazar tus redes reales aquí -->
           <a href="https://www.facebook.com/tagblade" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
