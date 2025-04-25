@@ -1,0 +1,39 @@
+---
+export interface Props {
+  servicios: { title: string; subtitle: string; description: string; color?: string; }[]
+}
+
+const { servicios = [] } = Astro.props
+---
+
+<section id="servicios" class="md:px-20 sm:px-10 px-5 lg:scroll-mt-16 scroll-mt-12 w-full bg-background dark:bg-dark-background">
+  <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 pb-4" data-aos="fade-up">
+    <div class="mb-12">
+      <h1 class="text-primary dark:text-primary text-3xl lg:text-5xl font-extrabold mb-2">Servicios</h1>
+      <p class="text-lg font-normal text-gray-500 dark:text-gray-300 mb-2">
+        Desde la estructura hasta el despliegue. Sitios rápidos, modernos y con propósito.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {servicios.map((servicio, index) => (
+        <div 
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+          data-aos-duration="800"
+          data-aos-easing="ease-out"
+          class="bg-gray-50 dark:bg-dark-surface border border-gray-200 dark:border-dark-border rounded-lg p-8 md:p-12"
+        >
+          <span class={`text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2 
+            ${servicio.color ?? 'bg-green-100 text-green-800 dark:bg-gray-700 dark:text-green-400'}`}>
+            {servicio.title}
+          </span>
+          <h2 class="text-gray-900 dark:text-white text-2xl font-bold my-2">{servicio.subtitle}</h2>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            {servicio.description}
+          </p>
+        </div>
+      ))}        
+    </div>
+  </div>
+</section>

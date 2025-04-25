@@ -1,46 +1,95 @@
 ---
 import "../styles/global.css";
+import 'aos/dist/aos.css';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tagblade | Sitios web que combinan diseño y rendimiento</title>
+	
+		<!-- SEO básico -->
+		<meta name="description" content="Tagblade diseña y desarrolla sitios web personalizados que combinan estética, velocidad y propósito para ayudarte a crecer en línea." />
+		<meta name="keywords" content="desarrollo web, diseño web, sitios web, sitios responsivos, SEO, Tagblade, páginas web" />
+		<meta name="author" content="Tagblade" />
+		<link rel="canonical" href="https://www.tagblade.com/" />
+	
+		<!-- Open Graph -->
+		<meta property="og:title" content="Tagblade | Sitios web que combinan diseño y rendimiento" />
+		<meta property="og:description" content="Diseñamos y desarrollamos sitios web personalizados con un enfoque en estética, velocidad y propósito." />
+		<meta property="og:image" content="/opengraph-image.jpg" />
+		<meta property="og:url" content="https://www.tagblade.com/" />
+		<meta property="og:type" content="website" />
+	
+		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	
+		<!-- Generador Astro -->
 		<meta name="generator" content={Astro.generator} />
-		<title>Tagblade</title>
+	
+		<!-- Tema oscuro automático -->
 		<script>
-			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark')
-			}
+		  if (
+			localStorage.getItem("color-theme") === "dark" ||
+			(!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+		  ) {
+			document.documentElement.classList.add("dark");
+		  } else {
+			document.documentElement.classList.remove("dark");
+		  }
 		</script>
-		<script>
-			let sec = document.querySelectorAll('section');
-			let links = document.querySelectorAll('nav a');
-		  
-			window.onscroll = () => {
-			  sec.forEach(section => {
-				let top = window.scrollY;
-				let offset = section.offsetTop - 80;
-				let height = section.offsetHeight;
-				let id = section.getAttribute('id');
-		  
-				if(top >= offset && top < offset + height){
-					links.forEach(link => link.classList.remove('active'));
-					const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-					if (activeLink) activeLink.classList.add('active');
-				}
-			  })
-			}
-		  </script>
-	</head>
+	
+		<!-- AOS estilos -->
+		<link
+		  rel="stylesheet"
+		  href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+		/>
+	  </head>
+	
 	<body>
 		<slot />
+
+		<!-- ScrollSpy -->
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const sec = document.querySelectorAll("section");
+				const links = document.querySelectorAll("nav a");
+		
+				window.addEventListener("scroll", () => {
+				sec.forEach((section) => {
+					const top = window.scrollY;
+					const offset = section.offsetTop - 80;
+					const height = section.offsetHeight;
+					const id = section.getAttribute("id");
+		
+					if (top >= offset && top < offset + height) {
+					links.forEach((link) => link.classList.remove("active"));
+					const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+					if (activeLink) activeLink.classList.add("active");
+					}
+				});
+				});
+			});
+		</script>
+
+		<!-- AOS -->
+		<script>
+			// Importación de AOS
+			import AOS from 'aos';
+			
+			// Inicialización
+			AOS.init({
+			  duration: 800,
+			  easing: 'ease-in-out',
+			  once: true
+			});
+		  </script>
+
+		<!-- Flowbite -->
+		<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 	</body>
-	<script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </html>
 
 <style>

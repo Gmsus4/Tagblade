@@ -1,0 +1,29 @@
+---
+import TermsModal from "../modals/TermsModal.astro";
+
+interface Props {
+  modalId?: string;
+  checkboxId?: string;
+}
+
+const {
+  modalId = "terms-modal",
+  checkboxId = "terms-checkbox"
+} = Astro.props;
+---
+
+<div class="flex items-center">
+  <label for={checkboxId} class="ms-2 text-sm font-medium text-dark-background dark:text-gray-300">
+    <p class="cursor-pointer">Acepto los </p>
+  </label>
+
+  <span 
+    data-modal-target={modalId} 
+    data-modal-toggle={modalId} 
+    class="ml-[6px] cursor-pointer ms-2 text-sm font-medium text-primary hover:underline dark:text-primary"
+  >
+    términos y condiciones
+  </span>
+</div>
+
+<TermsModal id={modalId} checkboxId={checkboxId} />

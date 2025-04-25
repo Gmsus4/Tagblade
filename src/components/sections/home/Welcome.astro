@@ -1,0 +1,80 @@
+---
+import Footer from "../../common/Footer.astro";
+import Navbar from "../../common/Navbar.astro";
+import SobreNosotros from "../about/Sobre-nosotros.astro";
+import Contacto from "../contact/Contacto.astro";
+import Proyectos from "../services/Proyectos.astro";
+import Servicios from "../services/Servicios.astro";
+import Hero from "./Hero.astro";
+---
+
+<div id="container" class="overflow-x-hidden">
+  <header>
+    <Navbar
+      links={[
+        { name: "Home", href: "#home", class: "active" },
+        { name: "Servicios", href: "#servicios" },
+        { name: "Sobre nosotros", href: "#about-us" },
+        { name: "Proyectos", href: "#proyectos" },
+        { name: "Contacto", href: "#contacto" },
+      ]}
+    />
+  </header>
+
+  <main>
+    <Hero />
+
+    <Servicios
+      servicios={[
+        {
+          title: "Diseño web",
+          subtitle: "Diseños visuales a medida",
+          description:
+            "Creamos interfaces claras, modernas y adaptadas a cada tipo de negocio. Diseño centrado en el usuario, mobile-first y con enfoque en la experiencia.",
+          color: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300",
+        },
+        {
+          title: "Desarrollo web",
+          subtitle: "Código limpio y funcional",
+          description:
+            "Convertimos diseños en sitios web reales utilizando tecnologías como React, Next.js, Node.js y bases de datos modernas.",
+          color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
+        },
+        {
+          title: "Dominio y hosting",
+          subtitle: "Tu sitio en línea desde el día uno",
+          description:
+            "Te ayudamos a elegir y comprar tu dominio, configurar hosting confiable y subir tu web lista para funcionar.",
+          color: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-300",
+        },
+        {
+          title: "Optimización de velocidad",
+          subtitle: "Sitios rápidos como un rayo",
+          description:
+            "Minificamos recursos, optimizamos imágenes y aplicamos buenas prácticas para asegurar tiempos de carga óptimos.",
+          color: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300",
+        },
+        {
+          title: "Mantenimiento web",
+          subtitle: "Tu sitio siempre al día",
+          description:
+            "Realizamos actualizaciones, ajustes técnicos, respaldo de datos y mejoras continuas para asegurar su correcto funcionamiento.",
+          color: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300",
+        },
+        {
+          title: "Asesoría técnica",
+          subtitle: "Acompañamiento personalizado",
+          description:
+            "Te guiamos para que tomes decisiones acertadas en lo técnico y estratégico, con enfoque en crecimiento digital.",
+          color: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300",
+        },
+      ]}
+    />
+
+    <SobreNosotros />
+    <Proyectos />
+    <Contacto />
+  </main>
+
+  <Footer />
+</div>

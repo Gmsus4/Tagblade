@@ -1,0 +1,39 @@
+---
+import Termsofservice from "../legal/Termsofservice.astro";
+import FormInputs from "./FormInputs.astro";
+
+const checkboxId = "terms-checkbox";
+const modalId = "terms-modal";
+---
+
+<form>
+  <div class="grid gap-6 mb-6 md:grid-cols-2">
+    <FormInputs forID="first_name" labelName="Nombre" placeholder="Jhon" type={"text"} dataAos="fade-right" duration="600" delay="100"/>
+    <FormInputs forID="last_name" labelName="Apellido" placeholder="Doe" type={"text"} dataAos="fade-left" duration="600" delay="200"/>
+  </div>
+  <FormInputs margin="mb-6" forID="email" labelName="Correo electrónico" placeholder="john.doe@company.com" type={"email"} dataAos="fade-up" duration="600" delay="300"/>
+  <FormInputs margin="mb-6" forID="subject" labelName="Asunto" placeholder="Sitio web personal" type={"text"} dataAos="fade-up" duration="600" delay="400"/>
+  <FormInputs margin="mb-6" forID="message" labelName="Mensaje" placeholder="Escribe tu mensaje aquí..." dataAos="fade-up" duration="600" delay="500" isTextArea={true}/>
+
+  <div class="flex items-start mb-6">
+    <div class="flex items-center h-5">
+      <input 
+        id={checkboxId} 
+        type="checkbox" 
+        required
+        class="w-4 h-4 border border-gray-300 rounded-sm bg-background dark:bg-gray-700 dark:border-gray-600 focus:ring-3 focus:ring-primary focus:border-primary" 
+      />
+    </div>
+    <Termsofservice checkboxId={checkboxId} modalId={modalId} />
+  </div>
+
+  <button 
+    type="submit" 
+    data-aos="zoom-in" 
+    data-aos-duration="800" 
+    data-aos-delay="700"
+    class="cursor-pointer text-background bg-primary hover:bg-primary-dark duration-300 ease-in-out font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+  >
+    Enviar mensaje
+  </button>
+</form>

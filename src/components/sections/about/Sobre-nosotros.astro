@@ -1,0 +1,49 @@
+---
+import ContentBlock from "../../common/ContentBlock.astro";
+import StatCounter from "../../common/StatCounter.astro";
+import Team from "./Team.astro";
+---
+
+<section id="about-us" class="-mt-0.5 md:px-20 sm:px-10 px-5 lg:scroll-mt-16 scroll-mt-12 w-full bg-background dark:bg-dark-background">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16" data-aos="fade-up">
+    <div class="grid gap-12 md:grid-cols-2 items-start">
+      <!-- Cabecera principal y Team -->
+      <ContentBlock title="Sobre nosotros" delay="100">
+        <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+          En <strong class="text-primary-hover dark:text-surface">Tagblade</strong>, transformamos ideas en experiencias digitales funcionales. Combinamos código, estrategia y diseño para desarrollar sitios web rápidos, accesibles y adaptados a tus necesidades.
+        </p>
+        <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mt-4 max-w-3xl">
+          Creemos en el trabajo bien hecho, el progreso paso a paso y en construir relaciones de confianza con cada cliente. Ya sea una landing page, un portafolio o una solución personalizada, estamos listos para ayudarte a dar el siguiente paso en línea.
+        </p>  
+      </ContentBlock>
+
+      <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-out" class="h-full z-10">
+        <Team />
+      </div>
+    </div>
+
+    <!-- Enfoque e Historia -->
+    <div class="mt-12 space-y-12">
+      <div class="flex lg:flex-row flex-col lg:gap-20 gap-6">
+        <ContentBlock title="Nuestro enfoque" titleSize="text-2xl" delay="100">
+          <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+            En Tagblade priorizamos la claridad, funcionalidad y escalabilidad. Comenzamos con la escucha activa del cliente, seguida de una planificación estratégica y ejecución detallada con mentalidad orientada al usuario.
+          </p>
+        </ContentBlock>
+
+        <ContentBlock title="Nuestra historia" titleSize="text-2xl" delay="200">
+          <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+            Tagblade nació con la idea de crear sitios web con intención y precisión. Fernando Gómez convirtió esa idea en una marca que combina tecnología, visión humana y compromiso por cada detalle.
+          </p>
+        </ContentBlock>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-start w-full">
+        <StatCounter value="10+" text="Proyectos personalizados" delay="100" />
+        <StatCounter value="<1s" text="Carga inicial optimizada" delay="200" />
+        <StatCounter value="100%" text="Diseños mobile-first" delay="300" />
+      </div>
+    </div>
+  </div>
+</section>

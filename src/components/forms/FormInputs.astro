@@ -1,0 +1,59 @@
+---
+interface Props {
+  dataAos?: string;
+  duration?: string;
+  delay?: string;
+  isTextArea?: boolean;
+  rows?: string;
+  margin?: string;
+  labelName: string;
+  forID: string;
+  type?: any;
+  placeholder: string;
+}
+
+const {
+  dataAos = "fade-up",
+  duration = "600",
+  delay = "100",
+  isTextArea = false,
+  rows = "4",
+  margin,
+  forID,
+  type,
+  placeholder,
+  labelName,
+} = Astro.props;
+---
+
+<div
+  data-aos={dataAos}
+  data-aos-duration={duration}
+  data-aos-delay={delay}
+  class={margin}
+>
+  <label
+    for={forID}
+    class="block mb-2 text-sm font-medium text-dark-background dark:text-background"
+    >{labelName}</label
+  >
+  {
+    isTextArea ? (
+      <textarea
+        id={forID}
+        rows={rows}
+        placeholder={placeholder}
+        required
+        class="block w-full text-sm text-dark-background bg-background rounded-lg border border-gray-300 p-2.5 dark:bg-dark-surface dark:border-dark-border dark:text-background focus:ring-primary focus:border-primary"
+      />
+    ) : (
+      <input
+        type={type}
+        id={forID}
+        placeholder={placeholder}
+        required
+        class="bg-background border-gray-300 text-dark-background text-sm rounded-lg block w-full p-2.5 dark:bg-dark-surface dark:border-dark-border dark:text-background focus:ring-primary focus:border-primary"
+      />
+    )
+  }
+</div>

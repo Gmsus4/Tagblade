@@ -11,7 +11,7 @@ const { id, name, username, role, imageUrl, socials = [] } = Astro.props;
 </button> -->
 
 <div class="relative inline-block">
-  <img data-popover-target={`popover-${id}`} class="object-cover cursor-pointer inline-block size-28 rounded-full ring-2 ring-white dark:ring-neutral-900" src={imageUrl} alt="Avatar">
+  <img data-popover-target={`popover-${id}`} class="object-cover cursor-pointer inline-block size-28 rounded-full ring-3 ring-primary dark:ring-primary" src={imageUrl} alt="Avatar">
   <div
       data-popover
       id={`popover-${id}`}

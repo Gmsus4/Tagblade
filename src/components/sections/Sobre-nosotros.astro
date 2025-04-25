@@ -1,0 +1,110 @@
+---
+import Team from "./about/Team.astro";
+
+
+---
+
+<section id="about-us" class="-mt-0.5 md:px-20 sm:px-10 px-5 lg:scroll-mt-16 scroll-mt-12 w-full bg-background dark:bg-dark-background">
+    <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 pb-4" data-aos="fade-up">
+        <div class="grid gap-12 md:grid-cols-2 items-start">
+            <div 
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="800"
+              data-aos-easing="ease-out"
+              class="z-1"
+            >
+                <h2 class="text-primary dark:text-primary text-3xl lg:text-5xl font-extrabold mb-2">
+                  Sobre nosotros
+                </h2>
+                <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+                  En <strong class="text-primary-hover dark:text-surface">Tagblade</strong>, nos dedicamos a transformar ideas en experiencias digitales funcionales. Combinamos código, estrategia y diseño para desarrollar sitios web rápidos, accesibles y adaptados a tus necesidades. 
+                </p>
+                <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mt-4 max-w-3xl">
+                  Creemos en el trabajo bien hecho, el progreso paso a paso y en construir relaciones de confianza con cada cliente. Ya sea que necesites una landing page, un portafolio o una solución personalizada, estamos listos para ayudarte a dar el siguiente paso en línea.
+                </p>
+            </div>
+            <div 
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="800"
+              data-aos-easing="ease-out"
+              class="h-full z-10"
+            >
+                <Team />
+            </div>
+        </div>
+        <div class="mt-12 space-y-12">
+          <div class="flex lg:flex-row flex-col lg:gap-20 gap-6">
+            <div 
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="800"
+              data-aos-easing="ease-out"
+            >
+              <h2 class="text-2xl font-bold text-primary">Nuestro enfoque</h2>
+              <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+                En Tagblade priorizamos la claridad, la funcionalidad y la escalabilidad. Cada proyecto comienza con la escucha activa del cliente, sigue con una planificación estratégica y se ejecuta con atención al detalle y una mentalidad orientada al usuario.
+              </p>
+            </div>
+            <div 
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="800"
+              data-aos-easing="ease-out"
+            >
+              <h2 class="text-2xl font-bold text-primary">Nuestra historia</h2>
+              <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+                Tagblade nació como una idea simple: crear sitios web con intención, precisión y propósito. Inspirado por años de aprendizaje constante y trabajo con personas reales, Fernando Gómez convirtió esa idea en una marca que combina tecnología, visión humana y compromiso por cada detalle.
+              </p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-start w-full">
+            <div 
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="800"
+              data-aos-easing="ease-out"
+              class="flex flex-col items-center"
+            >
+              <span class="text-4xl font-extrabold text-primary">10+</span>
+              <p class="mt-2 text-gray-700 dark:text-gray-300 text-lg">Proyectos personalizados</p>
+            </div>
+            <div 
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="800"
+              data-aos-easing="ease-out"
+              class="flex flex-col items-center"
+            >
+              <span class="text-4xl font-extrabold text-primary">&lt;1s</span>
+              <p class="mt-2 text-gray-700 dark:text-gray-300 text-lg">Carga inicial optimizada</p>
+            </div>
+            <div 
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="800"
+              data-aos-easing="ease-out"
+              class="flex flex-col items-center"
+            >
+              <span class="text-4xl font-extrabold text-primary">100%</span>
+              <p class="mt-2 text-gray-700 dark:text-gray-300 text-lg">Diseños mobile-first</p>
+            </div>
+          </div>
+        
+          <!-- <div>
+            <blockquote class="border-l-4 border-primary pl-4 italic text-gray-600 dark:text-gray-400">
+              "Tagblade entendió exactamente lo que necesitaba para mi página. Profesionalismo, rapidez y buen trato."
+              <footer class="mt-2 text-sm font-semibold text-gray-700 dark:text-gray-300">— Cliente satisfecho</footer>
+            </blockquote>
+          </div> -->
+        
+        </div>        
+    </div>
+</section>
+
+<style>
+  [data-aos] {
+    position: relative; /* Esto asegura que el z-index funcione */
+  }
+</style>

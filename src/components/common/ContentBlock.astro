@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  titleSize?: string;
+  dataOs?: string;
+  dataOsDuration?: string;
+  delay?: string;
+
+  // data-aos-duration="1000" data-aos-delay="100"
+}
+
+const { 
+  title, 
+  titleSize = "text-3xl lg:text-5xl", 
+  dataOs = "fade-up",
+  dataOsDuration = "800",
+  delay = "100" 
+} = Astro.props;
+---
+
+<div 
+  data-aos={dataOs}
+  data-aos-delay={delay}
+  data-aos-duration={dataOsDuration}
+  data-aos-easing="ease-out"
+  class="z-1"
+>
+  <h2 class={`text-primary dark:text-primary ${titleSize} font-extrabold mb-2`}>
+    {title}
+  </h2>
+  <slot />
+</div>

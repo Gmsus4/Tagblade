@@ -1,16 +1,13 @@
 ---
 import Image from "astro/components/Image.astro";
+import Logo from "./Logo.astro";
 ---
 
 <footer class="md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background">
     <div class=" mx-auto w-full max-w-screen-xl pt-20 pb-6 lg:py-8 px-4">
       <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
-          <a href="/" class="flex items-center">
-            <Image src={"/tagblade.jpg"} alt={"Tagblade Logo"} width={30} height={30} class={"me-3 rounded-xl"} loading="lazy"/>
-            <!-- <img src="/tagblade.jpg" class="h-8 me-3 rounded-xl" alt="Tagblade Logo" /> -->
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-background">Tagblade</span>
-          </a>
+          <Logo />
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
           <div>
@@ -39,7 +36,7 @@ import Image from "astro/components/Image.astro";
             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
             <ul class="text-gray-500 dark:text-gray-400 font-medium">
               <li class="mb-4">
-                <a href="/aviso-de-privacidad" class="hover:underline">Aviso de privacidad</a>
+                <a href="/privacy" class="hover:underline">Aviso de privacidad</a>
               </li>
               <li>
                 <a href="/terminos-y-condiciones" class="hover:underline">Términos y condiciones</a>
