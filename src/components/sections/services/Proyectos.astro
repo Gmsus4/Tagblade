@@ -3,46 +3,46 @@ import ContentBlock from "../../common/ContentBlock.astro";
 
 const proyectos = [
   {
-    titulo: "Landing para marca de bebidas",
-    descripcion: "Sitio web responsive con catálogo, animaciones suaves y sección de contacto.",
-    tecnologias: ["Astro", "Tailwind", "Framer Motion"],
-    imagen: "/proyectos/bebidas.png",
-    enlace: "https://ejemplo.com/proyecto-bebidas"
+    titulo: "Tagblade.com",
+    descripcion: "Nuestro propio sitio web, diseñado con enfoque en la velocidad, accesibilidad y experiencia de usuario intuitiva.",
+    tecnologias: ["Astro", "Tailwind CSS", "JavaScript"],
+    imagen: "/proyectos/tagblade.png",
+    tipo: "Proyecto Propio"
   },
   {
-    titulo: "Portafolio creativo",
-    descripcion: "Portafolio minimalista con scroll fluido y enfoque visual.",
-    tecnologias: ["Astro", "SCSS", "EmailJS"],
-    imagen: "/proyectos/portafolio.png",
-    enlace: "https://ejemplo.com/portafolio-creativo"
+    titulo: "Concepto: E-commerce Boutique",
+    descripcion: "Diseño conceptual para tienda de moda con enfoque en experiencia móvil y proceso de compra simplificado.",
+    tecnologias: ["Astro", "React", "Stripe"],
+    imagen: "/proyectos/ecommerce-concept.png",
+    tipo: "Diseño Conceptual"
   },
   {
-    titulo: "E-commerce personalizado",
-    descripcion: "Diseño y desarrollo de una tienda a medida con filtros y panel de administración.",
-    tecnologias: ["Astro", "Tailwind", "Stripe"],
-    imagen: "/proyectos/ecommerce.png",
-    enlace: "https://ejemplo.com/ecommerce"
-  },  
-  {
-    titulo: "Landing para marca de bebidas",
-    descripcion: "Sitio web responsive con catálogo, animaciones suaves y sección de contacto.",
-    tecnologias: ["Astro", "Tailwind", "Framer Motion"],
-    imagen: "/proyectos/bebidas.png",
-    enlace: "https://ejemplo.com/proyecto-bebidas"
+    titulo: "Concepto: Portal Inmobiliario",
+    descripcion: "Prototipo de portal inmobiliario con filtros avanzados, mapas interactivos y visualización de propiedades.",
+    tecnologias: ["Astro", "Tailwind CSS", "Google Maps API"],
+    imagen: "/proyectos/inmobiliaria-concept.png",
+    tipo: "Diseño Conceptual"
   },
   {
-    titulo: "Portafolio creativo",
-    descripcion: "Portafolio minimalista con scroll fluido y enfoque visual.",
-    tecnologias: ["Astro", "SCSS", "EmailJS"],
-    imagen: "/proyectos/portafolio.png",
-    enlace: "https://ejemplo.com/portafolio-creativo"
+    titulo: "Plantilla: Blog Personal",
+    descripcion: "Plantilla optimizada para SEO con diseño limpio, modo oscuro y carga rápida para bloggers y creadores de contenido.",
+    tecnologias: ["Astro", "MDX", "Tailwind CSS"],
+    imagen: "/proyectos/blog-template.png",
+    tipo: "Plantilla"
   },
   {
-    titulo: "E-commerce personalizado",
-    descripcion: "Diseño y desarrollo de una tienda a medida con filtros y panel de administración.",
-    tecnologias: ["Astro", "Tailwind", "Stripe"],
-    imagen: "/proyectos/ecommerce.png",
-    enlace: "https://ejemplo.com/ecommerce"
+    titulo: "Propuesta: Rediseño Restaurante",
+    descripcion: "Concepto de rediseño para sitio de restaurante con reservas online, menú interactivo y optimización para búsquedas locales.",
+    tecnologias: ["Astro", "Tailwind CSS", "Schema.org"],
+    imagen: "/proyectos/restaurant-redesign.png",
+    tipo: "Propuesta de Rediseño"
+  },
+  {
+    titulo: "Componentes UI",
+    descripcion: "Biblioteca de componentes personalizados que combinan estética y funcionalidad para acelerar el desarrollo de proyectos.",
+    tecnologias: ["React", "Tailwind CSS", "Storybook"],
+    imagen: "/proyectos/ui-components.png",
+    tipo: "Herramientas"
   }
 ];
 ---
@@ -50,17 +50,28 @@ const proyectos = [
 <section id="proyectos" class="-mt-0.5 md:px-20 sm:px-10 px-5 lg:scroll-mt-16 scroll-mt-12 w-full bg-background dark:bg-dark-background">
   <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 pb-4">
     <div class="mb-12">
-      <ContentBlock title="Proyectos" delay="100">
+      <ContentBlock title="Proyectos y Capacidades" delay="100">
         <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
-          Aquí algunos ejemplos de sitios que hemos desarrollado a medida, cuidando cada detalle desde el diseño hasta la funcionalidad.
+          Estos diseños muestran nuestras capacidades técnicas y enfoque creativo. Combinamos diseño atractivo, 
+          alto rendimiento y funcionalidad adaptada a cada tipo de proyecto.
         </p>
       </ContentBlock>
     </div>
 
     <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
       {proyectos.map((proyecto) => (
-        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img src={proyecto.imagen} alt={proyecto.titulo} class="w-full h-48 object-cover" />
+        <div data-aos="fade-up" data-aos-duration="800" class="bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition group">
+          <div class="relative overflow-hidden">
+            <img 
+              src={proyecto.imagen} 
+              alt={`Imagen de ${proyecto.titulo}`} 
+              class="w-full h-48 object-cover transition duration-500 group-hover:scale-105" 
+            />
+            <span class="absolute top-3 right-3 bg-gray-900/80 text-white text-xs px-2 py-1 rounded-full">
+              {proyecto.tipo}
+            </span>
+          </div>
+          
           <div class="p-6">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               {proyecto.titulo}
@@ -70,15 +81,157 @@ const proyectos = [
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               {proyecto.tecnologias.map((tech) => (
-                <span class="text-xs bg-primary text-white px-2 py-1 rounded-full">{tech}</span>
+                <span class="text-xs bg-primary/90 text-white px-2 py-1 rounded-full">
+                  {tech}
+                </span>
               ))}
             </div>
-            <a href={proyecto.enlace} target="_blank" class="text-sm font-medium text-primary hover:underline">
-              Ver proyecto →
-            </a>
+            <button 
+              class="text-sm font-medium text-primary hover:text-primary-dark transition-colors flex items-center gap-1"
+              onclick="showProjectDetails(this)"
+              data-project={JSON.stringify(proyecto)}
+            >
+              Ver detalles 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </button>
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70">
+  <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h3 id="modalTitle" class="text-2xl font-bold text-gray-900 dark:text-white"></h3>
+        <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <img id="modalImage" class="w-full h-64 object-cover rounded-lg mb-4" src="" alt="">
+      <div id="modalType" class="inline-block bg-primary text-white text-sm px-3 py-1 rounded-full mb-4"></div>
+      <p id="modalDescription" class="text-gray-700 dark:text-gray-300 mb-6"></p>
+      
+      <div class="mb-6">
+        <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Tecnologías utilizadas:</h4>
+        <div id="modalTechs" class="flex flex-wrap gap-2"></div>
+      </div>
+      
+      <div class="mb-6">
+        <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Características destacadas:</h4>
+        <ul id="modalFeatures" class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-2">
+          <!-- Se llena dinámicamente -->
+        </ul>
+      </div>
+      
+      <button onclick="closeModal()" class="w-full bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors">
+        Cerrar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Características destacadas para cada tipo de proyecto
+  const featuresMap = {
+    "Proyecto Propio": [
+      "Diseño centrado en el usuario",
+      "Optimización SEO completa",
+      "Rendimiento y velocidad de carga optimizados",
+      "Experiencia adaptada a dispositivos móviles y de escritorio",
+      "Implementación de analytics para seguimiento de métricas"
+    ],
+    "Diseño Conceptual": [
+      "Investigación de mercado y competencia",
+      "Wireframes y prototipos interactivos",
+      "Diseño visual alineado con la identidad de marca",
+      "Optimización para diferentes dispositivos",
+      "Pruebas de usabilidad"
+    ],
+    "Propuesta de Rediseño": [
+      "Análisis de problemas del diseño actual",
+      "Mejoras en la arquitectura de información",
+      "Optimización de rutas de conversión",
+      "Mejoras en accesibilidad y usabilidad",
+      "Implementación de mejores prácticas SEO"
+    ],
+    "Plantilla": [
+      "Diseño modular y personalizable",
+      "Optimización para motores de búsqueda",
+      "Carga rápida y rendimiento eficiente",
+      "Compatibilidad con múltiples navegadores",
+      "Documentación detallada para implementación"
+    ],
+    "Herramientas": [
+      "Componentes reutilizables y personalizables",
+      "Documentación detallada y ejemplos de uso",
+      "Compatibilidad con estándares modernos",
+      "Pruebas automatizadas para cada componente",
+      "Diseño accesible siguiendo WCAG 2.1"
+    ]
+  };
+
+  // Funciones para el modal
+  function showProjectDetails(button) {
+    const project = JSON.parse(button.getAttribute('data-project'));
+    
+    document.getElementById('modalTitle').textContent = project.titulo;
+    document.getElementById('modalImage').src = project.imagen;
+    document.getElementById('modalImage').alt = `Imagen de ${project.titulo}`;
+    document.getElementById('modalType').textContent = project.tipo;
+    document.getElementById('modalDescription').textContent = project.descripcion;
+    
+    // Limpiar y llenar tecnologías
+    const techsContainer = document.getElementById('modalTechs');
+    techsContainer.innerHTML = '';
+    project.tecnologias.forEach(tech => {
+      const span = document.createElement('span');
+      span.className = 'text-sm bg-primary/90 text-white px-2 py-1 rounded-full';
+      span.textContent = tech;
+      techsContainer.appendChild(span);
+    });
+    
+    // Limpiar y llenar características
+    const featuresContainer = document.getElementById('modalFeatures');
+    featuresContainer.innerHTML = '';
+    const features = featuresMap[project.tipo] || [];
+    features.forEach(feature => {
+      const li = document.createElement('li');
+      li.textContent = feature;
+      featuresContainer.appendChild(li);
+    });
+    
+    // Mostrar modal
+    document.getElementById('projectModal').classList.remove('hidden');
+    document.getElementById('projectModal').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeModal() {
+    document.getElementById('projectModal').classList.add('hidden');
+    document.getElementById('projectModal').classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  
+  // Cerrar modal al hacer clic fuera
+  document.getElementById('projectModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeModal();
+    }
+  });
+  
+  // Cerrar modal con tecla ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !document.getElementById('projectModal').classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>

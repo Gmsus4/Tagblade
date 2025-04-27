@@ -29,3 +29,36 @@ import BtnWhatsapp from "../../common/BtnWhatsapp.astro";
     </div>
   </div>
 </section>
+
+
+<script>
+  // Precarga la imagen de alta calidad
+  if ('IntersectionObserver' in window) {
+    const section = document.getElementById('home');
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        const img = new Image();
+        img.src = '/hero.webp';
+        img.onload = () => {
+          section!.style.backgroundImage = "url('/hero.webp')";
+        };
+        observer.disconnect();
+      }
+    });
+    observer.observe(section!);
+  } else {
+    // Fallback para navegadores antiguos
+    (window as Window).addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const img = new Image();
+        img.src = '/hero.webp';
+        img.onload = () => {
+          const homeElement = document.getElementById('home');
+          if (homeElement) {
+            homeElement.style.backgroundImage = "url('/hero.webp')";
+          }
+        };
+      }, 100);
+    });
+  }
+</script>
