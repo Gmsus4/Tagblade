@@ -1,0 +1,29 @@
+---
+export interface Props {
+  links: { name: string; href: string; class?: string }[],
+  className?: string
+}
+
+const { links = [], className } = Astro.props
+---
+
+<style>
+    ul li a.active{
+      color: var(--color-primary);
+    }
+</style>
+
+<div class="hidden w-full lg:block lg:w-auto" id="navbar-default">
+    <ul class="border-gray-100 rounded-lg bg-background dark:bg-dark-background dark:border-dark-background font-medium flex flex-col p-4 lg:p-0 mt-4 border  lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0">
+      {links.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class={`text-text hover:bg-primary md:hover:text-primary dark:text-background md:dark:hover:text-primary dark:hover:bg-gray-100 dark:hover:text-primary block py-2 px-3 rounded-sm md:hover:bg-transparent md:border-0 md:p-0 md:dark:hover:bg-transparent ${link.class} ${className}`}
+          >
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+</div>

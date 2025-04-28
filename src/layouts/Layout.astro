@@ -37,6 +37,31 @@ import 'aos/dist/aos.css';
 		  href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
 		/>
 
+		<!-- Anti-parpadeo para tema oscuro (debe estar ANTES de cualquier CSS) -->
+		<script is:inline>
+			// Aplicar tema inmediatamente para evitar parpadeo
+			const theme = (() => {
+			// Nota: Cambiamos 'color-theme' a 'theme' para consistencia con el toggle
+			if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+				return localStorage.getItem('theme');
+			}
+			return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+			})();
+			
+			// Aplicar clase antes de que se renderice cualquier parte de la página
+			if (theme === 'dark') {
+			document.documentElement.classList.add('dark');
+			} else {
+			document.documentElement.classList.remove('dark');
+			}
+			
+			// Añadir un estilo para prevenir el parpadeo
+			document.documentElement.style.visibility = 'hidden';
+			window.addEventListener('DOMContentLoaded', () => {
+			document.documentElement.style.visibility = '';
+			});
+ 		</script>
+
 		<script>
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
