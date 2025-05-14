@@ -1,0 +1,109 @@
+---
+import ContentBlock from "../../common/ContentBlock.astro";
+import StatCounter from "../../common/StatCounter.astro";
+import Team from "./Team.astro";
+
+export interface Props {
+  title?: string;
+}
+const { title = "",} = Astro.props;
+---
+<section id="about-us" class="relative -mt-0.5 md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-10 w-64 h-64 bg-primary-hover/5 dark:bg-surface/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-80 h-80 bg-primary-hover/5 dark:bg-surface/5 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-screen-xl mx-auto px-2 lg:py-16 p-12 pb-4 sm:px-8 lg:px-12 py-16 relative z-10" data-aos="fade-up">
+    <!-- Main content -->
+    <div class="grid gap-16 md:grid-cols-2 items-start">
+      <!-- Header and intro -->
+      <ContentBlock title={title} className="text-left text-3xl lg:text-4xl" delay="100">
+        <div class="absolute -left-4 top-0 w-2 h-12 bg-primary-hover dark:bg-surface rounded-r-md"></div>
+        <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+          En <strong class="text-primary-hover dark:text-surface font-semibold">Tagblade</strong>, transformamos ideas en experiencias digitales funcionales. Combinamos <span class="italic">código, estrategia y diseño</span> para desarrollar sitios web rápidos, accesibles y adaptados a tus necesidades.
+        </p>
+        <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mt-6 max-w-3xl">
+          Creemos en el trabajo bien hecho, el progreso paso a paso y en construir relaciones de confianza con cada cliente. Ya sea una landing page, un portafolio o una solución personalizada, estamos listos para ayudarte a dar el siguiente paso en línea.
+        </p>
+        <!-- <div class="mt-8">
+          <a href="#contact" class="inline-flex items-center px-6 py-3 rounded-lg bg-primary-hover dark:bg-surface text-white font-medium transition-transform hover:scale-105 focus:ring-4 focus:ring-primary-hover/30 dark:focus:ring-surface/30">
+            Hablemos de tu proyecto
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div> -->
+      </ContentBlock>
+      
+      <!-- Team section with improved styling -->
+      <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-out" class="h-full z-10 relative">
+        <div class="absolute -left-4 -top-4 w-24 h-24 bg-primary-hover/10 dark:bg-surface/10 rounded-full"></div>
+        <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary-hover/10 dark:bg-surface/10 rounded-full"></div>
+        <Team />
+      </div>
+    </div>
+    
+    <!-- Approach and History -->
+    <div class="mt-20 space-y-16">
+      <div class="flex lg:flex-row flex-col lg:gap-20 gap-10">
+        <ContentBlock title="Nuestro enfoque" className="text-2xl font-bold text-gray-900 dark:text-white mb-6 relative" delay="100">
+          <div class="absolute -left-3 top-0 w-1 h-8 bg-primary-hover dark:bg-surface rounded-r-md"></div>
+          <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+            En Tagblade priorizamos la <span class="font-medium text-primary-hover dark:text-surface">claridad, funcionalidad y escalabilidad</span>. Comenzamos con la escucha activa del cliente, seguida de una planificación estratégica y ejecución detallada con mentalidad orientada al usuario.
+          </p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start">
+              <svg class="h-6 w-6 text-primary-hover dark:text-surface flex-shrink-0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">Diseño centrado en el usuario</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="h-6 w-6 text-primary-hover dark:text-surface flex-shrink-0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">Tecnología moderna y adaptable</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="h-6 w-6 text-primary-hover dark:text-surface flex-shrink-0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">Soluciones a medida que crecen contigo</span>
+            </li>
+          </ul>
+        </ContentBlock>
+        
+        <ContentBlock title="Nuestra historia" className="text-2xl font-bold text-gray-900 dark:text-white mb-6 relative" delay="200">
+          <div class="absolute -left-3 top-0 w-1 h-8 bg-primary-hover dark:bg-surface rounded-r-md"></div>
+          <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+            Tagblade nació con la idea de crear sitios web con intención y precisión. Fernando Gómez convirtió esa idea en una marca que combina <span class="font-medium text-primary-hover dark:text-surface">tecnología, visión humana y compromiso</span> por cada detalle.
+          </p>
+          <div class="mt-6 flex items-center">
+            <div class="w-12 h-12 rounded-full bg-primary-hover/20 dark:bg-surface/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-hover dark:text-surface" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+            </div>
+            <p class="ml-4 text-gray-700 dark:text-gray-300 font-medium">Fundada en 2025 con la misión de crear experiencias web únicas</p>
+          </div>
+        </ContentBlock>
+      </div>
+      
+      <!-- Stats with improved styling -->
+      <!-- <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-start w-full mt-16 relative bg-background">
+        <div class="absolute inset-0 bg-primary-hover/5 dark:bg-surface/5 rounded-xl -z-10"></div>
+        <div class="flex flex-col items-center justify-center p-8 rounded-xl bg-white dark:bg-gray-800 shadow-lg transform transition-transform hover:scale-105">
+          <StatCounter value="10+" text="Proyectos personalizados" delay="100"/>
+        </div>
+        <div class="flex flex-col items-center justify-center p-8 rounded-xl bg-white dark:bg-gray-800 shadow-lg transform transition-transform hover:scale-105">
+          <StatCounter value="<1s" text="Carga inicial optimizada" delay="200"/>
+        </div>
+        <div class="flex flex-col items-center justify-center p-8 rounded-xl bg-white dark:bg-gray-800 shadow-lg transform transition-transform hover:scale-105">
+          <StatCounter value="100%" text="Diseños mobile-first" delay="300"/>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>

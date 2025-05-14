@@ -10,7 +10,9 @@
     @theme {
         /* Modo Claro */
         --color-background2: #F8F4F0;        /* Fondo principal claro */
-        --color-background: #fafafa;        /* Fondo principal claro */
+        --color-backgroundOk: #fafafa;        /* Fondo principal claro */
+        --color-bgBlack: #141413;
+        --color-background: #faf9f5;        /* Fondo principal claro */
         --color-surface: #F7C8B5;           /* Superficies como tarjetas o secciones */
         --color-primary: #E9560A;           /* Naranja fuerte (botones/acento) */
         --color-primary-dark: #bd470a;           /* Naranja fuerte (botones/acento) */
@@ -37,3 +39,17 @@ body {
     font-family: 'Inter Variable', sans-serif;
     font-family: 'Onest Variable', sans-serif;
   }
+
+  /* <div class="lg:mt-10 px-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+  <img class="rounded-t-lg" src="https://images.pexels.com/photos/29884581/pexels-photo-29884581/free-photo-of-paisaje-melancolico-en-blanco-y-negro-en-bolu.jpeg" alt="" />
+  <div class="flex flex-col gap-4 items-center">
+    <button class="inline-flex items-center gap-2 justify-between text-gray-600 bg-transparent border border-dark-subtle-text rounded-full px-4 py-2">
+      {Icon && (<Icon class="shrink-0" />)}
+      <p class="text-md uppercase">{proceso.titleIcon}</p>
+    </button>
+    <p class="text-md text-gray-600">{proceso.description}</p>
+  </div>
+
+  class={`text-primary dark:text-primary ${titleSize} font-extrabold mb-2 lg:w-2/4 m-auto lg:text-4xl md:text-center`}
+
+</div> */

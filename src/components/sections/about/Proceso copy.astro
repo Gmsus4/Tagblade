@@ -1,0 +1,54 @@
+---
+import CardProcess from './components/CardProcess.astro';
+import StepIndicator from './components/StepIndicator.astro';
+import CardComplete from './components/CardComplete.astro';
+import ContentBlock from '../../common/ContentBlock.astro';
+
+export interface Props {
+  procesos: { titleIcon: string; description: string; urlImage?: string; icon?: any; subtitle?: string;}[];
+  title: string;
+  subtitle: string;
+}
+
+const { procesos = [], title = "", subtitle = ""} = Astro.props;
+---
+
+<section
+  id="proceso"
+  class="-mt-0.5 md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
+>
+  <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 pb-4">
+    <div class="mb-10" data-aos="fade-up" data-aos-duration="800">
+      <ContentBlock title={title}>
+        <p class="text-xl lg:w-2/4 md:w-3/4 m-auto font-normal text-gray-700 dark:text-gray-300 mb-2  md:text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          {subtitle}
+        </p>
+      </ContentBlock>
+    </div>
+
+    <!-- Timeline Steps -->
+    <div class="relative">
+      <div class="flex flex-col gap-5 md:gap-0">
+        {
+          procesos.map((proceso, index) => {
+            const Icon = proceso.icon;
+
+            // Animaciones más sutiles
+            const cardAnimation = "fade-up";
+            const numberAnimation = "fade";
+            const contentAnimation = "fade-up";
+            const imageAnimation = "fade";
+
+            return (
+              <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+                <StepIndicator index={index} animation={numberAnimation}/>
+                <CardProcess Icon={Icon} index={index} proceso={proceso} cardAnimation={cardAnimation} imageAnimation={imageAnimation} contentAnimation={contentAnimation}/>
+              </div>
+            );
+          })
+        }
+        <CardComplete />
+      </div>
+    </div>
+  </div>
+</section>

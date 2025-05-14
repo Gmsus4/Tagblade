@@ -6,14 +6,61 @@ const checkboxId = "terms-checkbox";
 const modalId = "terms-modal";
 ---
 
-<form>
+<form name="contact" data-netlify="true">
   <div class="grid gap-6 mb-6 md:grid-cols-2">
-    <FormInputs forID="first_name" labelName="Nombre" placeholder="Jhon" type={"text"} dataAos="fade-right" duration="600" delay="100"/>
-    <FormInputs forID="last_name" labelName="Apellido" placeholder="Doe" type={"text"} dataAos="fade-left" duration="600" delay="200"/>
+    <FormInputs 
+      forID="first_name" 
+      labelName="Nombre" 
+      placeholder="Jhon" 
+      type="text" 
+      dataAos="fade-right" 
+      duration="600" 
+      delay="100"
+    />
+    <FormInputs 
+      forID="last_name" 
+      labelName="Apellido" 
+      placeholder="Doe" 
+      type="text" 
+      dataAos="fade-left" 
+      duration="600" 
+      delay="200"
+    />
   </div>
-  <FormInputs margin="mb-6" forID="email" labelName="Correo electrónico" placeholder="john.doe@company.com" type={"email"} dataAos="fade-up" duration="600" delay="300"/>
-  <FormInputs margin="mb-6" forID="subject" labelName="Asunto" placeholder="Sitio web personal" type={"text"} dataAos="fade-up" duration="600" delay="400"/>
-  <FormInputs margin="mb-6" forID="message" labelName="Mensaje" placeholder="Escribe tu mensaje aquí..." dataAos="fade-up" duration="600" delay="500" isTextArea={true}/>
+  
+  <FormInputs 
+    margin="mb-6" 
+    forID="email" 
+    labelName="Correo electrónico" 
+    placeholder="john.doe@company.com" 
+    type="email" 
+    dataAos="fade-up" 
+    duration="600" 
+    delay="300"
+  />
+  
+  <FormInputs 
+    margin="mb-6" 
+    forID="subject" 
+    labelName="Asunto" 
+    placeholder="Sitio web personal" 
+    type="text" 
+    dataAos="fade-up" 
+    duration="600" 
+    delay="400"
+  />
+  
+  <FormInputs 
+    margin="mb-6" 
+    forID="message" 
+    labelName="Mensaje" 
+    placeholder="Escribe tu mensaje aquí..." 
+    dataAos="fade-up" 
+    duration="600" 
+    delay="500" 
+    isTextArea={true}
+    rows="6"
+  />
 
   <div class="flex items-start mb-6">
     <div class="flex items-center h-5">
@@ -32,8 +79,15 @@ const modalId = "terms-modal";
     data-aos="zoom-in" 
     data-aos-duration="800" 
     data-aos-delay="700"
-    class="cursor-pointer text-background bg-primary hover:bg-primary-dark transition duration-1000 ease-in-out font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+    class="cursor-pointer text-background bg-primary hover:bg-primary-dark transition-all duration-300 ease-in-out font-medium rounded-lg text-sm w-full px-5 py-3 text-center flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
   >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
+    </svg>
     Enviar mensaje
   </button>
+  
+  <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center">
+    Te responderemos en un plazo máximo de 24 horas laborables
+  </p>
 </form>

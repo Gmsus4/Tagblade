@@ -1,64 +1,32 @@
 ---
 import BtnWhatsapp from "../../common/BtnWhatsapp.astro";
 ---
+ <!-- bg-[url('/hero.webp')] -->
+<!-- <section id="home" class="md:px-20 sm:px-10 px-5 bg-center bg-no-repeat bg-cover bg-[url('/designer.svg')] dark:bg-gray-700 bg-blend-multiply py-20 h-screen flex items-center" aria-label="Sección principal: inicio"> -->
+<section id="home" class="relative md:px-20 sm:px-10 px-5 bg-center bg-contain bg-background dark:bg-dark-background bg-blend-multiply py-20 h-screen flex items-center" aria-label="Sección principal: inicio">
+  <img src="/designer.svg" alt="" class="absolute w-96 bottom-0 right-0 left-0 m-auto dark:hidden">
+  <img src="/designerDark.svg" alt="" class="absolute w-96 bottom-0 right-0 left-0 m-auto hidden dark:block">
+  <!-- <img src="/shipDark.svg" alt="" class="absolute w-96 bottom-0 right-0 left-0 m-auto hidden dark:block"> -->
+  <!-- <section id="home" class="md:px-16 sm:px-10 px-5 py-20 flex items-center inset-0 -z-10 h-screen w-full dark:bg-dark-background bg-background" aria-label="Sección principal: inicio"> -->
 
-<section
-  id="home"
-  class="md:px-20 sm:px-10 px-5 bg-center bg-no-repeat bg-cover bg-[url('/hero.webp')] bg-gray-700 bg-blend-multiply py-20 h-screen flex items-center"
-  aria-label="Sección principal: inicio"
->
-  <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-background md:text-5xl lg:text-6xl">
+  <!-- dark:bg-dark-background/60 bg-white/80 backdrop-blur-md -->
+  <div class="w-auto py-10 rounded-2xl dark:border-none mx-auto flex items-center lg:mt-6 px-4 lg:py-16 pb-4 justify-center flex-col text-center">
+    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-dark-background dark:text-background md:text-5xl lg:text-6xl">
       Tu sitio web, construido para durar.
     </h1>
-    <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-      Diseñamos y desarrollamos sitios web que combinan rendimiento, estética y propósito.
-    </p>
+    <h2 class="mb-8 text-lg font-normal dark:text-dark-subtle-text text-dark-surface lg:text-xl sm:px-16 lg:px-48">
+      Diseñamos y desarrollamos sitios web que combinan rendimiento, estética y
+      propósito.
+    </h2>
     <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-      <a
-        href="#servicios"
-        class="inline-flex gap-2 justify-center items-center py-3 px-5 text-base font-medium text-center text-background rounded-lg bg-primary hover:bg-primary-dark transition duration-700 ease-in-out"
-        aria-label="Ir a la sección de servicios"
-      >
+      <a href="#servicios" class="inline-flex gap-2 justify-center items-center py-3 px-5 text-base font-medium text-center text-background rounded-lg bg-primary hover:bg-primary-dark transition duration-700 ease-in-out" aria-label="Ir a la sección de servicios">
         ¿Qué podemos hacer por ti?
-        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="24" height="24" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M13.06 16.06a1.5 1.5 0 0 1-2.12 0l-5.658-5.656a1.5 1.5 0 1 1 2.122-2.121L12 12.879l4.596-4.596a1.5 1.5 0 0 1 2.122 2.12l-5.657 5.658Z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="24" height="24" viewBox="0 0 24 24"
+        >
+          <path fill="currentColor" d="M13.06 16.06a1.5 1.5 0 0 1-2.12 0l-5.658-5.656a1.5 1.5 0 1 1 2.122-2.121L12 12.879l4.596-4.596a1.5 1.5 0 0 1 2.122 2.12l-5.657 5.658Z"></path>
         </svg>
       </a>
       <BtnWhatsapp />
     </div>
   </div>
 </section>
-
-
-<script>
-  // Precarga la imagen de alta calidad
-  if ('IntersectionObserver' in window) {
-    const section = document.getElementById('home');
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        const img = new Image();
-        img.src = '/hero.webp';
-        img.onload = () => {
-          section!.style.backgroundImage = "url('/hero.webp')";
-        };
-        observer.disconnect();
-      }
-    });
-    observer.observe(section!);
-  } else {
-    // Fallback para navegadores antiguos
-    (window as Window).addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        const img = new Image();
-        img.src = '/hero.webp';
-        img.onload = () => {
-          const homeElement = document.getElementById('home');
-          if (homeElement) {
-            homeElement.style.backgroundImage = "url('/hero.webp')";
-          }
-        };
-      }, 100);
-    });
-  }
-</script>

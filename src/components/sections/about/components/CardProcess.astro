@@ -1,0 +1,44 @@
+---
+export interface Props {
+  index: number;
+  cardAnimation: string;
+  imageAnimation: string;
+  contentAnimation: string
+  proceso: any;
+  Icon: any;
+  
+}
+
+const { index, cardAnimation, imageAnimation, contentAnimation, proceso, Icon } = Astro.props;
+---
+
+<div class="flex-1 md:pb-8">
+    <div data-aos={cardAnimation} data-aos-delay={index * 100 + 50} data-aos-duration="600" data-aos-easing="ease-out" class="rounded-2xl border-0.5 border-border-300 bg-white/60 dark:bg-dark-surface border border-gray-200 dark:border-dark-border overflow-hidden lg:h-56 h-auto">
+      <div class={`flex flex-col ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"}`}>
+        {/* Imagen */}
+        <div class="md:w-1/2">
+          <img data-aos={imageAnimation} data-aos-delay={index * 100 + 150} data-aos-duration="700" alt={proceso.titleIcon || "Imagen ilustrativa del paso"} src={proceso.urlImage || "https://images.pexels.com/photos/29792198/pexels-photo-29792198/free-photo-of-atmosfera-brumosa.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}
+            class={`w-full h-full object-cover object-center`}
+          />
+        </div>
+
+        {/* Contenido */}
+        <div class="md:w-1/2 px-8 py-4">
+          <div data-aos="fade" data-aos-delay={index * 100 + 150} data-aos-duration="500" class="inline-flex items-center gap-2 bg-gray-50 dark:bg-dark-background rounded-full px-3 py-1 mb-2">
+            {Icon && (
+              <Icon class="shrink-0 w-4 h-4 text-primary" />
+            )}
+            <span class="text-sm font-bold uppercase text-gray-700 dark:text-gray-200">
+              {proceso.titleIcon}
+            </span>
+          </div>
+          <p data-aos={contentAnimation} data-aos-delay={index * 100 + 200} data-aos-duration="500" class="text-xl text-dark-background py-2 dark:text-background font-medium">
+            {proceso.subtitle}
+          </p>
+          <p data-aos={contentAnimation} data-aos-delay={index * 100 + 250} data-aos-duration="500" class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+            {proceso.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>

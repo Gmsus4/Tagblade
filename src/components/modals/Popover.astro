@@ -2,53 +2,101 @@
 const { id, name, username, role, imageUrl, socials = [] } = Astro.props;
 ---
 
-<!-- <button
-  data-popover-target={`popover-${id}`}
-  type="button"
-  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
->
-  {name}
-</button> -->
+<div class="relative inline-flex flex-col items-center">
+  <!-- Avatar image with enhanced styling -->
+  <img 
+    data-popover-target={`popover-${id}`}
+    class="object-cover cursor-pointer size-28 rounded-full ring-4 ring-primary shadow-lg transition-transform hover:scale-105 dark:ring-primary-dark"
+    src={imageUrl}
+    alt={`${name} avatar`}
+  />
+  
+  <!-- Username badge on avatar -->
+  <span class="absolute -bottom-2 bg-primary text-white text-xs px-3 py-1 rounded-full font-medium shadow-md dark:bg-primary-dark">
+    @{username}
+  </span>
 
-<div class="relative inline-block">
-  <img data-popover-target={`popover-${id}`} class="object-cover cursor-pointer inline-block size-28 rounded-full ring-3 ring-primary dark:ring-primary" src={imageUrl} alt="Avatar">
+  <!-- Enhanced popover with better spacing and organization -->
   <div
-      data-popover
-      id={`popover-${id}`}
-      role="tooltip"
-      class="absolute z-10 invisible inline-block w-full md:w-46 overflow-x-hidden; text-sm text-gray-500 transition-opacity duration-300 bg-background border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:bg-dark-background dark:border-dark-border"
+    data-popover
+    id={`popover-${id}`}
+    role="tooltip"
+    class="absolute z-10 invisible w-72 p-0 text-gray-500 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 transition-opacity duration-300 dark:text-gray-300 dark:bg-gray-800 dark:border-gray-700"
   >
-      <div class="p-3">
-      <p class="text-base font-semibold leading-none text-gray-900 dark:text-white">
-          <a href="#">{name}</a>
-      </p>
-      <p class="mb-3 text-sm font-normal">
-          <p class="hover:underline">@{username}</p>
-      </p>
-      <p class="mb-4 text-sm">{role}</p>
-      <div class="flex items-center justify-between mb-2">
-          <div class="flex items-center justify-center h-full gap-2">
-              {socials.length > 0 && (
-                  // <img class="object-cover w-10 h-10 inline-block size-28 rounded-full ring-2 ring-white dark:ring-neutral-900 m-0" src={imageUrl} alt={name} />  
-                  <div class="flex gap-2">
-                    {socials.map((social: { name: string; url: string; icon: any }) => {
-                      const Icon = social.icon;
-                      return (
-                        <a href={social.url} target="_blank" rel="noopener noreferrer" title={social.name}>
-                          <Icon class="w-10 h-10 text-gray-500 dark:text-white hover:text-blue-500 transition" />
-                        </a>
-                      );
-                    })}
-                  </div>
-                )}
+    <!-- Header with background -->
+    <div class="rounded-t-xl bg-gradient-to-r from-primary/20 to-primary/10 p-5 dark:from-primary-dark/30 dark:to-primary-dark/10">
+      <div class="flex items-center gap-3">
+        <img 
+          class="object-cover w-14 h-14 rounded-full ring-2 ring-white shadow-md dark:ring-gray-700" 
+          src={imageUrl} 
+          alt={name}
+        />
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-0.5">{name}</h3>
+          <p class="text-sm font-medium text-primary dark:text-primary-dark">@{username}</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Body content -->
+    <div class="p-5">
+      <!-- Role with icon -->
+      <div class="flex items-center gap-2 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-300">{role}</p>
+      </div>
+      
+      <!-- Social links with improved layout -->
+      {socials.length > 0 && (
+        <div class="pt-3 border-t border-gray-100 dark:border-gray-700">
+          <p class="text-xs uppercase tracking-wider font-semibold mb-3 text-gray-500 dark:text-gray-400">Conectar</p>
+          <div class="flex gap-3 flex-wrap">
+            {socials.map((social: { icon: any; url: string | URL | null | undefined; name: string | null | undefined; }) => {
+              const Icon = social.icon;
+              return (
+                <a 
+                  href={social.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  title={social.name}
+                  class="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:hover:bg-gray-600"
+                >
+                  <Icon class="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                </a>
+              );
+            })}
           </div>
-          <!-- <div>
-              <a href="" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Follow</a>
-          </div> -->
+        </div>
+      )}
+      
+      <!-- Follow button -->
+      <div class="mt-4 text-center">
+        {socials.map((social: { icon: any; url: string | URL | null | undefined; name: string | null | undefined; }) => {
+          return (
+            <a href={social.url} target="_blank" class="block w-full py-2 px-4 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors focus:ring-2 focus:ring-primary/50 focus:outline-none dark:focus:ring-primary-dark/50">
+              Seguir
+            </a>
+          )
+        })}
       </div>
-      </div>
-      <div data-popper-arrow></div>
+    </div>
+    
+    <div data-popper-arrow class="before:bg-white dark:before:bg-gray-800"></div>
   </div>
 </div>
 
-
+<style>
+  /* Custom variables that you can modify as needed */
+  :root {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+  }
+  
+  /* Dark mode support */
+  .dark {
+    --primary: #60a5fa;
+    --primary-dark: #3b82f6;
+  }
+</style>

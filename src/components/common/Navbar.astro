@@ -6,10 +6,11 @@ import DarkModeToggle from "./DarkModeToggle.astro";
 import LinksNavbar from "./LinksNavbar.astro";
 
 export interface Props {
+  whatsappNumber: string;
   links: { name: string; href: string; class?: string }[]
 }
 
-const { links = [] } = Astro.props
+const { links = [], whatsappNumber } = Astro.props
 ---
 
 <style>
@@ -23,7 +24,7 @@ const { links = [] } = Astro.props
     <Logo />
     <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse items-center lg:gap-6 gap-2">
         <DarkModeToggle />
-        <HamburgerButton />
+        <HamburgerButton whatsappNumber={whatsappNumber}/>
     </div>
 
     <LinksNavbar links={links}/>
