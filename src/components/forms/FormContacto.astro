@@ -1,100 +1,56 @@
 ---
 import Termsofservice from "../legal/Termsofservice.astro";
-import FormInputs from "./FormInputs.astro";
 
 const checkboxId = "terms-checkbox";
 const modalId = "terms-modal";
 ---
 
 <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="contact" /> 
-  <div class="grid gap-6 mb-6 md:grid-cols-2">
-    <FormInputs 
-      forID="first_name" 
-      labelName="Nombre" 
-      placeholder="Jhon" 
-      type="text" 
-      dataAos="fade-right" 
-      duration="600" 
-      delay="100"
-      name="first_name"
-    />
-    <FormInputs 
-      forID="last_name" 
-      labelName="Apellido" 
-      placeholder="Doe" 
-      type="text" 
-      dataAos="fade-left" 
-      duration="600" 
-      delay="200"
-      name="last_name"
-    />
-  </div>
-  
-  <FormInputs 
-    margin="mb-6" 
-    forID="email" 
-    labelName="Correo electrónico" 
-    placeholder="john.doe@company.com" 
-    type="email" 
-    dataAos="fade-up" 
-    duration="600" 
-    delay="300"
-    name="email"
-  />
-  
-  <FormInputs 
-    margin="mb-6" 
-    forID="subject" 
-    labelName="Asunto" 
-    placeholder="Sitio web personal" 
-    type="text" 
-    dataAos="fade-up" 
-    duration="600" 
-    delay="400"
-    name="subject"
-  />
-  
-  <FormInputs 
-    margin="mb-6" 
-    forID="message" 
-    labelName="Mensaje" 
-    placeholder="Escribe tu mensaje aquí..." 
-    dataAos="fade-up" 
-    duration="600" 
-    delay="500" 
-    isTextArea={true}
-    rows="6"
-    name="message"
-  />
+    <input type="hidden" name="form-name" value="contact" />
+    <div class="grid grid-cols-2 gap-4"+>
+      <div class="col-span-1">
+        <label for="first_name" class="text-sm font-medium text-dark-background dark:text-background">Nombre</label>
+        <input type="text" id="first_name" name="first_name" class="bg-background border-gray-300 text-dark-background text-sm rounded-lg w-full p-2.5 dark:bg-dark-surface dark:border-dark-border dark:text-background focus:ring-primary focus:border-primary" placeholder="Jhon">
+      </div>
+      <div class="col-span-1">
+        <label for="last_name" class="text-sm font-medium text-dark-background dark:text-background">Apellido</label>
+        <input type="text" id="last_name" name="last_name" class="bg-background border-gray-300 text-dark-background text-sm rounded-lg w-full p-2.5 dark:bg-dark-surface dark:border-dark-border dark:text-background focus:ring-primary focus:border-primary" placeholder="Doe">
+      </div>
+      <div class="col-span-2">
+        <label for="email" class="text-sm font-medium text-dark-background dark:text-background">Correo electrónico</label>
+        <input type="email" id="email" name="email" class="bg-background border-gray-300 text-dark-background text-sm rounded-lg w-full p-2.5 dark:bg-dark-surface dark:border-dark-border dark:text-background focus:ring-primary focus:border-primary" placeholder="john.doe@company.com">
+      </div>
+      <div class="col-span-2">
+        <label for="subject" class="text-sm font-medium text-dark-background dark:text-background">Sitio web personal</label>
+        <input type="text" id="subject" name="subject" class="bg-background border-gray-300 text-dark-background text-sm rounded-lg w-full p-2.5 dark:bg-dark-surface dark:border-dark-border dark:text-background focus:ring-primary focus:border-primary" placeholder="Sitio web">
+      </div>
+      <div class="col-span-2">
+        <label for="message" class="text-sm font-medium text-dark-background dark:text-background">Mensaje</label>
+        <textarea id="message" name="message" class="bg-background border-gray-300 text-dark-background text-sm rounded-lg w-full p-2.5 dark:bg-dark-surface dark:border-dark-border dark:text-background focus:ring-primary focus:border-primary" placeholder="Escribe tu mensaje aquí..."/>
+      </div>
+    
+      <div class="flex items-start col-span-2">
+        <div class="flex items-center h-5">
+          <input 
+            id={checkboxId} 
+            type="checkbox" 
+            required
+            name="checkbox"
+            class="w-4 h-4 border border-gray-300 rounded-sm bg-background dark:bg-gray-700 dark:border-gray-600 focus:ring-3 focus:ring-primary focus:border-primary" 
+          />
+        </div>
+        <Termsofservice checkboxId={checkboxId} modalId={modalId} />
+      </div>
 
-  <div class="flex items-start mb-6">
-    <div class="flex items-center h-5">
-      <input 
-        id={checkboxId} 
-        type="checkbox" 
-        required
-        name="checkbox"
-        class="w-4 h-4 border border-gray-300 rounded-sm bg-background dark:bg-gray-700 dark:border-gray-600 focus:ring-3 focus:ring-primary focus:border-primary" 
-      />
+      <button class="col-span-2 cursor-pointer text-background bg-primary hover:bg-primary-dark transition-all duration-300 ease-in-out font-medium rounded-lg text-sm w-full px-5 py-3 text-center flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
+        </svg>
+        Enviar mensaje
+      </button>
+    
+      <p class="col-span-2 mt-4 text-sm text-gray-500 dark:text-gray-400 text-left">
+        Te responderemos en un plazo máximo de 24 horas laborables
+      </p>
     </div>
-    <Termsofservice checkboxId={checkboxId} modalId={modalId} />
-  </div>
-
-  <button 
-    type="submit" 
-    data-aos="zoom-in" 
-    data-aos-duration="800" 
-    data-aos-delay="700"
-    class="cursor-pointer text-background bg-primary hover:bg-primary-dark transition-all duration-300 ease-in-out font-medium rounded-lg text-sm w-full px-5 py-3 text-center flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
-    </svg>
-    Enviar mensaje
-  </button>
-  
-  <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center">
-    Te responderemos en un plazo máximo de 24 horas laborables
-  </p>
 </form>
