@@ -8,6 +8,7 @@ interface Props {
   margin?: string;
   labelName: string;
   forID: string;
+  name: string;
   type?: any;
   placeholder: string;
 }
@@ -20,6 +21,7 @@ const {
   rows = "4",
   margin,
   forID,
+  name,
   type,
   placeholder,
   labelName,
@@ -43,6 +45,7 @@ const {
         id={forID}
         rows={rows}
         placeholder={placeholder}
+        name={name}
         required
         class="block w-full text-sm text-dark-background bg-background rounded-lg border border-gray-300 p-2.5 dark:bg-dark-surface dark:border-dark-border dark:text-background focus:ring-primary focus:border-primary"
       />

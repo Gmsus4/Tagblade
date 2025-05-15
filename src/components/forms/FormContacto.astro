@@ -6,7 +6,7 @@ const checkboxId = "terms-checkbox";
 const modalId = "terms-modal";
 ---
 
-<form name="contact" data-netlify="true">
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
   <div class="grid gap-6 mb-6 md:grid-cols-2">
     <FormInputs 
       forID="first_name" 
@@ -16,6 +16,7 @@ const modalId = "terms-modal";
       dataAos="fade-right" 
       duration="600" 
       delay="100"
+      name="first_name"
     />
     <FormInputs 
       forID="last_name" 
@@ -25,6 +26,7 @@ const modalId = "terms-modal";
       dataAos="fade-left" 
       duration="600" 
       delay="200"
+      name="last_name"
     />
   </div>
   
@@ -37,6 +39,7 @@ const modalId = "terms-modal";
     dataAos="fade-up" 
     duration="600" 
     delay="300"
+    name="email"
   />
   
   <FormInputs 
@@ -48,6 +51,7 @@ const modalId = "terms-modal";
     dataAos="fade-up" 
     duration="600" 
     delay="400"
+    name="subject"
   />
   
   <FormInputs 
@@ -60,6 +64,7 @@ const modalId = "terms-modal";
     delay="500" 
     isTextArea={true}
     rows="6"
+    name="message"
   />
 
   <div class="flex items-start mb-6">
@@ -68,6 +73,7 @@ const modalId = "terms-modal";
         id={checkboxId} 
         type="checkbox" 
         required
+        name="checkbox"
         class="w-4 h-4 border border-gray-300 rounded-sm bg-background dark:bg-gray-700 dark:border-gray-600 focus:ring-3 focus:ring-primary focus:border-primary" 
       />
     </div>
