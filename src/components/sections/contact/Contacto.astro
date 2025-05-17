@@ -3,6 +3,8 @@ import Image from "astro/components/Image.astro";
 import SectionHeader from "../../common/SectionHeader.astro";
 import FormContacto from "../../forms/FormContacto.astro";
 import WhatsAppBanner from "../../common/WhatsAppBanner.astro";
+import InfoContacto from "../../forms/InfoContacto.astro";
+import { contactInfo } from "../../../js/datos.js"
 
 export interface Props {
   title: string;
@@ -23,27 +25,33 @@ const {
   <div class="max-w-screen-xl mx-auto md:px-4 px-1 lg:py-16 p-8 pb-4">
     <SectionHeader title={title} subtitle={subtitle} icon={icon}/>
     <div class="grid lg:grid-cols-2 gap-16 items-start">
-      <!-- data-aos="fade-right" data-aos-duration="1200" data-aos-delay="300" -->
-      <div class="h-full p-0 md:p-10">
-        <WhatsAppBanner whatsappNumber={whatsappNumber}/>
+      <div class="h-full p-0 md:pt-6">
+        <!-- <WhatsAppBanner whatsappNumber={whatsappNumber}/> -->
+          <h3 class="text-gray-900 dark:text-white text-2xl font-extrabold mb-2">
+            Formulario
+          </h3>
+          <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">
+            ¿Tienes una idea en mente? Hablemos y la hacemos realidad.
+          </p>
         <FormContacto  />
       </div>
       <div class="flex flex-col gap-4 h-full">
         <!-- Imagen principal (visible en pantallas grandes) -->
         <div class="hidden lg:block relative rounded-2xl overflow-hidden shadow-xl" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
           <Image 
-            src={"https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg"} 
-            alt={"Ilustración de contacto"} 
-            width={600} 
-            height={800} 
-            class={"w-full h-auto object-cover rounded-2xl hover:scale-105 transition-transform duration-500s"} 
-            loading="lazy"
+          src={"https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg"} 
+          alt={"Ilustración de contacto"} 
+          width={600} 
+          height={800} 
+          class={"w-full h-auto object-cover rounded-2xl hover:scale-105 transition-transform duration-500s"} 
+          loading="lazy"
           />
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
             <h3 class="text-white text-xl font-bold">Estamos listos para ayudarte</h3>
             <p class="text-gray-200 mt-2">Tu proyecto web es nuestra prioridad</p>
           </div>
         </div>
+        <InfoContacto email={contactInfo.email} phone={contactInfo.phone} horario={contactInfo.horario} socialMedia={contactInfo.socialMedia} whatsapp={true}/>
       </div>
     </div>
   </div>
