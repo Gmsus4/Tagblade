@@ -26,6 +26,7 @@ export const navbarLinks = [
 export const contactInfo = {
   email: "contacto@tagblade.com",
   phone: "3345707676",
+  mensajeInicial: "",
   horario: "Lunes a Viernes: 9:00 - 18:00",
   socialMedia: [
     { name: "Instagram", url: "https://www.instagram.com/tagblade/", icon: Instagram },

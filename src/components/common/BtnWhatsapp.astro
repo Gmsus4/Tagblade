@@ -1,5 +1,14 @@
+---
+export interface Props { 
+  phone: string 
+  text?: string
+}
+const { phone, text } = Astro.props;
+---
+
+<!-- href="https://wa.me/523861112341?text=Hola,%20quiero%20cotizar%20una%20página%20web" -->
 <a
-  href="https://wa.me/523861112341?text=Hola,%20quiero%20cotizar%20una%20página%20web"
+  href={text ? `https://wa.me/52${phone}?text=${encodeURIComponent(text)}` : `https://wa.me/52${phone}`}
   target="_blank"
   class="group inline-flex gap-2 justify-center items-center py-3 px-5 sm:ms-4 text-base font-medium text-center transition duration-700 ease-in-out dark:text-dark-background text-background rounded-lg border border-dark-background dark:border-background hover:bg-background hover:text-dark-background dark:hover:bg-dark-background dark:hover:text-background bg-dark-background dark:bg-background"
 >
