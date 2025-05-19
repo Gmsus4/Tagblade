@@ -13,20 +13,17 @@ const { servicios = [], title, subtitle, icon} = Astro.props;
   class=" md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
 >
   <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 pb-4" data-aos="fade-up">
-    <!-- Encabezado con diseño mejorado y más impactante -->
     <SectionHeader title={title} subtitle={subtitle} icon={icon}/>
-
-    <!-- Tarjetas de servicios con efecto escalonado -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relatives">
       {
         servicios.map((servicio, index) => {
           const Icon = servicio.icon;
           return (
             <div
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
-              data-aos-duration="800"
-              data-aos-easing="ease-out"
+              // data-aos="fade-up"
+              // data-aos-delay={index * 150}
+              // data-aos-duration="800"
+              // data-aos-easing="ease-out"
               class="rounded-2xl border-0.5 border-border-300 bg-white/60 dark:bg-dark-surface border border-gray-200 dark:border-dark-border p-8 md:p-10 hover:shadow-lg transition-all duration-300 group relative"
             >              
               {/* Icono */}

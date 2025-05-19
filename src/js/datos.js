@@ -10,14 +10,15 @@ import Feather from "../components/icons/Feather.astro";
 import Send from "../components/icons/Send.astro";
 import Search from "../components/icons/Search.astro";
 import Instagram from "../components/icons/Instagram.astro";
+import X from "../components/icons/X.astro";
 
 // Datos para la sección de Navbar
 export const navbarLinks = [
-    { name: "Servicios", href: "#servicios" },
-    { name: "Proceso", href: "#proceso" },
+    { name: "Servicios", href: "/#servicios" },
+    { name: "Proceso", href: "/#proceso" },
     // { name: "Proyectos", href: "#proyectos" },
-    { name: "Sobre nosotros", href: "#about-us" },
-    { name: "Contacto", href: "#contacto" }
+    { name: "Sobre nosotros", href: "/#about-us" },
+    { name: "Contacto", href: "/#contacto" }
 ];  
 
 
@@ -30,7 +31,7 @@ export const contactInfo = {
   horario: "Lunes a Viernes: 9:00 - 18:00",
   socialMedia: [
     { name: "Instagram", url: "https://www.instagram.com/tagblade/", icon: Instagram },
-    { name: "X", url: "https://x.com/Tagbladex", icon: Instagram }
+    { name: "X", url: "https://x.com/Tagbladex", icon: X }
   ]
 }
 

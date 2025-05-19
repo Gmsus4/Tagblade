@@ -2,23 +2,16 @@
 import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/common/Navbar.astro";
-
+import { navbarLinks, sectionTexts } from "../js/datos";
 import "../styles/global.css";
 import '@fontsource-variable/onest';
 import Footer from "../components/common/Footer.astro";
+import { contactInfo } from "../js/datos";
 ---
 
 <Layout>
   <div class="bg-background dark:bg-dark-background w-full min-h-screen">
-    <Navbar
-      links={[
-        { name: "Inicio", href: "/#home" },
-        { name: "Servicios", href: "/#servicios" },
-        { name: "Sobre nosotros", href: "/#about-us" },
-        { name: "Proyectos", href: "/#proyectos" },
-        { name: "Contacto", href: "/#contacto" },
-      ]}
-    />
+    <Navbar links={navbarLinks} whatsappNumber={sectionTexts.contacto.whatsappNumber}/>
     
     <!-- Agregado padding-top para evitar que el navbar fixed tape el contenido -->
     <div class="flex lg:flex-row flex-col items-center justify-center m-auto lg:w-5xl w-full gap-20 px-10 py-16 pt-28">
@@ -57,9 +50,8 @@ import Footer from "../components/common/Footer.astro";
             Datos de contacto:
           </p>
           <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
-            <li>Dirección: [Dirección completa]</li>
-            <li>Correo electrónico: privacy@tagblade.com</li>
-            <li>Teléfono: [Número de teléfono]</li>
+            <li>Correo electrónico: {contactInfo.email}</li>
+            <li>Teléfono: +52 {contactInfo.phone}</li>
           </ul>
         </section>
 
@@ -201,9 +193,8 @@ import Footer from "../components/common/Footer.astro";
             Si tienes preguntas sobre este aviso de privacidad o deseas ejercer tus derechos legales, por favor contáctanos:
           </p>
           <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
-            <li>Correo electrónico: privacy@tagblade.com</li>
-            <li>Dirección postal: [Dirección completa]</li>
-            <li>Teléfono: [Número de teléfono]</li>
+            <li>Correo electrónico: {contactInfo.email}</li>
+            <li>Teléfono: +52 {contactInfo.phone}</li>
           </ul>
           <p class="text-text dark:text-dark-text">
             Tienes derecho a presentar una reclamación en cualquier momento ante la autoridad de protección de datos competente. Sin embargo, apreciaríamos la oportunidad de atender tus inquietudes antes de que te acerques a la autoridad de protección de datos, así que te pedimos que nos contactes en primera instancia.

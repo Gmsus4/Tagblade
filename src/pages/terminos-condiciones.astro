@@ -6,19 +6,12 @@ import Navbar from "../components/common/Navbar.astro";
 import "../styles/global.css";
 import '@fontsource-variable/onest';
 import Footer from "../components/common/Footer.astro";
+import { contactInfo, navbarLinks } from "../js/datos";
 ---
 
 <Layout>
   <div class="bg-background dark:bg-dark-background w-full min-h-screen">
-    <Navbar
-      links={[
-        { name: "Inicio", href: "/#home" },
-        { name: "Servicios", href: "/#servicios" },
-        { name: "Sobre nosotros", href: "/#about-us" },
-        { name: "Proyectos", href: "/#proyectos" },
-        { name: "Contacto", href: "/#contacto" },
-      ]}
-    />
+    <Navbar links={navbarLinks} whatsappNumber={contactInfo.phone}/>
     
     <!-- Header con imagen -->
     <div class="flex lg:flex-row flex-col items-center justify-center m-auto lg:w-5xl w-full gap-20 px-10 py-16 pb-0 pt-28">
@@ -65,11 +58,11 @@ import Footer from "../components/common/Footer.astro";
           <p class="text-text dark:text-dark-text mb-4">
             3.1 <span class="font-semibold">Elegibilidad</span>: Para utilizar nuestros servicios, debes tener al menos 18 años o la mayoría de edad legal en tu jurisdicción, lo que sea mayor.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
+          <!-- <p class="text-text dark:text-dark-text mb-4">
             3.2 <span class="font-semibold">Registro de cuenta</span>: Algunos servicios de Tagblade requieren el registro de una cuenta. Al registrarte, aceptas proporcionar información precisa, actual y completa. Eres responsable de mantener la confidencialidad de tu contraseña y de todas las actividades que ocurran bajo tu cuenta.
-          </p>
+          </p> -->
           <p class="text-text dark:text-dark-text mb-4">
-            3.3 <span class="font-semibold">Uso prohibido</span>: Aceptas no utilizar nuestro sitio web o servicios para:
+            3.2 <span class="font-semibold">Uso prohibido</span>: Aceptas no utilizar nuestro sitio web o servicios para:
           </p>
           <ul class="list-disc pl-10 text-text dark:text-dark-text mb-4">
             <li>Violar cualquier ley aplicable, regulación o estos Términos.</li>
@@ -96,7 +89,7 @@ import Footer from "../components/common/Footer.astro";
         <section class="mb-8">
           <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">5. Precios y Pagos</h3>
           <p class="text-text dark:text-dark-text mb-4">
-            5.1 <span class="font-semibold">Precios</span>: Los precios de nuestros servicios se establecerán en una cotización o propuesta específica para cada cliente. Todos los precios se expresan en [moneda] y no incluyen impuestos aplicables, a menos que se indique lo contrario.
+            5.1 <span class="font-semibold">Precios</span>: Los precios de nuestros servicios se establecerán en una cotización o propuesta específica para cada cliente. Todos los precios se expresan en pesos Mexicanos MXN y no incluyen impuestos aplicables, a menos que se indique lo contrario.
           </p>
           <p class="text-text dark:text-dark-text mb-4">
             5.2 <span class="font-semibold">Condiciones de pago</span>: Los pagos deben realizarse según los términos establecidos en la propuesta o contrato específico. Generalmente requerimos un anticipo antes de comenzar el trabajo, con pagos adicionales programados en hitos acordados.
@@ -112,7 +105,7 @@ import Footer from "../components/common/Footer.astro";
         <section class="mb-8">
           <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">6. Propiedad Intelectual</h3>
           <p class="text-text dark:text-dark-text mb-4">
-            6.1 <span class="font-semibold">Nuestros derechos</span>: Todo el contenido presente en nuestro sitio web, incluidos textos, gráficos, logotipos, imágenes, así como la compilación de estos, es propiedad de Tagblade o de nuestros proveedores de contenido y está protegido por leyes de propiedad intelectual.
+            6.1 <span class="font-semibold">Nuestros derechos</span>: Todo el contenido presente en nuestro sitio web, incluidos textos, gráficos, logotipos, imágenes, así como la compilación de estos, es propiedad de Tagblade o de nuestros proveedores de contenido y está protegido por leyes de propiedad intelectual. Algunos recursos visuales han sido utilizados y extraídos de plataformas como <a target="_blank" class="hover:underline text-blue-500" href="https://www.pexels.com/">Pexels</a>, <a target="_blank" class="hover:underline text-blue-500" href="https://undraw.co/">unDraw</a> e <a target="_blank" class="hover:underline text-blue-500" href="https://iconify.design/">Iconify</a>, respetando sus respectivas licencias de uso.
           </p>
           <p class="text-text dark:text-dark-text mb-4">
             6.2 <span class="font-semibold">Licencia limitada</span>: Te otorgamos una licencia limitada, no exclusiva, no transferible y revocable para acceder y utilizar nuestro sitio web para fines personales y no comerciales.
@@ -136,7 +129,7 @@ import Footer from "../components/common/Footer.astro";
             7.1 Cada parte se compromete a mantener la confidencialidad de toda la información confidencial recibida de la otra parte relacionada con su negocio, planes, clientes o productos.
           </p>
           <p class="text-text dark:text-dark-text mb-4">
-            7.2 Esta obligación de confidencialidad sobrevivirá a la terminación de nuestros servicios por un período de [número] años.
+            7.2 Esta obligación de confidencialidad sobrevivirá a la terminación de nuestros servicios por un período de 5 años.
           </p>
         </section>
 
@@ -159,7 +152,7 @@ import Footer from "../components/common/Footer.astro";
             9.1 <span class="font-semibold">Garantía limitada</span>: Tagblade garantiza que los servicios se prestarán con razonable cuidado y habilidad de acuerdo con las prácticas estándar de la industria.
           </p>
           <p class="text-text dark:text-dark-text mb-4">
-            9.2 <span class="font-semibold">Período de garantía</span>: Ofrecemos un período de garantía de [número] días después de la entrega final para corregir cualquier error o defecto en nuestro trabajo sin costo adicional, siempre que dichos errores sean atribuibles a Tagblade.
+            9.2 <span class="font-semibold">Período de garantía</span>: Ofrecemos un período de garantía de 30 días después de la entrega final para corregir cualquier error o defecto en nuestro trabajo sin costo adicional, siempre que dichos errores sean atribuibles a Tagblade.
           </p>
           <p class="text-text dark:text-dark-text mb-4">
             9.3 <span class="font-semibold">Exclusiones de garantía</span>: La garantía no cubre:
@@ -198,7 +191,7 @@ import Footer from "../components/common/Footer.astro";
         <section class="mb-8">
           <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">12. Legislación Aplicable</h3>
           <p class="text-text dark:text-dark-text mb-4">
-            Estos Términos se regirán e interpretarán de acuerdo con las leyes de [país/estado], sin dar efecto a ningún principio de conflictos de leyes. Cualquier disputa legal que surja de o en relación con estos Términos estará sujeta a la jurisdicción exclusiva de los tribunales de [ciudad/país].
+            Estos Términos se regirán e interpretarán de acuerdo con las leyes de los Estados Unidos Mexicanos, sin dar efecto a ningún principio de conflicto de leyes. Cualquier disputa legal que surja de o en relación con estos Términos estará sujeta a la jurisdicción exclusiva de los tribunales competentes de la ciudad de Guadalajara, Jalisco, renunciando las partes a cualquier otro fuero que pudiera corresponderles por razón de su domicilio presente o futuro.
           </p>
         </section>
 
@@ -208,10 +201,10 @@ import Footer from "../components/common/Footer.astro";
             13.1 <span class="font-semibold">Negociación amistosa</span>: En caso de cualquier disputa, controversia o reclamo que surja de o en relación con estos Términos, las partes intentarán primero resolver el asunto de manera amistosa mediante negociaciones de buena fe.
           </p>
           <p class="text-text dark:text-dark-text mb-4">
-            13.2 <span class="font-semibold">Mediación</span>: Si las partes no pueden resolver la disputa mediante negociación dentro de los 30 días, la disputa se someterá a mediación bajo las reglas de [organización de mediación].
+            13.2 <span class="font-semibold">Mediación</span>: Si las partes no pueden resolver la disputa mediante negociación dentro de los 30 días siguientes a la notificación por escrito de la controversia, la disputa se someterá a mediación conforme a las reglas del Centro de Justicia Alternativa del Poder Judicial del Estado de Jalisco o la institución que las partes acuerden mutuamente.
           </p>
           <p class="text-text dark:text-dark-text mb-4">
-            13.3 <span class="font-semibold">Litigio</span>: Si la disputa no se resuelve mediante mediación, cualquiera de las partes puede iniciar un procedimiento legal en los tribunales de [ciudad/país].
+            13.3 <span class="font-semibold">Litigio</span>: Si la disputa no se resuelve mediante mediación, cualquiera de las partes podrá iniciar un procedimiento legal ante los tribunales competentes de Guadalajara, Jalisco, México, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.
           </p>
         </section>
 
@@ -250,9 +243,8 @@ import Footer from "../components/common/Footer.astro";
             Si tienes preguntas sobre estos Términos, por favor contáctanos:
           </p>
           <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
-            <li>Correo electrónico: legal@tagblade.com</li>
-            <li>Dirección postal: [Dirección completa]</li>
-            <li>Teléfono: [Número de teléfono]</li>
+            <li>Correo electrónico: {contactInfo.email}</li>
+            <li>Teléfono: +52 {contactInfo.phone}</li>
           </ul>
         </section>
       </div>
