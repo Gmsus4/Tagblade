@@ -7,9 +7,14 @@ import Proyectos from "../services/Proyectos.astro";
 import SobreNosotros from "../about/Sobre-nosotros.astro";
 import Contacto from "../contact/Contacto.astro";
 import Footer from "../../common/Footer.astro";
+import FAQ from "../about/FAQ.astro";
 
-// Importación de los datos
-import { serviciosData, procesosData, proyectosData, navbarLinks, sectionTexts, contactInfo } from "../../../js/datos";
+
+import { titles } from "../../../js/titles"
+import { servicios } from "../../../js/servicios"
+import { procesos } from "../../../js/procesos"
+import { navbarLinks } from "../../../js/navbarLinks" 
+import { contactInfo } from "../../../js/contactInfo" 
 ---
 
 <div id="container" class="overflow-x-hidden">
@@ -19,11 +24,12 @@ import { serviciosData, procesosData, proyectosData, navbarLinks, sectionTexts, 
   
   <main>
     <Hero />
-    <Servicios title={sectionTexts.servicios.title} subtitle={sectionTexts.servicios.subtitle} icon={sectionTexts.servicios.icon} servicios={serviciosData} />
-    <Proceso title={sectionTexts.proceso.title} subtitle={sectionTexts.proceso.subtitle} icon={sectionTexts.proceso.icon} procesos={procesosData}/>
+    <Servicios title={titles.servicios.title} subtitle={titles.servicios.subtitle} icon={titles.servicios.icon} servicios={servicios} />
+    <Proceso title={titles.proceso.title} subtitle={titles.proceso.subtitle} icon={titles.proceso.icon} procesos={procesos}/>
     <!-- <Proyectos title={sectionTexts.proyectos.title} subtitle={sectionTexts.proyectos.subtitle} icon={sectionTexts.proyectos.icon} proyectos={proyectosData}/> -->
-    <SobreNosotros title={sectionTexts.sobreNosotros.title} subtitle={sectionTexts.sobreNosotros.subtitle} icon={sectionTexts.sobreNosotros.icon}/>
-    <Contacto title={sectionTexts.contacto.title} subtitle={sectionTexts.contacto.subtitle} icon={sectionTexts.contacto.icon} whatsappNumber={contactInfo.phone}/>
+    <SobreNosotros title={titles.sobreNosotros.title} subtitle={titles.sobreNosotros.subtitle} icon={titles.sobreNosotros.icon}/>
+    <FAQ icon={titles.faq.icon}/>
+    <Contacto title={titles.contacto.title} subtitle={titles.contacto.subtitle} icon={titles.contacto.icon} whatsappNumber={contactInfo.phone}/>
   </main>
   <Footer />
 </div>

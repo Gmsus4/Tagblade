@@ -1,12 +1,11 @@
 ---
-import ContentBlock from "../../common/ContentBlock.astro";
 import SectionHeader from "../../common/SectionHeader.astro";
 import Team from "./Team.astro";
 
 export interface Props {
   title: string;
   subtitle: string;
-  icon: string;
+  icon: any;
 }
 const { title, subtitle, icon } = Astro.props;
 ---

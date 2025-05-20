@@ -4,12 +4,12 @@ import SectionHeader from "../../common/SectionHeader.astro";
 import FormContacto from "../../forms/FormContacto.astro";
 import WhatsAppBanner from "../../common/WhatsAppBanner.astro";
 import InfoContacto from "../../forms/InfoContacto.astro";
-import { contactInfo } from "../../../js/datos.js"
+import { contactInfo } from "../../../js/contactInfo"
 
 export interface Props {
   title: string;
   subtitle: string;
-  icon: string;
+  icon: any;
   whatsappNumber?: string;
 }
 const { 
@@ -31,7 +31,7 @@ const {
             Formulario
           </h3>
           <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">
-            ¿Tienes una idea en mente? Hablemos y la hacemos realidad.
+            Envíanos un mensaje y empecemos a trabajar juntos.
           </p>
         <FormContacto  />
       </div>

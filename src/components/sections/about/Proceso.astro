@@ -10,7 +10,7 @@ export interface Props {
   procesos: { titleIcon: string; description: string; urlImage?: string; icon?: any; subtitle?: string;}[];
   title: string;
   subtitle: string;
-  icon: string;
+  icon: any;
 }
 
 const { procesos = [], title, subtitle, icon} = Astro.props;

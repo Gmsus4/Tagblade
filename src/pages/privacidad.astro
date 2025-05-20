@@ -2,7 +2,8 @@
 import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/common/Navbar.astro";
-import { navbarLinks, contactInfo } from "../js/datos";
+import { navbarLinksOutside } from "../js/navbarLinks";
+import { contactInfo } from "../js/contactInfo";
 import "../styles/global.css";
 import '@fontsource-variable/onest';
 import Footer from "../components/common/Footer.astro";
@@ -10,7 +11,7 @@ import Footer from "../components/common/Footer.astro";
 
 <Layout>
   <div class="bg-background dark:bg-dark-background w-full min-h-screen">
-    <Navbar links={navbarLinks} whatsappNumber={contactInfo.phone}/>
+    <Navbar links={navbarLinksOutside} whatsappNumber={contactInfo.phone}/>
     
     <!-- Agregado padding-top para evitar que el navbar fixed tape el contenido -->
     <div class="flex lg:flex-row flex-col items-center justify-center m-auto lg:w-5xl w-full gap-20 px-10 py-16 pt-28">

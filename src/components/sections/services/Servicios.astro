@@ -4,13 +4,13 @@ export interface Props {
   servicios: { title: string; subtitle: string; description: string; color?: string; icon?: any }[];
   title: string;
   subtitle: string;
-  icon: string;
+  icon: any;
 }
 const { servicios = [], title, subtitle, icon} = Astro.props;
 ---
 <section
   id="servicios"
-  class=" md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
+  class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
 >
   <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 pb-4" data-aos="fade-up">
     <SectionHeader title={title} subtitle={subtitle} icon={icon}/>
