@@ -9,12 +9,12 @@ import Contacto from "../contact/Contacto.astro";
 import Footer from "../../common/Footer.astro";
 
 // Importación de los datos
-import { serviciosData, procesosData, proyectosData, navbarLinks, sectionTexts } from "../../../js/datos";
+import { serviciosData, procesosData, proyectosData, navbarLinks, sectionTexts, contactInfo } from "../../../js/datos";
 ---
 
 <div id="container" class="overflow-x-hidden">
   <header>
-    <Navbar links={navbarLinks} whatsappNumber={sectionTexts.contacto.whatsappNumber}/>
+    <Navbar links={navbarLinks} whatsappNumber={contactInfo.phone}/>
   </header>
   
   <main>
@@ -23,7 +23,7 @@ import { serviciosData, procesosData, proyectosData, navbarLinks, sectionTexts }
     <Proceso title={sectionTexts.proceso.title} subtitle={sectionTexts.proceso.subtitle} icon={sectionTexts.proceso.icon} procesos={procesosData}/>
     <!-- <Proyectos title={sectionTexts.proyectos.title} subtitle={sectionTexts.proyectos.subtitle} icon={sectionTexts.proyectos.icon} proyectos={proyectosData}/> -->
     <SobreNosotros title={sectionTexts.sobreNosotros.title} subtitle={sectionTexts.sobreNosotros.subtitle} icon={sectionTexts.sobreNosotros.icon}/>
-    <Contacto title={sectionTexts.contacto.title} subtitle={sectionTexts.contacto.subtitle} icon={sectionTexts.contacto.icon} whatsappNumber={sectionTexts.contacto.whatsappNumber}/>
+    <Contacto title={sectionTexts.contacto.title} subtitle={sectionTexts.contacto.subtitle} icon={sectionTexts.contacto.icon} whatsappNumber={contactInfo.phone}/>
   </main>
   <Footer />
 </div>

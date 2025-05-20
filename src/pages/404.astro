@@ -1,4 +1,5 @@
 ---
+import { navbarLinks, contactInfo } from "../js/datos";
 import Navbar from "../components/common/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
@@ -6,15 +7,7 @@ import '@fontsource-variable/onest';
 ---
 
 <Layout>
-    <Navbar
-    links={[
-        { name: "Inicio", href: "/#home" },
-        { name: "Servicios", href: "/#servicios" },
-        { name: "Sobre nosotros", href: "/#about-us" },
-        { name: "Proyectos", href: "/#proyectos" },
-        { name: "Contacto", href: "/#contacto" },
-    ]}
-    />
+    <Navbar links={navbarLinks}  whatsappNumber={contactInfo.phone}/>
     <main class="grid min-h-full place-items-center bg-background dark:bg-dark-background px-6 py-24 sm:py-32 lg:px-8">
     <div class="text-center">
         <p class="text-8xl font-semibold text-primary dark:text-primary">404</p>

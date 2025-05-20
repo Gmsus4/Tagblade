@@ -1,27 +1,143 @@
 ---
 import BtnWhatsapp from "../../common/BtnWhatsapp.astro";
-import { contactInfo } from "../../../js/datos.js"
+import { contactInfo } from "../../../js/datos.js";
 ---
-<section id="home" class="relative md:px-20 sm:px-10 px-5 bg-center bg-contain bg-background dark:bg-dark-background bg-blend-multiply py-20 h-screen flex items-center" aria-label="Sección principal: inicio">
-  <img src="/designer.svg" alt="" class="absolute w-96 bottom-0 right-0 left-0 m-auto dark:hidden z-10">
-  <img src="/designerDark.svg" alt="" class="absolute w-96 bottom-0 right-0 left-0 m-auto hidden dark:block z-10">
-  <div class="w-auto py-10 rounded-2xl dark:border-none mx-auto flex items-center lg:mt-6 px-4 lg:py-16 pb-4 justify-center flex-col text-center z-20">
-    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-dark-background dark:text-background md:text-5xl lg:text-6xl">
-      Tu sitio web, construido para durar.
-    </h1>
-    <h2 class="mb-8 text-lg font-normal dark:text-dark-subtle-text text-dark-surface lg:text-xl sm:px-16 lg:px-48">
-      Diseñamos y desarrollamos sitios web que combinan rendimiento, estética y
-      propósito.
-    </h2>
-    <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-      <a href="#servicios" class="inline-flex gap-2 justify-center items-center py-3 px-5 text-base font-medium text-center text-background rounded-lg bg-primary hover:bg-primary-dark transition duration-700 ease-in-out" aria-label="Ir a la sección de servicios">
-        ¿Qué podemos hacer por ti?
-        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="24" height="24" viewBox="0 0 24 24"
-        >
-          <path fill="currentColor" d="M13.06 16.06a1.5 1.5 0 0 1-2.12 0l-5.658-5.656a1.5 1.5 0 1 1 2.122-2.121L12 12.879l4.596-4.596a1.5 1.5 0 0 1 2.122 2.12l-5.657 5.658Z"></path>
+
+<section 
+  id="home" 
+  class="relative md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background bg-blend-multiply py-20 h-screen flex items-center overflow-hidden" 
+  aria-label="Sección principal: inicio"
+>
+  <!-- Elementos decorativos de fondo -->
+  <div class="absolute inset-0 z-0">
+    <!-- Gradiente superpuesto -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/60 dark:to-dark-background/60 z-10"></div>
+    
+    <!-- Patrón de puntos decorativo -->
+    <div class="absolute inset-0 opacity-10 dark:opacity-5 z-0">
+      <div class="absolute right-0 top-0 w-1/2 h-1/2">
+        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <pattern id="pattern-circles" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+            <circle cx="5" cy="5" r="1" fill="currentColor" class="text-primary"></circle>
+          </pattern>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
         </svg>
-      </a>
-      <BtnWhatsapp phone={contactInfo.phone}/>
+      </div>
     </div>
+    
+    <!-- Formas geométricas decorativas -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl"></div>
+    <div class="absolute -bottom-32 -left-32 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl"></div>
+  </div>
+
+  <!-- Contenido principal del hero -->
+  <div class="w-full max-w-screen-xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-20">
+    <!-- Columna izquierda: Texto y CTA -->
+    <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-hover text-sm font-medium mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>
+        Diseño web profesional
+      </div>
+      
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-dark-background dark:text-background md:text-5xl lg:text-6xl">
+        Tu sitio web, <span class="text-primary">construido para durar</span>.
+      </h1>
+      
+      <h2 class="mb-8 text-lg font-normal text-gray-600 dark:text-gray-300 max-w-2xl">
+        Diseñamos y desarrollamos sitios web que combinan rendimiento, estética y propósito para impulsar tu negocio al siguiente nivel.
+      </h2>
+      
+      <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+        <a 
+          href="#servicios" 
+          class="inline-flex gap-2 justify-center items-center py-3 px-6 text-base font-medium text-center text-background rounded-lg bg-primary hover:bg-primary-dark transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl hover:-translate-y-0.5" 
+          aria-label="Ir a la sección de servicios"
+        >
+          ¿Qué podemos hacer por ti?
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        
+        <BtnWhatsapp phone={contactInfo.phone}/>
+      </div>
+      
+      <!-- Estadísticas o ventajas competitivas -->
+      <div class="grid grid-cols-3 gap-6 mt-12">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-primary">+150</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Proyectos completados</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-primary">98%</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Clientes satisfechos</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-primary">24/7</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Soporte técnico</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Columna derecha: Ilustración o mockup -->
+    <div class="hidden lg:flex justify-center items-center relative">
+      <!-- Mockup de dispositivos -->
+      <div class="relative w-full max-w-md">
+        <!-- Laptop mockup -->
+        <div class="relative z-20 transform">
+          <div class="bg-transparent rounded-t-xl">
+            <div class="rounded-lg overflow-hidden">
+              <img 
+                src="/mockupLaptop.webp" 
+                alt="Vista previa de un sitio web en laptop" 
+                class="w-full h-auto"
+              >
+            </div>
+          </div>
+          <!-- <div class="bg-gray-700 h-4 rounded-b-xl shadow-xl"></div> -->
+        </div>
+        
+        <!-- Tablet mockup -->
+        <div class="absolute -bottom-10 -right-10 z-10 w-48 transform">
+          <div class="bg-transparent rounded-xl">
+            <div class="rounded-lg overflow-hidden">
+              <img 
+                src="/mockupTablet.webp" 
+                alt="Vista previa de un sitio web en tablet" 
+                class="w-full h-auto"
+              >
+            </div>
+          </div>
+        </div>
+        
+        <!-- Phone mockup -->
+        <div class="absolute -bottom-10 -left-5 z-30 w-32 transform">
+          <div class="bg-transparent rounded-xl">
+            <div class="rounded-lg overflow-hidden">
+              <img 
+                src="/mockupMobile.webp" 
+                alt="Vista previa de un sitio web en móvil" 
+                class="w-full h-auto"
+              >
+            </div>
+          </div>
+        </div>
+        
+        <!-- Decoración adicional -->
+        <div class="absolute -z-10 inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full filter blur-3xl transform scale-150"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll down indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
+    <a href="#servicios" class="flex flex-col items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
+      <span class="text-sm mb-1">Descubre más</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
   </div>
 </section>
