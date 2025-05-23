@@ -1,8 +1,4 @@
 ---
-import CardProcess from './components/CardProcess.astro';
-import StepIndicator from './components/StepIndicator.astro';
-import CardComplete from './components/CardComplete.astro';
-import ContentBlock from '../../common/ContentBlock.astro';
 import { Image } from 'astro:assets';
 import SectionHeader from '../../common/SectionHeader.astro';
 
@@ -30,7 +26,7 @@ const { procesos = [], title, subtitle, icon} = Astro.props;
         procesos.map((proceso, index) => {
           const Icon = proceso.icon;
           return (
-            <div class="relative rounded-2xl border-0.5 border-border-300 bg-white/60 dark:bg-dark-surface border border-gray-200 dark:border-dark-border" data-popover-target={proceso.titleIcon} data-aos="fade-up" data-aos-delay={index * 150} data-aos-duration="800">
+            <div class="relative rounded-2xl border-0.5 border-border-300 bg-white/60 dark:bg-dark-surface border border-gray-200 dark:border-dark-border" data-popover-target={proceso.titleIcon}>
               <!-- Numeración -->
               <div class="absolute top-4 right-4 inline-flex items-center gap-2 bg-gray-50 dark:bg-dark-background rounded-full px-3 py-1">
                 <span class="font-bold text-primary">

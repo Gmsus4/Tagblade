@@ -16,13 +16,13 @@ const { title, subtitle, icon } = Astro.props;
     <div class="absolute bottom-20 right-10 w-80 h-80 bg-primary-hover/5 dark:bg-surface/5 rounded-full blur-3xl"></div>
   </div>
   
-  <div class="max-w-screen-xl mx-auto px-2 lg:py-16 p-12 pb-4 sm:px-8 lg:px-12 py-16 relative z-10" data-aos="fade-up">
+  <div class="max-w-screen-xl mx-auto px-2 lg:py-16 p-12 pb-4 sm:px-8 lg:px-12 py-16 relative z-10">
     <!-- Main content -->
     <!-- Header and intro -->
     <SectionHeader title={title} subtitle={subtitle} icon={icon}/>
     <div class="grid gap-16 w-2/4 m-auto items-center">
       <!-- Team section with improved styling -->
-      <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-out" class="h-full z-10 relative">
+      <div class="h-full z-10 relative">
         <div class="absolute -left-4 -top-4 w-24 h-24 bg-primary-hover/10 dark:bg-surface/10 rounded-full"></div>
         <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary-hover/10 dark:bg-surface/10 rounded-full"></div>
         <Team />
@@ -30,43 +30,31 @@ const { title, subtitle, icon } = Astro.props;
     </div>
     
     <!-- Approach and History -->
-    <div class="mt-20 space-y-16">
-      <div class="flex lg:flex-row flex-col lg:gap-20 gap-10">
-        
-        <!-- Nuestro enfoque -->
-        <div 
-          data-aos="fade-right"
-          data-aos-delay="500"
-          data-aos-duration="800"
-          data-aos-easing="ease-in-out"
-          class="z-1"
-        >
-          <h2 class="text-primary dark:text-primary font-extrabold mb-2 text-2xl relative">
-            Nuestro enfoque
-          </h2>
+  <div class="mt-20 space-y-16">
+    <div class="flex lg:flex-row flex-col lg:gap-20 gap-10">
+      
+      <!-- Nuestro enfoque -->
+      <div class="z-1">
+        <h2 class="text-primary dark:text-primary font-extrabold mb-2 text-2xl relative">
+          Nuestro enfoque
           <div class="absolute -left-3 top-0 w-1 h-8 bg-primary-hover dark:bg-surface rounded-r-md"></div>
-          <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
-            En Tagblade priorizamos la <span class="font-medium text-primary-hover dark:text-surface">claridad, funcionalidad y escalabilidad</span>. Comenzamos con la escucha activa del cliente, seguida de una planificación estratégica y ejecución detallada con mentalidad orientada al usuario.
-          </p>
-        </div>
+        </h2>
+        <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl">
+          En Tagblade priorizamos la <span class="font-medium text-primary-hover dark:text-surface">claridad, funcionalidad y escalabilidad</span>. Comenzamos con la escucha activa del cliente, seguida de una planificación estratégica y ejecución detallada con mentalidad orientada al usuario.
+        </p>
+      </div>
 
-        <!-- Nuestra historia -->
-        <div 
-          data-aos="fade-left"
-          data-aos-delay="500"
-          data-aos-duration="800"
-          data-aos-easing="ease-in-out"
-          class="z-1"
-        >
-          <h2 class="text-primary dark:text-primary font-extrabold mb-2 text-2xl relative text-right">
-            Nuestra historia
-          </h2>
+      <!-- Nuestra historia -->
+      <div class="z-1">
+        <h2 class="text-primary dark:text-primary font-extrabold mb-2 text-2xl relative text-right">
+          Nuestra historia
           <div class="absolute -right-3 top-0 w-1 h-8 bg-primary-hover dark:bg-surface rounded-l-md"></div>
-          <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl text-right">
-            Tagblade nació con la idea de crear sitios web con intención y precisión. Fernando Gómez convirtió esa idea en una marca que combina <span class="font-medium text-primary-hover dark:text-surface">tecnología, visión humana y compromiso</span> por cada detalle.
-          </p>
-        </div>
+        </h2>
+        <p class="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-3xl text-right">
+          Tagblade nació con la idea de crear sitios web con intención y precisión. Fernando Gómez convirtió esa idea en una marca que combina <span class="font-medium text-primary-hover dark:text-surface">tecnología, visión humana y compromiso</span> por cada detalle.
+        </p>
       </div>
     </div>
+  </div>
   </div>
 </section>

@@ -1,14 +1,19 @@
 ---
+import { Image } from "astro:assets";
+
 const { id, name, username, role, imageUrl, socials = [] } = Astro.props;
 ---
 
 <div class="relative inline-flex flex-col items-center">
   <!-- Avatar image with enhanced styling -->
-  <img 
+  <Image 
     data-popover-target={`popover-${id}`}
-    class="object-cover cursor-pointer size-28 rounded-full ring-4 ring-primary shadow-lg transition-transform hover:scale-105 dark:ring-primary-dark"
+    loading={"lazy"}
     src={imageUrl}
     alt={`${name} avatar`}
+    class="object-cover cursor-pointer size-28 rounded-full ring-4 ring-primary shadow-lg transition-transform hover:scale-105 dark:ring-primary-dark"
+    width={400}
+    height={800}
   />
   
   <!-- Username badge on avatar -->
@@ -26,13 +31,16 @@ const { id, name, username, role, imageUrl, socials = [] } = Astro.props;
     <!-- Header with background -->
     <div class="rounded-t-xl bg-gradient-to-r from-primary/20 to-primary/10 p-5 dark:from-primary-dark/30 dark:to-primary-dark/10">
       <div class="flex items-center gap-3">
-        <img 
-          class="object-cover w-14 h-14 rounded-full ring-2 ring-white shadow-md dark:ring-gray-700" 
-          src={imageUrl} 
+        <Image
+          loading={"lazy"}
+          src={imageUrl}
           alt={name}
+          class="object-cover w-14 h-14 rounded-full ring-2 ring-white shadow-md dark:ring-gray-700"
+          width={400}
+          height={800}
         />
         <div>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-0.5">{name}</h3>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-0.5" aria-label={name}>{name}</h3>
           <p class="text-sm font-medium text-primary dark:text-primary-dark">@{username}</p>
         </div>
       </div>
@@ -57,6 +65,7 @@ const { id, name, username, role, imageUrl, socials = [] } = Astro.props;
               const Icon = social.icon;
               return (
                 <a 
+                  aria-label={`Red Social: ${social.name}`}
                   href={social.url} 
                   target="_blank" 
                   rel="noopener noreferrer" 
@@ -75,7 +84,7 @@ const { id, name, username, role, imageUrl, socials = [] } = Astro.props;
       <div class="mt-4 text-center">
         {socials.map((social: { icon: any; url: string | URL | null | undefined; name: string | null | undefined; }) => {
           return (
-            <a href={social.url} target="_blank" class="block w-full py-2 px-4 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors focus:ring-2 focus:ring-primary/50 focus:outline-none dark:focus:ring-primary-dark/50">
+            <a href={social.url} aria-label="Botón seguir usuario" target="_blank" class="block w-full py-2 px-4 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors focus:ring-2 focus:ring-primary/50 focus:outline-none dark:focus:ring-primary-dark/50">
               Seguir
             </a>
           )

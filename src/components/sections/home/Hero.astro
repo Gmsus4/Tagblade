@@ -1,6 +1,7 @@
 ---
 import BtnWhatsapp from "../../common/BtnWhatsapp.astro";
 import { contactInfo } from "../../../js/contactInfo";
+import { Image } from "astro:assets";
 ---
 
 <section 
@@ -65,7 +66,7 @@ import { contactInfo } from "../../../js/contactInfo";
       </div>
       
       <!-- Estadísticas o ventajas competitivas -->
-      <div class="grid grid-cols-3 gap-6 mt-12">
+      <!-- <div class="grid grid-cols-3 gap-6 mt-12">
         <div class="text-center">
           <div class="text-3xl font-bold text-primary">+150</div>
           <div class="text-sm text-gray-600 dark:text-gray-400">Proyectos completados</div>
@@ -78,7 +79,7 @@ import { contactInfo } from "../../../js/contactInfo";
           <div class="text-3xl font-bold text-primary">24/7</div>
           <div class="text-sm text-gray-600 dark:text-gray-400">Soporte técnico</div>
         </div>
-      </div>
+      </div> -->
     </div>
     
     <!-- Columna derecha: Ilustración o mockup -->
@@ -89,11 +90,14 @@ import { contactInfo } from "../../../js/contactInfo";
         <div class="relative z-20 transform">
           <div class="bg-transparent rounded-t-xl">
             <div class="rounded-lg overflow-hidden">
-              <img 
+              <Image 
+                loading={"eager"}
                 src="/mockupLaptop.webp" 
-                alt="Vista previa de un sitio web en laptop" 
+                alt="Vista previa de un sitio web en móvil" 
                 class="w-full h-auto"
-              >
+                width={400}
+                height={800}
+              />
             </div>
           </div>
           <!-- <div class="bg-gray-700 h-4 rounded-b-xl shadow-xl"></div> -->
@@ -103,11 +107,14 @@ import { contactInfo } from "../../../js/contactInfo";
         <div class="absolute -bottom-10 -right-10 z-10 w-48 transform">
           <div class="bg-transparent rounded-xl">
             <div class="rounded-lg overflow-hidden">
-              <img 
+              <Image 
+                loading={"eager"}
                 src="/mockupTablet.webp" 
-                alt="Vista previa de un sitio web en tablet" 
+                alt="Vista previa de un sitio web en móvil" 
                 class="w-full h-auto"
-              >
+                width={400}
+                height={800}
+              />
             </div>
           </div>
         </div>
@@ -116,11 +123,14 @@ import { contactInfo } from "../../../js/contactInfo";
         <div class="absolute -bottom-10 -left-5 z-30 w-32 transform">
           <div class="bg-transparent rounded-xl">
             <div class="rounded-lg overflow-hidden">
-              <img 
+              <Image 
+                loading={"eager"}
                 src="/mockupMobile.webp" 
                 alt="Vista previa de un sitio web en móvil" 
                 class="w-full h-auto"
-              >
+                width={400}
+                height={800}
+              />
             </div>
           </div>
         </div>
