@@ -1,7 +1,7 @@
 ---
-import BtnWhatsapp from "../../common/BtnWhatsapp.astro";
-import { contactInfo } from "../../../js/contactInfo";
 import { Image } from "astro:assets";
+import BtnWhatsapp from "../common/BtnWhatsapp.astro";
+import { contactInfo } from "../../js/contactInfo";
 ---
 
 <section 
@@ -64,22 +64,6 @@ import { Image } from "astro:assets";
         
         <BtnWhatsapp phone={contactInfo.phone}/>
       </div>
-      
-      <!-- Estadísticas o ventajas competitivas -->
-      <!-- <div class="grid grid-cols-3 gap-6 mt-12">
-        <div class="text-center">
-          <div class="text-3xl font-bold text-primary">+150</div>
-          <div class="text-sm text-gray-600 dark:text-gray-400">Proyectos completados</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-primary">98%</div>
-          <div class="text-sm text-gray-600 dark:text-gray-400">Clientes satisfechos</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-primary">24/7</div>
-          <div class="text-sm text-gray-600 dark:text-gray-400">Soporte técnico</div>
-        </div>
-      </div> -->
     </div>
     
     <!-- Columna derecha: Ilustración o mockup -->

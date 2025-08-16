@@ -1,0 +1,10 @@
+---
+import { partners } from "../../js/partners";
+import Popover from "./Popover.astro";
+---
+
+<div class="flex -space-x-2 items-center justify-center h-full">
+  {partners.map(user => (
+    <Popover {...user} />
+  ))}
+</div>

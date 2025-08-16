@@ -1,19 +1,13 @@
 ---
-import SectionHeader from "../../common/SectionHeader.astro";
-export interface Props {
-  proyectos: { title: string; description: string; technologies: string[]; urlImage?: string; type?: any; urlPage?: string}[];
-  title: string;
-  subtitle: string;
-  icon: string;
-}
-
-const { proyectos = [], title, subtitle, icon } = Astro.props;
+import SectionHeader from '../common/SectionHeader.astro';
+import { titles } from '../../js/titles';
+import { proyectos } from '../../js/proyectos';
 ---
 
 <section id="proyectos" class="-mt-0.5 md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]">
   <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 pb-4" data-aos="fade-up" data-aos-duration="1000">
     <!-- Encabezado con diseño mejorado y más impactante -->
-    <SectionHeader title={title} subtitle={subtitle} icon={icon} />
+    <SectionHeader title={titles.proyectos.title} subtitle={titles.proyectos.subtitle} icon={titles.proyectos.icon} />
 
     <!-- Grid mejorado de proyectos -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
