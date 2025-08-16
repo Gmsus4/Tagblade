@@ -1,16 +1,10 @@
 ---
-
 import Logo from "./Logo.astro";
 import HamburgerButton from "./HamburgerButton.astro";
 import DarkModeToggle from "./DarkModeToggle.astro";
 import LinksNavbar from "./LinksNavbar.astro";
-
-export interface Props {
-  whatsappNumber: string;
-  links: { name: string; href: string; class?: string }[]
-}
-
-const { links = [], whatsappNumber } = Astro.props
+import { navbarLinks as links } from "../../js/navbarLinks";
+import { contactInfo as contact } from "../../js/contactInfo";
 ---
 
 <style>
@@ -24,9 +18,8 @@ const { links = [], whatsappNumber } = Astro.props
     <Logo />
     <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse items-center lg:gap-6 gap-2">
         <DarkModeToggle />
-        <HamburgerButton whatsappNumber={whatsappNumber}/>
+        <HamburgerButton whatsappNumber={contact.phone}/>
     </div>
-
     <LinksNavbar links={links}/>
   </div>
 </nav>
@@ -37,22 +30,20 @@ const { links = [], whatsappNumber } = Astro.props
     const toggleButton = document.querySelector('[data-collapse-toggle]');
     const menu = document.getElementById('navbar-default');
 
-    // Cerrar el menú al hacer clic fuera
     document.addEventListener('click', (event) => {
       const isClickInside = toggleButton.contains(event.target) || menu.contains(event.target);
       const isVisible = !menu.classList.contains('hidden');
 
       if (!isClickInside && isVisible) {
-        toggleButton.click(); // ¡Simula el clic para que Flowbite lo cierre!
+        toggleButton.click();
       }
     });
 
-    // Cerrar al hacer clic en un link, solo en móvil
     const navLinks = menu.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth < 1024 && !menu.classList.contains('hidden')) {
-          toggleButton.click(); // Simula clic de nuevo
+          toggleButton.click();
         }
       });
     });

@@ -1,19 +1,14 @@
 ---
-import SectionHeader from '../../common/SectionHeader.astro';
-export interface Props {
-  servicios: { title: string; subtitle: string; description: string; color?: string; icon?: any }[];
-  title: string;
-  subtitle: string;
-  icon: any;
-}
-const { servicios = [], title, subtitle, icon} = Astro.props;
+import SectionHeader from '../common/SectionHeader.astro';
+import { titles } from '../../js/titles';
+import { servicios } from '../../js/servicios';
 ---
 <section
   id="servicios"
   class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
 >
   <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 pb-4" data-aos="fade-up">
-    <SectionHeader title={title} subtitle={subtitle} icon={icon}/>
+    <SectionHeader title={titles.servicios.title} subtitle={titles.servicios.subtitle} icon={titles.servicios.icon}/>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relatives">
       {
         servicios.map((servicio, index) => {
@@ -43,7 +38,6 @@ const { servicios = [], title, subtitle, icon} = Astro.props;
                 <div class="h-1 w-12 bg-primary/40 mt-2 transition-all duration-300 group-hover:w-20"></div>
               </h2>
               
-              {/* Descripción */}
               <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 relative z-10">{servicio.description}</p>
               
               {/* Indicador visual */}

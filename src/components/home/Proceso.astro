@@ -1,15 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import SectionHeader from '../../common/SectionHeader.astro';
-
-export interface Props {
-  procesos: { titleIcon: string; description: string; urlImage?: string; icon?: any; subtitle?: string;}[];
-  title: string;
-  subtitle: string;
-  icon: any;
-}
-
-const { procesos = [], title, subtitle, icon} = Astro.props;
+import SectionHeader from '../common/SectionHeader.astro';
+import { titles } from '../../js/titles';
+import { procesos } from '../../js/procesos';
 ---
 
 <section
@@ -18,7 +11,7 @@ const { procesos = [], title, subtitle, icon} = Astro.props;
 >
   <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 pb-4">
     <!-- Encabezado con diseño mejorado y más impactante -->
-    <SectionHeader title={title} subtitle={subtitle} icon={icon}/>
+    <SectionHeader title={titles.proceso.title} subtitle={titles.proceso.subtitle} icon={titles.proceso.icon}/>
 
     <!-- Tarjetas de proceso -->  
     <div class="grid col-span-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

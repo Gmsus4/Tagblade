@@ -1,0 +1,26 @@
+---
+import Navbar from "../common/Navbar.astro";
+import Contacto from "./Contacto.astro";
+import Footer from "./Footer.astro";
+import Hero from "./Hero.astro";
+import Proceso from "./Proceso.astro";
+import Servicios from "./Servicios.astro";
+import SobreNosotros from "./Sobre-nosotros.astro";
+---
+
+<div id="container" class="overflow-x-hidden">
+  <header>
+    <Navbar />
+  </header>
+  
+  <main>
+    <Hero />
+    <Servicios />
+    <Proceso />
+    <!-- <Proyectos title={sectionTexts.proyectos.title} subtitle={sectionTexts.proyectos.subtitle} icon={sectionTexts.proyectos.icon} proyectos={proyectosData}/> -->
+    <SobreNosotros />
+    <!-- <FAQ icon={titles.faq.icon}/> -->
+    <Contacto />
+  </main>
+  <Footer />
+</div>

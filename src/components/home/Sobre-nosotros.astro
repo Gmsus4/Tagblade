@@ -1,13 +1,8 @@
 ---
-import SectionHeader from "../../common/SectionHeader.astro";
-import Team from "./Team.astro";
+import SectionHeader from "../common/SectionHeader.astro";
+import Team from "../icons/Team.astro";
+import { titles } from "../../js/titles";
 
-export interface Props {
-  title: string;
-  subtitle: string;
-  icon: any;
-}
-const { title, subtitle, icon } = Astro.props;
 ---
 <section id="about-us" class="relative -mt-0.5 md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]">
   <!-- Decorative elements -->
@@ -19,7 +14,7 @@ const { title, subtitle, icon } = Astro.props;
   <div class="max-w-screen-xl mx-auto px-2 lg:py-16 p-12 pb-4 sm:px-8 lg:px-12 py-16 relative z-10">
     <!-- Main content -->
     <!-- Header and intro -->
-    <SectionHeader title={title} subtitle={subtitle} icon={icon}/>
+    <SectionHeader title={titles.sobreNosotros.title} subtitle={titles.sobreNosotros.subtitle} icon={titles.sobreNosotros.icon}/>
     <div class="grid gap-16 w-2/4 m-auto items-center">
       <!-- Team section with improved styling -->
       <div class="h-full z-10 relative">
