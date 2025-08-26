@@ -1,24 +1,17 @@
 ---
-import SectionHeader from '../common/SectionHeader.astro';
 import { titles } from '../../js/titles';
 import { proyectos } from '../../js/proyectos';
+import TitleSection from '../common/TitleSection.astro';
 ---
 
-<section id="proyectos" class="-mt-0.5 md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]">
-  <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 pb-4" data-aos="fade-up" data-aos-duration="1000">
-    <!-- Encabezado con diseño mejorado y más impactante -->
-    <SectionHeader title={titles.proyectos.title} subtitle={titles.proyectos.subtitle} icon={titles.proyectos.icon} />
+<section id="proyectos" class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]">
+  <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 pb-4 relative" data-aos="fade-up" data-aos-duration="1000">
+    <TitleSection title={titles.proyectos.title} />
 
     <!-- Grid mejorado de proyectos -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
       {proyectos.map((proyecto, index) => (
-        <div 
-          data-aos="fade-up" 
-          data-aos-duration="800" 
-          data-aos-delay={`${index * 100}`}
-          class="rounded-2xl border-0.5 border-border-300 bg-white/60 dark:bg-dark-surface border border-gray-200 dark:border-dark-border overflow-hidden transition-all duration-300 group hover:shadow-lg relative"
-        >
-          <!-- Imagen con overlay mejorado -->
+        <div class="rounded-2xl border-0.5 border-border-default bg-white dark:bg-dark-surface border dark:border-dark-border overflow-hidden transition-all duration-300 group hover:shadow-lg relative">
           <div class="relative overflow-hidden h-48">
             <img 
               src={proyecto.urlImage} 
@@ -27,36 +20,30 @@ import { proyectos } from '../../js/proyectos';
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
-            <!-- Etiqueta de tipo de proyecto con estilo mejorado -->
             <span class="absolute top-3 right-3 bg-primary/90 text-white text-xs px-3 py-1 rounded-full shadow-sm">
               {proyecto.type}
             </span>
-            
-            <!-- Indicador visual hover -->
-            <div class="absolute bottom-4 right-4 bg-white/90 dark:bg-gray-800/90 p-2 rounded-full transform translate-y-10 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-            </div>
           </div>
           
-          <!-- Contenido del proyecto con estilo mejorado -->
+          {/* Contenido del proyecto */}
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors duration-300">
+
+            {/* Titulo del proyecto */}
+            <h3 class="text-xl font-semibold dark:text-white mb-2 group-hover:text-primary transition-colors duration-300">
               {proyecto.title}
               <div class="h-1 w-8 bg-primary/40 mt-2 transition-all duration-300 group-hover:w-16"></div>
             </h3>
             
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+            {/* Descripcion del proyecto */}
+            <p class="text-sm text-text-secundary dark:text-gray-300 mb-4">
               {proyecto.description}
             </p>
             
-            <!-- Tecnologías con estilo mejorado -->
-            <div class="flex flex-wrap gap-2 mb-4">
+            {/* Tecnologías */}
+            <div class="flex flex-wrap gap-2 mb-4 cursor-default">
               {proyecto.technologies.map((tech, techIndex) => (
                 <span 
-                  class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-full border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:bg-primary/10 hover:border-primary/30"
+                  class="text-xs bg-transparent text-text-secundary dark:bg-gray-800 dark:text-gray-200 px-2 py-1 rounded-full border border-border-default dark:border-gray-700 transition-all duration-300 hover:bg-primary/10 hover:border-primary/30"
                   data-aos="zoom-in" 
                   data-aos-delay={`${(techIndex * 50) + 200}`}
                 >
@@ -65,7 +52,7 @@ import { proyectos } from '../../js/proyectos';
               ))}
             </div>
             
-            <!-- Link estilizado -->
+           {/* Link estilizado */}
             <a 
               href={proyecto.urlPage} 
               target="_blank" 
@@ -95,18 +82,3 @@ import { proyectos } from '../../js/proyectos';
     </div>
   </div>
 </section>
-
-<script is:inline>
-  // Asegurarse de que AOS se inicializa correctamente
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof AOS !== 'undefined') {
-      AOS.init({
-        once: false,
-        mirror: true,
-        offset: 100,
-        easing: 'ease-in-out',
-        anchorPlacement: 'top-bottom'
-      });
-    }
-  });
-</script>

@@ -1,0 +1,46 @@
+---
+import { titles as data } from '../../js/titles';
+import { planes } from '../../js/planes'
+import Check from '../icons/Check.astro'
+import TitleSection from '../common/TitleSection.astro';
+---
+<section 
+  id="planes" 
+  class="flex items-center justify-center min-h-screen bg-background-secondary dark:bg-dark-background scroll-mt-12" 
+  aria-label="Sección de preguntas frecuentes"
+>
+  <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 pb-4 flex w-full flex-col items-center justify-center" data-aos="fade-up">
+   <TitleSection title={data.planes.title} />
+    
+    <div class="mt-8 w-full m-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+      {
+         planes.map((plan, index) => (
+            <div class={`p-6 lg:p-10  ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} gap-10 bg-background/90 dark:bg-dark-surface border rounded-2xl border-border-default flex flex-col justify-between`}>
+               <div class="flex flex-col gap-6">
+                  <div class="flex flex-col gap-2">
+                     <h3 class="text-xl dark:text-background">{plan.name}</h3>
+                     <p class="text-start text-lg lg:text-sm text-text-secundary dark:text-text-btnScroll">{plan.description}</p>
+                  </div>
+                  <div class="flex flex-col w-full gap-2">
+                     {
+                        plan.features.map((item, index) => (
+                           <div class="flex gap-2 items-center justify-self-auto">
+                              <Check class="w-5 h-5 lg:w-6 lg:h-6 text-primary"/>
+                              <p class="text-sm dark:text-border-input lg:text-base">{item.label}</p>
+                           </div>
+                        ))
+                     }
+                  </div>
+               </div>
+               <div>
+                  <p class="text-lg dark:text-background font-medium text-text-secundary">
+                     {plan.currency ? `${plan.currency}${plan.price}` : plan.price}
+                  </p>
+                  <p class="text-sm dark:text-text-btnScroll text-text-secundary">{plan.duration}</p>
+               </div>
+            </div>
+         ))
+      }
+    </div>
+  </div>
+</section>

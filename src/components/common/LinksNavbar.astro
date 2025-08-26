@@ -19,7 +19,7 @@ const { links = [], className } = Astro.props
         <li>
           <a
             href={link.href}
-            class={`text-text text-sm font-medium hover:bg-primary md:hover:text-primary dark:text-background md:dark:hover:text-primary dark:hover:bg-gray-100 dark:hover:text-primary block py-2 px-3 rounded-sm md:hover:bg-transparent md:border-0 md:p-0 md:dark:hover:bg-transparent ${link.class} ${className}`}
+            class={`text-sm font-medium hover:bg-primary md:hover:text-primary dark:text-background md:dark:hover:text-primary dark:hover:bg-gray-100 dark:hover:text-primary block py-2 px-3 rounded-sm md:hover:bg-transparent md:border-0 md:p-0 md:dark:hover:bg-transparent ${link.class} ${className}`}
           >
             {link.name}
           </a>

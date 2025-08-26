@@ -1,15 +1,18 @@
 ---
+import ImageIcon from "../common/ImageIcon.astro";
 import Navbar from "../common/Navbar.astro";
+import Instagram from "../icons/Instagram.astro";
 import Contacto from "./Contacto.astro";
 import Footer from "./Footer.astro";
 import Hero from "./Hero.astro";
+import Planes from "./Planes.astro";
 import Proceso from "./Proceso.astro";
 import Proyectos from "./Proyectos.astro";
 import Servicios from "./Servicios.astro";
 import SobreNosotros from "./Sobre-nosotros.astro";
 ---
 
-<div id="container" class="overflow-x-hidden">
+<div id="container" class="overflow-x-hidden bg-background">
   <header>
     <Navbar />
   </header>
@@ -18,9 +21,9 @@ import SobreNosotros from "./Sobre-nosotros.astro";
     <Hero />
     <Servicios />
     <Proceso />
-    <Proyectos />
+    <!-- <Proyectos /> -->
     <SobreNosotros />
-    <!-- <FAQ icon={titles.faq.icon}/> -->
+    <Planes />
     <Contacto />
   </main>
   <Footer />

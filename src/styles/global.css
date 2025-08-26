@@ -9,28 +9,56 @@
 
     @theme {
         /* Modo Claro */
+        /* === FONDOS === */
+        --color-background: #faf9f5;          /* Fondo principal de la aplicación */
+        --color-background-secondary: #f5f4ed;        /* Fondo secundario/tarjetas */
+        --color-background-button: #eceadf;           /* Fondo de botones */
+
+        /* === COLORES DE MARCA === */
+        --color-primary: #E9560A;              /* Color principal/acento (naranja) */
+
+        /* === BORDES === */
+        --color-border-default: #1f1e1d26;              /* Bordes generales */
+        --color-border-input: #dddddd;                /* Bordes de campos de entrada */
+
+        /* === TEXTO === */
+        --color-text-primary: #141413;
+        --color-text-secundary: #3d3d3a;
+        --color-text-btnScroll: #73726c;
+
+        /* === INDICADORES/ESTADOS === */
+        --color-indicator-active: #9f9e9a;            /* Indicadores activos */
+        --color-indicator-inactive: #d5d5ce;          /* Indicadores inactivos */
+        
+        /* Modo Oscuro */
+        --color-dark-background: #262624;       /* Fondo principal muy oscuro y neutro */
+
+        --color-dark-surface: #30302e;          /* Superficies como tarjetas (más claras para contraste) */
+        --color-dark-primary: #F47B42;          /* Naranja suave pero cálido para mantener identidad */
+        --color-dark-primary-hover: #F5AA8C;    /* Variante clara del acento, para hovers o énfasis */
+        /* --color-dark-text: #F5F5F5;              */
+        --color-dark-text: #bdb9b1;             /* Texto principal muy claro para alto contraste */
+        --color-dark-subtle-text: #CCCCCC;      /* Texto secundario gris claro para jerarquía */
+        --color-dark-border: #2E2E2E;           /* Bordes oscuros apenas visibles pero funcionales */
+
+        /* --color-dark-background: #171717;     */
+        /* --color-dark-surface: #222222;       */
+
+
+
+        
         --color-background2: #F8F4F0;        /* Fondo principal claro */
         --color-backgroundOk: #fafafa;        /* Fondo principal claro */
         --color-bgBlack: #141413;
-        --color-background: #faf9f5;        /* Fondo principal claro */
         --color-surface: #F7C8B5;           /* Superficies como tarjetas o secciones */
-        --color-primary: #E9560A;           /* Naranja fuerte (botones/acento) */
         --color-primary-dark: #bd470a;           /* Naranja fuerte (botones/acento) */
         --color-primary-hover: #F47B42;     /* Hover o variante más suave del acento */
         --color-text: #1E1E1E;              /* Texto oscuro suave (no negro puro) */
         --color-subtle-text: #4B4B4B;       /* Texto secundario, gris oscuro cálido */
         --color-border: #F5AA8C;    
-        
-        /* Modo Oscuro */
-        --color-dark-background: #171717;       /* Fondo principal muy oscuro y neutro */
-        --color-dark-surface: #222222;          /* Superficies como tarjetas (más claras para contraste) */
-        --color-dark-primary: #F47B42;          /* Naranja suave pero cálido para mantener identidad */
-        --color-dark-primary-hover: #F5AA8C;    /* Variante clara del acento, para hovers o énfasis */
-        --color-dark-text: #F5F5F5;             /* Texto principal muy claro para alto contraste */
-        --color-dark-subtle-text: #CCCCCC;      /* Texto secundario gris claro para jerarquía */
-        --color-dark-border: #2E2E2E;           /* Bordes oscuros apenas visibles pero funcionales */
       }
 
+      
 html {
     scroll-behavior: smooth;
 }
@@ -38,6 +66,7 @@ html {
 body {
     font-family: 'Inter Variable', sans-serif;
     font-family: 'Onest Variable', sans-serif;
+    color: var(--color-text-primary);
   }
 
 /* <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">

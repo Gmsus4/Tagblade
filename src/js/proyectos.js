@@ -3,7 +3,7 @@ export const proyectos = [
   {
       title: "JR Cincelados",
       description: "Sitio web para taller artesanal especializado en productos de cuero hechos a mano en San Juanito de Escobedo. Incluye catálogo de productos, información del taller y servicios de personalización.",
-      technologies: ["Next.js", "Tailwind CSS", "Optimización de imágenes WebP"],
+      technologies: ["Next.js", "Tailwind CSS", "Optimización de imágenes WebP", "Aceternity"],
       urlImage: "https://jrcincelados.netlify.app/hero.webp",
       type: "Completado",
       urlPage: "https://jrcincelados.netlify.app/",

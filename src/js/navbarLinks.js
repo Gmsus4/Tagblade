@@ -4,7 +4,7 @@ export const navbarLinks = [
     { name: "Proceso", href: "#proceso" },
     { name: "Proyectos", href: "#proyectos" },
     { name: "Sobre nosotros", href: "#about-us" },
-    { name: "Planes", href: "#faq" },
+    { name: "Precios", href: "#planes" },
     { name: "Contacto", href: "#contacto" }
 ];  
 
@@ -13,6 +13,6 @@ export const navbarLinksOutside = [
     { name: "Proceso", href: "/#proceso" },
     { name: "Proyectos", href: "/#proyectos" },
     { name: "Sobre nosotros", href: "/#about-us" },
-    { name: "Planes", href: "/#faq" },
+    { name: "Precios", href: "/#planes" },
     { name: "Contacto", href: "/#contacto" }
 ];  

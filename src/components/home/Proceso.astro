@@ -1,54 +1,36 @@
 ---
 import { Image } from 'astro:assets';
-import SectionHeader from '../common/SectionHeader.astro';
 import { titles } from '../../js/titles';
 import { procesos } from '../../js/procesos';
+import TitleSection from '../common/TitleSection.astro';
 ---
 
 <section
   id="proceso"
-  class="-mt-0.5 md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
+  class="relative md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background-secondary dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
 >
   <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 pb-4">
-    <!-- Encabezado con diseño mejorado y más impactante -->
-    <SectionHeader title={titles.proceso.title} subtitle={titles.proceso.subtitle} icon={titles.proceso.icon}/>
-
-    <!-- Tarjetas de proceso -->  
-    <div class="grid col-span-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+     <TitleSection title={titles.proceso.title} />
+    <div class="grid col-span-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
       {
         procesos.map((proceso, index) => {
           const Icon = proceso.icon;
           return (
-            <div class="relative rounded-2xl border-0.5 border-border-300 bg-white/60 dark:bg-dark-surface border border-gray-200 dark:border-dark-border" data-popover-target={proceso.titleIcon}>
-              <!-- Numeración -->
-              <div class="absolute top-4 right-4 inline-flex items-center gap-2 bg-gray-50 dark:bg-dark-background rounded-full px-3 py-1">
-                <span class="font-bold text-primary">
-                  { index + 1 }
-                </span>
+            <div class="relative rounded-2xl border border-0.5 border-border-default/85 bg-background/90 dark:bg-dark-surface dark:border-dark-border" data-popover-target={proceso.titleIcon}>
+              <div class="absolute top-4 right-4 inline-flex items-center gap-2 bg-background-button dark:bg-dark-background rounded-full px-3 py-1">
+                <span class="font-bold text-primary"> { index + 1 } </span>
               </div>
 
-              <!-- Título -->
-              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-gray-50 dark:bg-dark-background rounded-full px-3 py-1">
-                {Icon && (
-                  <Icon class="shrink-0 w-4 h-4 text-primary" />
-                )}
-                <span class="text-sm font-bold uppercase text-gray-700 dark:text-gray-200">
-                  {proceso.titleIcon}
-                </span>
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-background-button dark:bg-dark-background rounded-full px-3 py-1">
+                {Icon && ( <Icon class="shrink-0 w-4 h-4 text-primary" /> )}
+                <span class="text-sm font-bold uppercase dark:text-gray-200"> {proceso.titleIcon} </span>
               </div>
 
-              <Image 
-                alt={proceso.titleIcon || "Default Alt Text"} 
-                src={proceso.urlImage || '/path/to/default-image.jpg'} 
-                width={300} 
-                height={300} 
-                class="rounded-2xl rounded-b-none w-full h-auto" 
-                loading="lazy" 
-              />
+              <Image alt={proceso.titleIcon || "Default Alt Text"} src={proceso.urlImage || '/path/to/default-image.jpg'} width={300} height={300} class="rounded-2xl rounded-b-none w-full h-auto" loading="lazy" />
 
               <div class="p-6">
                 <span class="text-primary font-bold mb-2 inline-block">{proceso.subtitle}</span>
-                <p class="text-gray-700 dark:text-gray-300">{proceso.description}</p>
+                <p class="text-text-secundary dark:text-gray-300">{proceso.description}</p>
               </div>
             </div>
           )
@@ -57,3 +39,5 @@ import { procesos } from '../../js/procesos';
     </div>
   </div>
 </section>
+
+

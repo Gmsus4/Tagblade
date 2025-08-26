@@ -1,14 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import BtnWhatsapp from "../common/BtnWhatsapp.astro";
+import Button from "../common/Button.astro";
 import { contactInfo } from "../../js/contactInfo";
+import BtnScroll from "../common/BtnScroll.astro";
+import Down from "../icons/Down.astro";
+import Whatsapp from "../icons/Whatsapp.astro";
+import Check from "../icons/Check.astro";
 ---
 
-<section 
-  id="home" 
-  class="relative md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background bg-blend-multiply py-20 h-screen flex items-center overflow-hidden" 
-  aria-label="Sección principal: inicio"
->
+<section id="home" class="relative md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background bg-blend-multiply py-20 h-screen flex items-center overflow-hidden" aria-label="Sección principal: inicio">
   <!-- Elementos decorativos de fondo -->
   <div class="absolute inset-0 z-0">
     <!-- Gradiente superpuesto -->
@@ -36,33 +36,21 @@ import { contactInfo } from "../../js/contactInfo";
     <!-- Columna izquierda: Texto y CTA -->
     <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-hover text-sm font-medium mb-6">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-        </svg>
+        <Check class="w-5 h-5"/>
         Diseño web profesional
       </div>
       
-      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-dark-background dark:text-background md:text-5xl lg:text-6xl">
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none dark:text-background md:text-5xl lg:text-6xl">
         Tu sitio web, <span class="text-primary">construido para durar</span>.
       </h1>
       
-      <h2 class="mb-8 text-lg font-normal text-gray-600 dark:text-gray-300 max-w-2xl">
+      <h2 class="mb-8 text-lg font-normal text-text-secundary dark:text-gray-300 max-w-2xl">
         Diseñamos y desarrollamos sitios web que combinan rendimiento, estética y propósito para impulsar tu negocio al siguiente nivel.
       </h2>
       
       <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-        <a 
-          href="#servicios" 
-          class="inline-flex gap-2 justify-center items-center py-3 px-6 text-base font-medium text-center text-background rounded-lg bg-primary hover:bg-primary-dark transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl hover:-translate-y-0.5" 
-          aria-label="Ir a la sección de servicios"
-        >
-          ¿Qué podemos hacer por ti?
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd" />
-          </svg>
-        </a>
-        
-        <BtnWhatsapp phone={contactInfo.phone}/>
+        <Button className="bg-primary text-white" title="Empezar Ahora" url="#contacto" iconSize="6"/>
+        <Button className="bg-primary text-white" title="WhatsApp" url={`https://wa.me/52${contactInfo.phone}`} icon={ Whatsapp } iconSize="6"/>
       </div>
     </div>
     
@@ -74,31 +62,16 @@ import { contactInfo } from "../../js/contactInfo";
         <div class="relative z-20 transform">
           <div class="bg-transparent rounded-t-xl">
             <div class="rounded-lg overflow-hidden">
-              <Image 
-                loading={"eager"}
-                src="/mockupLaptop.webp" 
-                alt="Vista previa de un sitio web en móvil" 
-                class="w-full h-auto"
-                width={400}
-                height={800}
-              />
+              <Image loading={"eager"} src="/mockupLaptop.webp" alt="Vista previa de un sitio web en móvil" class="w-full h-auto" width={400} height={800}/>
             </div>
           </div>
-          <!-- <div class="bg-gray-700 h-4 rounded-b-xl shadow-xl"></div> -->
         </div>
         
         <!-- Tablet mockup -->
         <div class="absolute -bottom-10 -right-10 z-10 w-48 transform">
           <div class="bg-transparent rounded-xl">
             <div class="rounded-lg overflow-hidden">
-              <Image 
-                loading={"eager"}
-                src="/mockupTablet.webp" 
-                alt="Vista previa de un sitio web en móvil" 
-                class="w-full h-auto"
-                width={400}
-                height={800}
-              />
+              <Image loading={"eager"} src="/mockupTablet.webp" alt="Vista previa de un sitio web en móvil" class="w-full h-auto" width={400} height={800}/>
             </div>
           </div>
         </div>
@@ -107,14 +80,7 @@ import { contactInfo } from "../../js/contactInfo";
         <div class="absolute -bottom-10 -left-5 z-30 w-32 transform">
           <div class="bg-transparent rounded-xl">
             <div class="rounded-lg overflow-hidden">
-              <Image 
-                loading={"eager"}
-                src="/mockupMobile.webp" 
-                alt="Vista previa de un sitio web en móvil" 
-                class="w-full h-auto"
-                width={400}
-                height={800}
-              />
+              <Image  loading={"eager"} src="/mockupMobile.webp" alt="Vista previa de un sitio web en móvil" class="w-full h-auto" width={400} height={800}/>
             </div>
           </div>
         </div>
@@ -126,12 +92,11 @@ import { contactInfo } from "../../js/contactInfo";
   </div>
   
   <!-- Scroll down indicator -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
-    <a href="#servicios" class="flex flex-col items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
-      <span class="text-sm mb-1">Descubre más</span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-    </a>
+  <div class="absolute bottom-8 z-30 left-0 right-0 flex items-center justify-center">
+    <div class="absolute bottom-8 z-30 left-0 right-0 flex items-center justify-center">
+      <BtnScroll title="Más información" url="#servicios">
+        <Down class="w-5 h-5"/>
+      </BtnScroll>
+    </div>
   </div>
 </section>

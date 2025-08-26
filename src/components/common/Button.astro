@@ -1,0 +1,29 @@
+---
+import type { Icon } from 'astro/runtime/client/dev-toolbar/ui-library/icons.js';
+
+interface Props{
+    // Container
+    className?: string;
+
+    gap?: string;
+    isTargetBlank?: boolean;
+
+    //Title a
+    title: string;
+    url: string;
+
+    //Icon
+    icon?: any;
+    iconSize?: string;
+    iconColor?: string;
+}
+
+const { className, gap = "4", isTargetBlank = false, title, url, icon: Icon, iconSize = "12", iconColor = "text-white" } = Astro.props
+---
+
+<a class=`${className} rounded-md cursor-pointer flex px-6 py-2 transition-transform duration-150 active:scale-[0.97]` href={url} target={isTargetBlank ? "_blank" : "_self"}>
+    <div class={`gap-${gap} flex items-center`}>
+        {title}
+        { Icon && (<Icon class={`w-${iconSize} h-${iconSize} ${iconColor}`}/>) }
+    </div>
+</a>

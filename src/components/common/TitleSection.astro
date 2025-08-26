@@ -1,0 +1,23 @@
+---
+import LineDiv from './LineDiv.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const {
+  title,
+  subtitle,
+} = Astro.props;   
+---
+
+   
+<div class="grid sm:place-items-center max-w-3xl m-auto w-full">
+    <h2 class="text-4xl dark:text-dark-text">{title}</h2>
+    <LineDiv />
+    {
+      subtitle ? ( <p class="text-xl sm:text-center mt-6 dark:text-gray-300">{subtitle}</p>) : <></>
+    }
+   
+</div>

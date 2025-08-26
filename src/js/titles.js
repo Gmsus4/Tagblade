@@ -8,7 +8,7 @@ import Team from "../components/icons/Team.astro";
 export const titles = {
     servicios: {
       title: "Nuestros servicios",
-      subtitle: "Soluciones web completas para tu negocio: diseño, desarrollo, hosting y mantenimiento. Creamos sitios web profesionales que convierten visitantes en clientes.",
+      subtitle: "Esto es lo que hacemos por ti.",
       icon: Briefcase,
     },
     proceso: {
@@ -23,6 +23,11 @@ export const titles = {
     },
     sobreNosotros: {
       title: "Sobre nosotros",
+      subtitle: "Equipo de profesionales apasionados por crear soluciones web que impulsan el crecimiento de tu negocio.",
+      icon: Team,
+    },
+    planes: {
+      title: "Explorar planes",
       subtitle: "Equipo de profesionales apasionados por crear soluciones web que impulsan el crecimiento de tu negocio.",
       icon: Team,
     },

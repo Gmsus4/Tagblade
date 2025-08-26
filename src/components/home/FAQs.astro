@@ -1,0 +1,86 @@
+---
+import { faq } from '../../js/faq';
+import PlusIcon from '../icons/PlusIcon.astro';
+---
+
+<div class="">
+  {
+      faq.map((item, index) => {
+          return (
+          <div class="faq-item">
+              <button 
+                  class="faq-toggle cursor-pointer w-full py-3 text-left flex items-center justify-between focus:outline-none"
+                  aria-expanded="false"
+                  data-faq-index={index}
+              >
+              <h3 class="text-xl font-medium text-text-secundary pr-4">
+                  {item.question}
+              </h3>
+              <PlusIcon 
+                  class="faq-icon w-8 h-8 text-text-secundary transition-transform duration-200 flex-shrink-0"
+              />
+              </button>
+              <div class="faq-content overflow-hidden transition-all duration-300 max-h-0">
+                  <div class="pb-6">
+                      <p class="text-text-secundary text-md leading-relaxed">
+                      {item.answer}
+                      </p>
+                  </div>
+              </div>
+          </div>
+          )
+      })
+  }    
+</div>
+
+<script>
+  // JavaScript para manejar la funcionalidad de expandir/contraer
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqToggles = document.querySelectorAll('.faq-toggle');
+    
+    faqToggles.forEach(toggle => {
+      toggle.addEventListener('click', function(this: HTMLButtonElement) {
+        const faqItem = this.closest('.faq-item');
+        if (!faqItem) return;
+        const content = faqItem.querySelector('.faq-content');
+        const icon = this.querySelector('.faq-icon');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        // Cerrar todos los otros FAQ items
+        faqToggles.forEach(otherToggle => {
+          if (otherToggle !== this) {
+            const otherItem = otherToggle.closest('.faq-item');
+            if (!otherItem) return;
+            const otherContent = otherItem.querySelector('.faq-content');
+            const otherIcon = otherToggle.querySelector('.faq-icon');
+            
+            otherToggle.setAttribute('aria-expanded', 'false');
+            if (otherContent) (otherContent as HTMLElement).style.maxHeight = '0';
+            if (otherIcon) (otherIcon as HTMLElement).style.transform = 'rotate(0deg)';
+          }
+        });
+        
+        // Toggle el item actual
+        if (isExpanded) {
+          this.setAttribute('aria-expanded', 'false');
+          if (content) (content as HTMLElement).style.maxHeight = '0';
+          if (icon) (icon as HTMLElement).style.transform = 'rotate(0deg)';
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          if (content) (content as HTMLElement).style.maxHeight = content.scrollHeight + 'px';
+          if (icon) (icon as HTMLElement).style.transform = 'rotate(45deg)';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .faq-content {
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  .faq-icon {
+    transition: transform 0.2s ease-in-out;
+  }
+</style>
