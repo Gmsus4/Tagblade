@@ -6,9 +6,10 @@ import Phone from "../icons/Phone.astro";
 
 ---
 
-<section class="flex  flex-col justify-start items-center min-h-screen bg-background pt-20 dark:bg-dark-background scroll-mt-12" id="faqs">
-  <div class="max-w-6xl mx-auto px-4 lg:py-16 p-12 pb-4 w-full grid grid-cols-7 gap-20 items-start">
-    <div class="col-span-3 h-[600px]">
+<section class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]" id="faqs">
+  <div class="max-w-screen-xl mx-auto md:px-4 px-1 lg:py-16 p-8 pb-4 grid grid-cols-7 gap-14 items-start">
+    <div class="col-span-7 hidden 2xl:flex 2xl:col-span-3 h-[600px]">
+      <img src="https://images.pexels.com/photos/33544834/pexels-photo-33544834.jpeg" alt="" class="rounded-2xl hidden md:flex w-full object-cover">
       <!-- <ImageIcon 
         href='' 
         imageUrl='https://images.pexels.com/photos/33544834/pexels-photo-33544834.jpeg' 
@@ -19,9 +20,12 @@ import Phone from "../icons/Phone.astro";
         shadowColorDark="262624"
       /> -->
     </div>
-    <div class="col-span-4 grid gap-8">
+    <div class="col-span-7 2xl:col-span-4 grid gap-8">
       <!-- <TitleSection title="Preguntas Frecuentes"/> -->
-      <h2 class="text-4xl max-w-5xl w-full mb-4 dark:text-dark-text">Preguntas <span class="text-6xl"><br>Frecuentes</span></h2>
+      <h2 class="text-4xl max-w-5xl w-full mb-4 hidden 2xl:inline dark:text-dark-text">Preguntas <span class="text-6xl"><br>Frecuentes</span></h2>
+      <div class="2xl:hidden flex">
+        <TitleSection title="Preguntas frecuentes"/>
+      </div>
       <div>
         <FAQ />
       </div>

@@ -9,7 +9,7 @@ import TitleSection from '../common/TitleSection.astro';
     <TitleSection title={titles.proyectos.title} />
 
     <!-- Grid mejorado de proyectos -->
-    <div class="grid gap-6 mt-10 grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
+    <div class="grid gap-6 mt-10 grid-cols-[repeat(auto-fit,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
       {proyectos.map((proyecto, index) => (
         <div class="rounded-2xl border-0.5 border-border-default bg-background/90 dark:bg-dark-surface border dark:border-dark-border overflow-hidden transition-all duration-300 group hover:shadow-lg relative">
           <div class="relative overflow-hidden h-48">
