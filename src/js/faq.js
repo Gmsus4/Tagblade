@@ -9,7 +9,7 @@ export const faq = [
   },
   {
     question: "¿Mis sitios web serán responsivos para dispositivos móviles?",
-    answer: "¡Absolutamente! Todos nuestros sitios web se desarrollan con un enfoque \"mobile-first\" y son completamente responsivos. Esto significa que se verán y funcionarán perfectamente en todos los dispositivos, desde teléfonos móviles y tablets hasta computadoras de escritorio. Con más del 60% del tráfico web proveniente de dispositivos móviles, esto es esencial para cualquier presencia digital exitosa."
+    answer: "Sí! Todos nuestros sitios web se desarrollan con un enfoque mobile-first y son totalmente responsivos, funcionando perfectamente en móviles, tablets y computadoras de escritorio. Con más del 60% del tráfico web desde móviles, esto es clave para cualquier presencia digital."
   },
   {
     question: "¿Ofrecen mantenimiento para el sitio web después del lanzamiento?",

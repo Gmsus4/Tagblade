@@ -4,14 +4,14 @@ import { proyectos } from '../../js/proyectos';
 import TitleSection from '../common/TitleSection.astro';
 ---
 
-<section id="proyectos" class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]">
+<section id="proyectos" class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background-secondary dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]">
   <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 pb-4 relative" data-aos="fade-up" data-aos-duration="1000">
     <TitleSection title={titles.proyectos.title} />
 
     <!-- Grid mejorado de proyectos -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+    <div class="grid gap-6 mt-10 grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
       {proyectos.map((proyecto, index) => (
-        <div class="rounded-2xl border-0.5 border-border-default bg-white dark:bg-dark-surface border dark:border-dark-border overflow-hidden transition-all duration-300 group hover:shadow-lg relative">
+        <div class="rounded-2xl border-0.5 border-border-default bg-background/90 dark:bg-dark-surface border dark:border-dark-border overflow-hidden transition-all duration-300 group hover:shadow-lg relative">
           <div class="relative overflow-hidden h-48">
             <img 
               src={proyecto.urlImage} 
@@ -43,7 +43,7 @@ import TitleSection from '../common/TitleSection.astro';
             <div class="flex flex-wrap gap-2 mb-4 cursor-default">
               {proyecto.technologies.map((tech, techIndex) => (
                 <span 
-                  class="text-xs bg-transparent text-text-secundary dark:bg-gray-800 dark:text-gray-200 px-2 py-1 rounded-full border border-border-default dark:border-gray-700 transition-all duration-300 hover:bg-primary/10 hover:border-primary/30"
+                  class="text-xs bg-background-secondary text-text-secundary dark:bg-dark-background dark:text-gray-200 px-2 py-1 rounded-full"
                   data-aos="zoom-in" 
                   data-aos-delay={`${(techIndex * 50) + 200}`}
                 >
@@ -79,6 +79,6 @@ import TitleSection from '../common/TitleSection.astro';
           </div>
         </div>
       ))}
-    </div>
+    </>
   </div>
 </section>

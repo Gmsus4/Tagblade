@@ -4,7 +4,6 @@ import HamburgerButton from "./HamburgerButton.astro";
 import DarkModeToggle from "./DarkModeToggle.astro";
 import LinksNavbar from "./LinksNavbar.astro";
 import { navbarLinksOutside as linksOutside, navbarLinks as linksInside} from "../../js/navbarLinks";
-import { contactInfo as contact } from "../../js/contactInfo";
 
 export interface Props {
   isLinksOutside?: boolean
@@ -24,7 +23,7 @@ const { isLinksOutside = false } = Astro.props
     <Logo />
     <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse items-center lg:gap-6 gap-2">
         <DarkModeToggle />
-        <HamburgerButton whatsappNumber={contact.phone}/>
+        <HamburgerButton />
     </div>
     <LinksNavbar links={ isLinksOutside ? linksOutside : linksInside}/>
   </div>
