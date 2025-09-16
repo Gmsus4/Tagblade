@@ -2,26 +2,23 @@
 import { titles } from '../../js/titles';
 import { servicios } from '../../js/servicios';
 import TitleSection from '../common/TitleSection.astro';
-import Button from '../common/Button.astro';
-import Search from '../icons/Search.astro';
-import Briefcase from '../icons/Briefcase.astro';
 ---
 <section
   id="servicios"
   class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
 >
-  <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 pb-4" data-aos="fade-up">
+  <div class="max-w-screen-xl mx-auto lg:py-16 lg:p-12 px-0 py-12" data-aos="fade-up">
     <TitleSection title={titles.servicios.title} />
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative mt-10">
       {
         servicios.map((servicio, index) => {
           const Icon = servicio.icon;
           return (
-            <div class="rounded-2xl bg-white border border-0.5 border-border-default dark:bg-dark-surface dark:border-dark-border p-8 md:p-10 hover:shadow-lg transition-shadow duration-300 group relative">              
+            <div class="rounded-sm bg-white border border-0.5 border-border-default dark:bg-dark-surface dark:border-dark-border p-8 md:p-10 hover:shadow-lg transition-shadow duration-300 group relative">              
               {/* Icono */}
               {Icon && (
                 <div class="relative z-10">
-                  <Icon class={`w-14 h-14 ${servicio.color} rounded-full p-3 absolute -top-12 -right-12 z-30 transform group-hover:rotate-12 transition-transform duration-500`}/>
+                  <Icon class={`w-14 h-14 ${servicio.color} rounded-sm p-3 absolute -top-12 -right-12 z-30 transform group-hover:rotate-12 transition-transform duration-500`}/>
                 </div>
               )}
               

@@ -2,33 +2,59 @@
 import Image from "astro/components/Image.astro";
 import FormContacto from "../common/FormContacto.astro";
 import InfoContacto from "../common/InfoContacto.astro";
-import { titles } from "../../js/titles";
 import { contactInfo } from "../../js/contactInfo";
 import TitleSection from "../common/TitleSection.astro";
 ---
 
-<section id="contacto" class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]">
-  <div class="max-w-screen-xl mx-auto md:px-4 px-1 lg:py-16 p-8 pb-4">
-    <TitleSection title={titles.contacto.title}/>
-    <div class="grid lg:grid-cols-2 gap-16 items-start mt-10">
-      <div class="h-full p-0 md:pt-6">
-          <!-- <h3 class="dark:text-white text-2xl mb-2 text-center md:text-start"> Formulario </h3> -->
-          <!-- <p class="text-lg font-normal text-text-secundary dark:text-gray-400 mb-6"> Envíanos un mensaje y empecemos a trabajar juntos.</p> -->
-        <FormContacto  />
+<section 
+  id="contacto" 
+  class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
+>
+  <div class="max-w-screen-xl mx-auto md:px-4 px-1 lg:py-16 p-8 pb-4 w-full">
+    <!-- <div class="text-center mb-16">
+      <TitleSection title={titles.contacto.title} />
+    </div> -->
+    
+    <!-- Grid de contenido -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <!-- Columna izquierda: Formulario -->
+      <div class="col-span-1">
+        <div class="flex flex-col gap-4 mb-8">
+          <div class="lg:hidden flex">
+            <TitleSection title="Contáctanos"/>
+          </div>
+          <div>
+            <span class="hidden lg:inline-block text-xl dark:text-dark-text">Contáctanos</span>
+            <h3 class="text-4xl hidden lg:inline-block lg:text-6xl dark:text-dark-text">Ponte en contacto</h3>
+          </div>
+          <p class="text-md hidden lg:inline-block dark:text-border-input">Cuéntanos sobre tu idea o proyecto web y nuestro equipo en Tagblade se comunicará contigo a la brevedad para ayudarte a hacerlo realidad.</p>
+        </div>
+        <FormContacto />
       </div>
 
-      <!-- <ImageIcon href="/" icon={Instagram} imageUrl="https://images.pexels.com/photos/45987/pexels-photo-45987.jpeg"/> -->
-
-      <div class="flex flex-col gap-4 h-full">
-        <InfoContacto email={contactInfo.email} phone={contactInfo.phone} horario={contactInfo.horario} socialMedia={contactInfo.socialMedia} whatsapp={true}/>
-        <div class="hidden lg:block relative rounded-3xl overflow-hidden">
-          <Image src={"https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg"} alt={"Ilustración de contacto"} width={600} height={800} class={"w-full h-auto object-cover rounded-2xl hover:scale-105 transition-transform duration-500s"} loading="lazy"/>
-          <!-- <ImageIcon href="/" icon={Instagram} imageUrl="https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg"/> -->
-          <div class="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 to-transparent p-6">
-            <h3 class="text-white text-xl font-bold">Estamos listos para ayudarte</h3>
-            <p class="text-gray-200 mt-2">Tu proyecto web es nuestra prioridad</p>
+      <!-- Columna derecha: Info + Imagen -->
+      <div class="col-span-1 space-y-8">
+        <!-- Imagen con overlay (solo desktop) -->
+        <div class="hidden lg:block relative rounded-sm overflow-hidden shadow-lg group">
+          <Image 
+            src="https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg" 
+            alt="Ilustración de contacto" 
+            width={600} 
+            height={300} 
+            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
+            loading="lazy"
+          />
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+            <div>
+              <h3 class="text-white text-lg font-semibold mb-1"> Estamos listos para ayudarte </h3>
+              <p class="text-gray-200 text-sm"> Tu proyecto web es nuestra prioridad </p>
+            </div>
           </div>
         </div>
+
+        <!-- Información de contacto -->
+        <InfoContacto email={contactInfo.email} phone={contactInfo.phone} horario={contactInfo.horario} socialMedia={contactInfo.socialMedia} whatsapp={true}/>
       </div>
     </div>
   </div>

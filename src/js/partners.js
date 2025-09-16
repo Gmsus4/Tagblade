@@ -4,77 +4,27 @@ import Linkedin from "../components/icons/Linkedin.astro";
 
 // Datos de los socios del proyecto
 export const partners = [
-  { 
-    id: 'fernando',
-    name: 'Fernando Gómez',
-    username: 'gmsus4.dev',
-    role: 'Desarrollador Web Front-end',
-    imageUrl: '/gmsus4.jpg',
-    banner: "https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg",
-    socials: [
-      {
-        name: 'Instagram',
-        url: 'https://instagram.com/gmsus4.dev',
-        icon: Instagram
-      },
-      {
-        name: 'Email',
-        url: 'mailto:fernando@webdev.com',
-        icon: Email
-      },
-      {
-        name: 'Linkedin',
-        url: 'https://linkedin.com/in/fernandogomez',
-        icon: Linkedin
-      },
-    ]
-  },
   // { 
-  //   id: 'sofia',
-  //   name: 'Sofía Martínez',
-  //   username: 'sofia.codes',
-  //   role: 'Desarrolladora Full Stack',
-  //   imageUrl: 'https://images.pexels.com/photos/4126749/pexels-photo-4126749.jpeg',
-  //   banner: "https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg",
+  //   id: 'fernando',
+  //   name: 'Fernando Gómez',
+  //   username: 'gmsus4.dev',
+  //   role: 'Desarrollador Web Front-end',
+  //   imageUrl: '/gmsus4.jpg',
+  //   banner: "/cover-fer.jpg",
   //   socials: [
   //     {
   //       name: 'Instagram',
-  //       url: 'https://instagram.com/sofia.codes',
+  //       url: 'https://instagram.com/gmsus4.dev',
   //       icon: Instagram
   //     },
   //     {
   //       name: 'Email',
-  //       url: 'mailto:sofia@webdev.com',
+  //       url: 'mailto:fernando@webdev.com',
   //       icon: Email
   //     },
   //     {
   //       name: 'Linkedin',
-  //       url: 'https://linkedin.com/in/sofiamartinez',
-  //       icon: Linkedin
-  //     },
-  //   ]
-  // },
-  // { 
-  //   id: 'carlos',
-  //   name: 'Carlos Rivera',
-  //   username: 'carlosdev',
-  //   role: 'Desarrollador Backend & DevOps',
-  //   imageUrl: 'https://images.pexels.com/photos/12600067/pexels-photo-12600067.jpeg',
-  //   banner: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg",
-  //   socials: [
-  //     {
-  //       name: 'Instagram',
-  //       url: 'https://instagram.com/carlosdev',
-  //       icon: Instagram
-  //     },
-  //     {
-  //       name: 'Email',
-  //       url: 'mailto:carlos@webdev.com',
-  //       icon: Email
-  //     },
-  //     {
-  //       name: 'Linkedin',
-  //       url: 'https://linkedin.com/in/carlosrivera',
+  //       url: 'https://linkedin.com/in/fernandogomez',
   //       icon: Linkedin
   //     },
   //   ]
@@ -89,7 +39,7 @@ export const partners = [
     socials: [
       {
         name: 'Instagram',
-        url: 'https://instagram.com/maria.ux',
+        url: 'https://instagram.com/mrbeast',
         icon: Instagram
       },
       {
@@ -99,7 +49,7 @@ export const partners = [
       },
       {
         name: 'Linkedin',
-        url: 'https://linkedin.com/in/mariatorres',
+        url: 'https://instagram.com/mrbeast',
         icon: Linkedin
       },
     ]
@@ -114,7 +64,7 @@ export const partners = [
     socials: [
       {
         name: 'Instagram',
-        url: 'https://instagram.com/ale.marketing',
+        url: 'https://instagram.com/mrbeast',
         icon: Instagram
       },
       {
@@ -124,9 +74,34 @@ export const partners = [
       },
       {
         name: 'Linkedin',
-        url: 'https://linkedin.com/in/alejandraruiz',
+        url: 'https://instagram.com/mrbeast',
         icon: Linkedin
       },
     ]
   },
-];
+  {
+  id: 'carlos',
+  name: 'Carlos Mendoza',
+  username: 'carlos.dev',
+  role: 'Full Stack Developer & Tech Lead',
+  imageUrl: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
+  banner: "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg",
+  socials: [
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/mrbeast',
+      icon: Instagram
+    },
+    {
+      name: 'Email',
+      url: 'mailto:carlos@webdev.com',
+      icon: Email
+    },
+    {
+      name: 'Linkedin',
+      url: 'https://instagram.com/mrbeast',
+      icon: Linkedin
+    },
+  ]
+}
+]
