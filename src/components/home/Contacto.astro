@@ -3,6 +3,7 @@ import Image from "astro/components/Image.astro";
 import FormContacto from "../common/FormContacto.astro";
 import InfoContacto from "../common/InfoContacto.astro";
 import { contactInfo } from "../../js/contactInfo";
+import { titles } from "../../js/titles";
 import TitleSection from "../common/TitleSection.astro";
 ---
 
@@ -24,10 +25,10 @@ import TitleSection from "../common/TitleSection.astro";
             <TitleSection title="Contáctanos"/>
           </div>
           <div>
-            <span class="hidden lg:inline-block text-xl dark:text-dark-text">Contáctanos</span>
-            <h3 class="text-4xl hidden lg:inline-block lg:text-6xl dark:text-dark-text">Ponte en contacto</h3>
+            <span class="hidden lg:inline-block text-xl dark:text-dark-text">{titles.contacto.title}</span>
+            <h3 class="text-4xl hidden lg:inline-block lg:text-6xl dark:text-dark-text">{titles.contacto.subtitle}</h3>
           </div>
-          <p class="text-md hidden lg:inline-block dark:text-border-input">Cuéntanos sobre tu idea o proyecto web y nuestro equipo en Tagblade se comunicará contigo a la brevedad para ayudarte a hacerlo realidad.</p>
+          <p class="text-md hidden lg:inline-block dark:text-border-input">{titles.contacto.subtitle2}</p>
         </div>
         <FormContacto />
       </div>
@@ -37,7 +38,7 @@ import TitleSection from "../common/TitleSection.astro";
         <!-- Imagen con overlay (solo desktop) -->
         <div class="hidden lg:block relative rounded-sm overflow-hidden shadow-lg group">
           <Image 
-            src="https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg" 
+            src="/contacto.webp" 
             alt="Ilustración de contacto" 
             width={600} 
             height={300} 

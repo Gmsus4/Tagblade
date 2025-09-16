@@ -32,9 +32,9 @@ export const titles = {
       icon: Team,
     },
     contacto: {
-      title: "Contacto",
-      subtitle2: "¿Listo para iniciar tu proyecto? Cuéntanos qué necesitas y te responderemos a la brevedad.",
-      subtitle: "¿Tienes una idea en mente? Contáctanos y transformaremos tu visión en una web profesional que impulse tu negocio.",
+      title: "Contáctanos",
+      subtitle: "Ponte en contacto",
+      subtitle2: "Cuéntanos sobre tu idea o proyecto web y nuestro equipo en Tagblade se comunicará contigo a la brevedad para ayudarte a hacerlo realidad.",
       icon: Contact
     },
     faq: {
