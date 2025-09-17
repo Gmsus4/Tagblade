@@ -9,7 +9,7 @@ export const procesos = [
     titleIcon: "Descubrir",
     subtitle: "Exploración inicial",
     description: "Exploramos tu negocio, objetivos y audiencia para sentar una base estratégica sólida.",
-    urlImage: "/public/proceso/descubrir.webp",
+    urlImage: "/proceso/descubrir.webp",
     icon: Search
   },
   {

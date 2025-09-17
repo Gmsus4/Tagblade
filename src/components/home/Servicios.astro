@@ -6,6 +6,7 @@ import TitleSection from '../common/TitleSection.astro';
 <section
   id="servicios"
   class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
+  aria-label="Sección de Servicios"
 >
   <div class="max-w-screen-xl mx-auto lg:py-16 lg:p-12 px-0 py-12" data-aos="fade-up">
     <TitleSection title={titles.servicios.title} />
@@ -14,27 +15,27 @@ import TitleSection from '../common/TitleSection.astro';
         servicios.map((servicio, index) => {
           const Icon = servicio.icon;
           return (
-            <div class="rounded-sm bg-white border border-0.5 border-border-default dark:bg-dark-surface dark:border-dark-border p-8 md:p-10 hover:shadow-lg transition-shadow duration-300 group relative">              
+            <article class="rounded-sm bg-white border border-0.5 border-border-default dark:bg-dark-surface dark:border-dark-border p-8 md:p-10 hover:shadow-lg transition-shadow duration-300 group relative">              
               {/* Icono */}
               {Icon && (
-                <div class="relative z-10">
+                <div class="relative z-10" aria-hidden="true">
                   <Icon class={`w-14 h-14 ${servicio.color} rounded-sm p-3 absolute -top-12 -right-12 z-30 transform group-hover:rotate-12 transition-transform duration-500`}/>
                 </div>
               )}
               
               {/* Etiqueta de categoría */}
-              <span class={`text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-3 ${servicio.color ?? 'bg-green-100 text-green-800 dark:bg-gray-700 dark:text-green-400'}`}>
+              <p class={`text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-3 ${servicio.color ?? 'bg-green-100 text-green-800 dark:bg-gray-700 dark:text-green-400'}`}>
                 {servicio.title}
-              </span>
+              </p>
               
               {/* Título del servicio */}
-              <h2 class="dark:text-white text-2xl mb-3 relative">
+              <h3 class="dark:text-white text-2xl mb-3 relative">
                 {servicio.subtitle}
                 <div class="h-1 w-12 bg-primary/40 mt-2 transition-all duration-300 group-hover:w-20"></div>
-              </h2>
+              </h3>
               
               <p class="text-text-secundary dark:text-gray-300 text-md relative z-10">{servicio.description}</p>
-            </div>
+            </article>
           );
         })
       }

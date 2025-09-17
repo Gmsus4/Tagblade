@@ -7,27 +7,28 @@ import PlusIcon from "../icons/PlusIcon.astro"
   {
       faq.map((item, index) => {
           return (
-          <div class="faq-item">
+          <article class="faq-item">
               <button 
                   class="faq-toggle cursor-pointer w-full py-3 text-left flex items-start justify-between focus:outline-none"
                   aria-expanded="false"
                   data-faq-index={index}
+                  aria-expanded="false"
+                  aria-controls={`${index}-content`}
               >
               <h3 class="text-lg dark:text-dark-text sm:text-xl  font-medium text-text-secundary pr-4">
                   {item.question}
               </h3>
               <PlusIcon 
                   class="faq-icon sm:w-8 sm:h-8 h-6 w-6 text-dark-text transition-transform duration-200 flex-shrink-0"
+                  aria-hidden="true"
               />
               </button>
               <div class="faq-content overflow-hidden transition-all duration-300 max-h-0">
                   <div class="pb-6">
-                      <p class="dark:text-border-input text-md leading-relaxed">
-                      {item.answer}
-                      </p>
+                      <p class="dark:text-border-input text-md leading-relaxed"> {item.answer} </p>
                   </div>
               </div>
-          </div>
+          </article>
           )
       })
   }    

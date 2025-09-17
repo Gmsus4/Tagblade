@@ -10,20 +10,18 @@ import TitleSection from "../common/TitleSection.astro";
 <section 
   id="contacto" 
   class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
+  aria-label="Sección de contacto"
 >
   <div class="max-w-screen-xl mx-auto md:px-4 px-1 lg:py-16 p-8 pb-4 w-full">
-    <!-- <div class="text-center mb-16">
-      <TitleSection title={titles.contacto.title} />
-    </div> -->
-    
+
     <!-- Grid de contenido -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
       <!-- Columna izquierda: Formulario -->
-      <div class="col-span-1">
+      <article class="col-span-1">
         <div class="flex flex-col gap-4 mb-8">
-          <div class="lg:hidden flex">
+          <header class="lg:hidden flex">
             <TitleSection title="Contáctanos"/>
-          </div>
+          </header>
           <div>
             <span class="hidden lg:inline-block text-xl dark:text-dark-text">{titles.contacto.title}</span>
             <h3 class="text-4xl hidden lg:inline-block lg:text-6xl dark:text-dark-text">{titles.contacto.subtitle}</h3>
@@ -31,12 +29,12 @@ import TitleSection from "../common/TitleSection.astro";
           <p class="text-md hidden lg:inline-block dark:text-border-input">{titles.contacto.subtitle2}</p>
         </div>
         <FormContacto />
-      </div>
+      </article>
 
       <!-- Columna derecha: Info + Imagen -->
-      <div class="col-span-1 space-y-8">
+      <aside class="col-span-1 space-y-8">
         <!-- Imagen con overlay (solo desktop) -->
-        <div class="hidden lg:block relative rounded-sm overflow-hidden shadow-lg group">
+        <figure class="hidden lg:block relative rounded-sm overflow-hidden shadow-lg group">
           <Image 
             src="/contacto.webp" 
             alt="Ilustración de contacto" 
@@ -46,17 +44,15 @@ import TitleSection from "../common/TitleSection.astro";
             loading="lazy"
           />
           
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-            <div>
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
               <h3 class="text-white text-lg font-semibold mb-1"> Estamos listos para ayudarte </h3>
               <p class="text-gray-200 text-sm"> Tu proyecto web es nuestra prioridad </p>
-            </div>
-          </div>
-        </div>
+          </figcaption>
+        </figure>
 
         <!-- Información de contacto -->
         <InfoContacto email={contactInfo.email} phone={contactInfo.phone} horario={contactInfo.horario} socialMedia={contactInfo.socialMedia} whatsapp={true}/>
-      </div>
+      </aside>
     </div>
   </div>
 </section>
