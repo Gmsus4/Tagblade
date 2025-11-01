@@ -7,15 +7,23 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-    @theme {
-        /* Modo Claro */
+@theme {
+  /* Modo Claro */
+  --color-primary: #E9560A;              /* Color principal/acento (naranja) */
+  --color-background: #faf9f5;          /* Fondo principal de la aplicación */
+  --color-dark-background: #000;       /* Fondo principal muy oscuro y neutro */
+  --color-dark-surface: #151515;          /* Superficies como tarjetas (más claras para contraste) */
+  
+  /* --color-primary: #E9560A;      */         /* Color principal/acento (naranja) */
+  /* --color-background: #faf9f5;  */         /* Fondo principal de la aplicación */
+  /* --color-dark-background: #262624; */       /* Fondo principal muy oscuro y neutro */
+  /* --color-dark-surface: #222222;       */
+
         /* === FONDOS === */
-        --color-background: #faf9f5;          /* Fondo principal de la aplicación */
         --color-background-secondary: #f5f4ed;        /* Fondo secundario/tarjetas */
         --color-background-button: #eceadf;           /* Fondo de botones */
 
         /* === COLORES DE MARCA === */
-        --color-primary: #E9560A;              /* Color principal/acento (naranja) */
 
         /* === BORDES === */
         --color-border-default: #1f1e1d26;              /* Bordes generales */
@@ -31,9 +39,9 @@
         --color-indicator-inactive: #d5d5ce;          /* Indicadores inactivos */
         
         /* Modo Oscuro */
-        --color-dark-background: #262624;       /* Fondo principal muy oscuro y neutro */
+       
 
-        --color-dark-surface: #30302e;          /* Superficies como tarjetas (más claras para contraste) */
+        /* --color-dark-surface: #30302e;     */      /* Superficies como tarjetas (más claras para contraste) */
         --color-dark-primary: #F47B42;          /* Naranja suave pero cálido para mantener identidad */
         --color-dark-primary-hover: #F5AA8C;    /* Variante clara del acento, para hovers o énfasis */
         /* --color-dark-text: #F5F5F5;              */
@@ -42,7 +50,6 @@
         --color-dark-border: #2E2E2E;           /* Bordes oscuros apenas visibles pero funcionales */
 
         /* --color-dark-background: #171717;     */
-        /* --color-dark-surface: #222222;       */
 
 
 

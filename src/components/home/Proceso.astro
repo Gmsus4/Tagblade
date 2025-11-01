@@ -8,7 +8,7 @@ import { procesos } from '../../js/procesos';
       const Icon = proceso.icon;
       return (
         <li 
-          class="relative rounded-sm border border-0.5 border-border-default/85 bg-background/90 dark:bg-dark-surface dark:border-dark-border" data-popover-target={proceso.titleIcon}
+          class="relative rounded-lg bg-background/90 dark:bg-dark-surface shadow-lg transition-shadow duration-300" data-popover-target={proceso.titleIcon}
           aria-label={`Paso ${index + 1}: ${proceso.titleIcon}`}
         >
           <div class="absolute top-4 right-4 inline-flex items-center gap-2 bg-background-button dark:bg-dark-background rounded-sm px-3 py-1">

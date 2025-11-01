@@ -5,7 +5,7 @@ const { id, name, username, role, imageUrl, banner, socials = [] } = Astro.props
 
 <article class="relative inline-block" aria-labelledby={`profile-${id}-name`} aria-describedby={`profile-${id}-role`}>
   <!-- Main Avatar Card -->
-  <div class="relative bg-white parent-hover overflow-hidden border border-border-default dark:bg-dark-surface rounded-sm p-4 transition-all duration-500 ease-out">
+  <div class="relative bg-white parent-hover overflow-hidden shadow-lg rounded-lg dark:bg-dark-surface rounded-sm p-4 transition-all duration-500 ease-out">
     <!-- Header with Banner -->
     <div class="relative -mx-4 -mt-4 mb-4 h-20 sm:h-24 overflow-hidden">
       <Image
