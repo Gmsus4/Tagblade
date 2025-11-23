@@ -27,48 +27,48 @@ const {
   </h3> -->
 
    {email && (
-        <div class="flex items-center gap-4">
+        <a target="_blank" href={`mailto:${email}`} class="flex items-center gap-4 group">
             <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
                 <Email class="text-primary"/>
             </div>
             <div>
                 <p class="text-sm text-gray-500 dark:text-gray-400">Correo electrónico</p>
-                <a href={`mailto:${email}`} class="text-dark-background dark:text-background hover:text-primary dark:hover:text-primary transition-colors">
+                <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
                     {email}
-                </a>
+                </span>
             </div>
-        </div>
+        </a>
    )}
 
   {
     phone && (
-        <div class="flex items-center gap-4">
+        <a target="_blank" href={`tel:${phone}`} class="flex items-center gap-4 group">
             <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
                 <Phone class="text-primary"/>
             </div>
             <div>
                 <p class="text-sm text-gray-500 dark:text-gray-400">Teléfono</p>
-                <a href={`tel:${phone}`} class="text-dark-background dark:text-background hover:text-primary dark:hover:text-primary transition-colors">
+                <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
                     +52 {phone}
-                </a>
+                </span>
             </div>
-        </div>
+        </a>
     )
   }
 
   {
     whatsapp && (
-        <div class="flex items-center gap-4">
+         <a href={`https://wa.me/52${phone}`} class="flex items-center gap-4 group">
             <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
                 <Whatsapp class="text-primary"/>
             </div>
             <div>
                 <p class="text-sm text-gray-500 dark:text-gray-400">WhatsApp</p>
-                <a href={`https://wa.me/52${phone}`} class="text-dark-background dark:text-background hover:text-primary dark:hover:text-primary transition-colors">
+                <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
                     +52 {phone}
-                </a>
+                </span>
             </div>
-        </div>
+        </a>
     )  
   }
 
@@ -96,19 +96,19 @@ const {
         socialMedia.map((media, index) => {
             const Icon = media.icon;
             return (
-                <div class="flex items-center gap-4">
-                    <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
-                        <Icon class="h-6 w-6 text-primary"/>                    
-                    </div>
-                    <div>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                            {media.name}
-                        </p>
-                        <a target="_blank" href={media.url} class="text-dark-background dark:text-background hover:text-primary dark:hover:text-primary transition-colors">
-                            Ir al perfil
-                        </a>
-                    </div>
+            <a target="_blank" href={media.url} class="flex items-center gap-4 group">
+                <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
+                    <Icon class="h-6 w-6 text-primary"/>                    
                 </div>
+                <div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {media.name}
+                    </p>
+                    <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
+                        Ir al perfil
+                    </span>
+                </div>
+            </a>
             )
         })
     )
