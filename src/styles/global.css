@@ -76,6 +76,40 @@ body {
     color: var(--color-text-primary);
   }
 
+
+/* ===== EFECTO DE CRISTAL EN LA IMAGEN ===== */
+.image-container {
+  position: relative;
+}
+
+/* Marco de escarcha */
+.frost-frame {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+    linear-gradient(225deg, rgba(147, 197, 253, 0.15) 0%, transparent 40%);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.image-container:hover .frost-frame {
+  opacity: 1;
+  animation: frost-pulse 3s ease-in-out infinite;
+}
+
+/* Esquinas con cristales de hielo */
+.ice-corners {
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.4) 0%, transparent 15%),
+    radial-gradient(circle at 100% 0%, rgba(147, 197, 253, 0.3) 0%, transparent 15%),
+    radial-gradient(circle at 0% 100%, rgba(186, 230, 253, 0.35) 0%, transparent 15%),
+    radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.4) 0%, transparent 15%);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.image-container:hover .ice-corners {
+  opacity: 1;
+}
 /* <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icon} />
 </svg> */

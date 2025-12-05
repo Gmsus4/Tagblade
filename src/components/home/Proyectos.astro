@@ -11,7 +11,10 @@ import TitleSection from '../common/TitleSection.astro';
     <!-- Grid mejorado de proyectos -->
     <div class="grid gap-6 mt-10 grid-cols-[repeat(auto-fit,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
       {proyectos.map((proyecto, index) => (
-        <div class="rounded-lg bg-background/90 dark:bg-dark-surface shadow-lg overflow-hidden transition-all duration-300 group hover:shadow-lg relative">
+        <div class="project-card rounded-xl bg-background/90 dark:bg-dark-surface shadow-lg overflow-hidden transition-all duration-300 group relative border border-gray-200/50 dark:border-gray-700/50">
+          {/* Efecto de hielo sutil */}
+          <div class="ice-effect absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700 z-10"></div>
+          
           <div class="relative overflow-hidden h-48">
             <img 
               src={proyecto.urlImage} 
@@ -20,18 +23,18 @@ import TitleSection from '../common/TitleSection.astro';
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
-            <span class="absolute top-3 right-3 bg-primary/90 text-white text-xs px-3 py-1 rounded-full shadow-sm">
+            <span class="absolute top-3 right-3 bg-primary/90 text-white text-xs px-3 py-1 rounded-full shadow-sm z-20">
               {proyecto.type}
             </span>
           </div>
           
           {/* Contenido del proyecto */}
-          <div class="p-6">
+          <div class="p-6 relative z-20">
 
             {/* Titulo del proyecto */}
             <h3 class="text-xl font-semibold dark:text-white mb-2 group-hover:text-primary transition-colors duration-300">
               {proyecto.title}
-              <div class="h-1 w-8 bg-primary/40 mt-2 transition-all duration-300 group-hover:w-16"></div>
+              <div class="h-1 w-8 bg-primary/40 mt-2 transition-all duration-300 group-hover:w-16 group-hover:bg-primary/60"></div>
             </h3>
             
             {/* Descripcion del proyecto */}
@@ -77,8 +80,99 @@ import TitleSection from '../common/TitleSection.astro';
               </svg>
             </a>
           </div>
+
+          <img src="/christmas/snowflake.png" alt="" class="snowflake-icon absolute bottom-4 right-4 w-8 h-8 z-20 transition-all duration-500" />
         </div>
       ))}
-    </>
+    </div>
   </div>
 </section>
+
+<style>
+  .project-card {
+    position: relative;
+  }
+
+  /* Hover suave y elegante */
+  .project-card:hover {
+    border-color: rgba(147, 197, 253, 0.4);
+    box-shadow: 0 10px 35px rgba(59, 130, 246, 0.15);
+    transform: translateY(-4px);
+  }
+
+  /* Efecto de hielo muy sutil */
+  .ice-effect {
+    background: 
+      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 75% 75%, rgba(147, 197, 253, 0.1) 0%, transparent 60%);
+  }
+
+  .project-card:hover .ice-effect {
+    opacity: 1;
+  }
+
+  /* Brillo sutil en el borde */
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    padding: 1px;
+    background: linear-gradient(135deg, 
+      rgba(147, 197, 253, 0.25),
+      rgba(186, 230, 253, 0.2),
+      rgba(147, 197, 253, 0.25)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+  }
+
+  .project-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Pequeñas partículas de escarcha */
+  .project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    background-image: 
+      radial-gradient(circle, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+    background-size: 70px 70px;
+    background-position: 0 0;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .project-card:hover::after {
+    opacity: 0.25;
+    animation: soft-frost 18s linear infinite;
+  }
+
+  @keyframes soft-frost {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 70px;
+    }
+  }
+
+  /* Efecto sutil en el copo de nieve */
+  .project-card:hover .snowflake-icon {
+    filter: drop-shadow(0 0 6px rgba(147, 197, 253, 0.5)) brightness(1.15);
+    transform: rotate(15deg) scale(1.1);
+  }
+
+  /* Efecto adicional en la imagen al hacer hover */
+  .project-card:hover img:first-of-type {
+    filter: brightness(1.05);
+  }
+</style>
