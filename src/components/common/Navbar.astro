@@ -3,13 +3,7 @@ import Logo from "./Logo.astro";
 import HamburgerButton from "./HamburgerButton.astro";
 import DarkModeToggle from "./DarkModeToggle.astro";
 import LinksNavbar from "./LinksNavbar.astro";
-import { navbarLinksOutside as linksOutside, navbarLinks as linksInside} from "../../js/navbarLinks";
-
-export interface Props {
-  isLinksOutside?: boolean
-}
-
-const { isLinksOutside = false } = Astro.props
+import { navbarLinks } from "../../js/navbarLinks";
 ---
 
 <style>
@@ -22,10 +16,13 @@ const { isLinksOutside = false } = Astro.props
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <Logo />
     <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse items-center lg:gap-6 gap-2">
+        <button id="toggleSnow" class="cursor-pointer">
+          <img src="/christmas/snowflake.png" alt="" class="w-5 h-5">
+        </button>
         <DarkModeToggle />
         <HamburgerButton />
     </div>
-    <LinksNavbar links={ isLinksOutside ? linksOutside : linksInside}/>
+    <LinksNavbar links={ navbarLinks }/>
   </div>
 </nav>
 
@@ -53,4 +50,37 @@ const { isLinksOutside = false } = Astro.props
       });
     });
   });
+
+  // Marcar enlace activo según la URL
+  const setActiveLink = () => {
+    const currentUrl = window.location.pathname + window.location.hash;
+    const links = document.querySelectorAll('#navbar-default a');
+
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+
+      // Quitar clase
+      link.classList.remove('active');
+
+      // Comparación ruta y hash
+      if (href === currentUrl || href === window.location.pathname) {
+        link.classList.add('active');
+      }
+    });
+  };
+
+  setActiveLink();
+  window.addEventListener('hashchange', setActiveLink);
+
+
+  // Toggle de copos de nieve
+  const btn = document.getElementById("toggleSnow");
+  const snow = document.getElementById("snowflakes");
+
+  btn.addEventListener("click", () => {
+    snow.classList.toggle("hidden");
+    localStorage.setItem("snow-active", snow.classList.contains("hidden") ? "0" : "1");
+  });
 </script>
+
+

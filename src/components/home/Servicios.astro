@@ -8,14 +8,20 @@ import TitleSection from '../common/TitleSection.astro';
   class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
   aria-label="Sección de Servicios"
 >
-  <div class="max-w-screen-xl mx-auto lg:py-16 lg:p-12 px-0 py-12" data-aos="fade-up">
-    <TitleSection title={titles.servicios.title} />
+  <div class="max-w-screen-xl mx-auto lg:py-16 lg:p-12 px-0 py-12">
+    <div data-aos="fade-down" data-aos-duration="700">
+      <TitleSection title={titles.servicios.title} />
+    </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative mt-10">
       {
         servicios.map((servicio, index) => {
           const Icon = servicio.icon;
           return (
-            <article class="service-card rounded-xl bg-white dark:bg-dark-surface p-8 md:p-10 transition-all duration-300 group relative overflow-hidden border border-gray-200/50 dark:border-gray-700/50">              
+            <article 
+              class="service-card rounded-xl bg-white dark:bg-dark-surface p-8 md:p-10 transition-all duration-300 group relative overflow-hidden border border-gray-200/50 dark:border-gray-700/50"
+              data-aos="fade-up" 
+              data-aos-duration="800" 
+              data-aos-delay={index * 100}>              
               {/* Efecto de hielo sutil */}
               <div class="ice-overlay absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700"></div>
               

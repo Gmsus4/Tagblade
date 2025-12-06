@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/common/Navbar.astro";
+import Footer from "../components/home/Footer.astro";
+import PlanesSection from "../components/home/Planes.astro";
+
+import "../styles/global.css";
+import '@fontsource-variable/onest';
+---
+
+<Layout>
+    <Navbar />
+    <div class="pt-16">
+        <PlanesSection />
+    </div>
+    <Footer />
+</Layout>

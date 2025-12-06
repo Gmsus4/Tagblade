@@ -6,7 +6,7 @@ export interface Props {
 
 const {title, url} = Astro.props
 ---
-<a href={url} class="hidden rounded-full cursor-pointer bg-background-button dark:bg-dark-surface border border-border-default dark:border-border-input/10 2xl:flex items-center gap-1 py-2 px-4 text-text-btnScroll text-md font-medium">
+<a href={url} class="rounded-full cursor-pointer bg-background-button dark:bg-dark-surface border border-border-default dark:border-border-input/10 flex items-center gap-1 py-2 px-4 text-text-btnScroll text-md font-medium">
     {title}
     <slot></slot>
 </a>

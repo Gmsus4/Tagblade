@@ -11,13 +11,19 @@ const images = [
 ---
 <section 
   id="planes" class="flex items-center justify-center min-h-screen bg-background-secondary dark:bg-dark-background scroll-mt-12" aria-label="Sección de planes">
-  <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 py-12 flex w-full flex-col items-center justify-center" data-aos="fade-up">
-   <TitleSection title={data.planes.title} />
+  <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 py-12 flex w-full flex-col items-center justify-center">
+   <div data-aos="fade-down" data-aos-duration="700">
+     <TitleSection title={data.planes.title} />
+   </div>
     
     <div class="mt-8 w-full m-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
       {
          planes.map((plan, index) => (
-            <a href="#contacto" class={`plan-card relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} gap-10 bg-background/90 dark:bg-dark-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden transition-all duration-500 border-2 border-primary/20 dark:border-primary/30 cursor-pointer no-underline`}>
+            <a href="/contacto" 
+               class={`plan-card relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} gap-10 bg-background/90 dark:bg-dark-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden transition-all duration-500 border-2 border-primary/20 dark:border-primary/30 cursor-pointer no-underline`}
+               data-aos="fade-up" 
+               data-aos-duration="800" 
+               data-aos-delay={index * 100}>
                {/* Efecto de hielo en hover */}
                <div class="ice-effect absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-500"></div>
                

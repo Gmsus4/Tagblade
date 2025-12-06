@@ -5,13 +5,19 @@ import TitleSection from '../common/TitleSection.astro';
 ---
 
 <section id="proyectos" class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background-secondary dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]" aria-label="Sección de Proyectos">
-  <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 relative py-12" data-aos="fade-up" data-aos-duration="1000">
-    <TitleSection title={titles.proyectos.title} />
+  <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 relative py-12">
+    <div data-aos="fade-in" data-aos-duration="600">
+      <TitleSection title={titles.proyectos.title} />
+    </div>
 
     <!-- Grid mejorado de proyectos -->
     <div class="grid gap-6 mt-10 grid-cols-[repeat(auto-fit,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
       {proyectos.map((proyecto, index) => (
-        <div class="rounded-xl bg-background/90 dark:bg-dark-surface shadow-lg overflow-hidden transition-all duration-300 group relative border border-gray-200/50 dark:border-gray-700/50">
+        <div 
+          class="rounded-xl bg-background/90 dark:bg-dark-surface shadow-lg overflow-hidden transition-all duration-300 group relative border border-gray-200/50 dark:border-gray-700/50"
+          data-aos="zoom-in" 
+          data-aos-duration="600" 
+          data-aos-delay={index * 80}>
           {/* Efecto de hielo sutil */}
           <div class="absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700 z-10"></div>
           
@@ -44,11 +50,9 @@ import TitleSection from '../common/TitleSection.astro';
             
             {/* Tecnologías */}
             <div class="flex flex-wrap gap-2 mb-4 cursor-default">
-              {proyecto.technologies.map((tech, techIndex) => (
+              {proyecto.technologies.map((tech) => (
                 <span 
                   class="text-xs bg-background-secondary text-text-secundary dark:bg-dark-background dark:text-gray-200 px-2 py-1 rounded-full"
-                  data-aos="zoom-in" 
-                  data-aos-delay={`${(techIndex * 50) + 200}`}
                 >
                   {tech}
                 </span>

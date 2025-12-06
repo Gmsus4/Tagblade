@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/common/Navbar.astro";
+import Footer from "../components/home/Footer.astro";
+
+import "../styles/global.css";
+import '@fontsource-variable/onest';
+
+import { Image } from "astro:assets";
+import TitleSection from "../components/common/TitleSection.astro";
+import FAQ from "../components/common/FAQ.astro";
+---
+
+<Layout>
+    <Navbar />
+        <section class="md:px-20 pt-32 sm:px-10 px-5 w-full bg-background dark:bg-dark-background flex items-start justify-center h-auto lg:min-h-screen" aria-label="Sección de preguntas frecuentes">
+        <div class="max-w-screen-xl mx-auto md:px-4 px-1 lg:py-16 p-8 pb-4 md:grid grid-cols-7 gap-14 items-start pt-20 hidden w-full">
+            <figure class="image-container col-span-7 hidden xl:flex xl:col-span-3 h-[600px]">
+            <div class="frost-frame absolute inset-0 rounded-xl pointer-events-none z-10"></div>
+            <div class="ice-corners absolute inset-0 rounded-xl pointer-events-none z-20"></div>
+            <Image src="/faqs.webp" alt="Cuaderno con notas manuscritas junto a café y teléfono — sección de preguntas frecuentes." width="50" height="50" class="rounded-sm hidden md:flex w-full object-cover"/>
+            </figure>
+            <div class="col-span-7 xl:col-span-4 grid gap-8">
+            <h2 class="text-4xl max-w-5xl w-full mb-4 hidden xl:inline dark:text-dark-text">Preguntas <span class="text-6xl"><br>Frecuentes</span></h2>
+            <div class="xl:hidden flex">
+                <TitleSection title="Preguntas frecuentes"/>
+            </div>
+            <div>
+                <FAQ />
+            </div>
+            </div>
+        </div>
+        <div class="col-span-7 xl:col-span-4 px-2 grid gap-8 md:hidden">
+            <h2 class="text-4xl max-w-5xl w-full mb-4 hidden xl:inline dark:text-dark-text">Preguntas <span class="text-6xl"><br>Frecuentes</span></h2>
+            <div class="xl:hidden flex">
+            <TitleSection title="Preguntas frecuentes"/>
+            </div>
+            <div>
+            <FAQ />
+            </div>
+        </div>
+        </section>
+    <Footer />
+</Layout>

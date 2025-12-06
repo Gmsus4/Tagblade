@@ -17,7 +17,7 @@ import TitleSection from "../common/TitleSection.astro";
     <!-- Grid de contenido -->
     <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
       <!-- Columna izquierda: Formulario -->
-      <article class="col-span-1">
+      <article class="col-span-1" data-aos="fade-right" data-aos-duration="700">
         <div class="flex flex-col gap-4 mb-8">
           <header class="lg:hidden flex">
             <TitleSection title="Contáctanos"/>
@@ -32,9 +32,9 @@ import TitleSection from "../common/TitleSection.astro";
       </article>
 
       <!-- Columna derecha: Info + Imagen -->
-      <aside class="col-span-1 space-y-8">
+      <aside class="col-span-1 space-y-8" data-aos="fade-left" data-aos-duration="700">
         <!-- Imagen con overlay (solo desktop) -->
-        <figure class="hidden lg:block relative rounded-sm overflow-hidden shadow-lg group">
+        <figure class="hidden lg:block relative rounded-sm overflow-hidden shadow-lg group" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
           <Image 
             src="/contacto.webp" 
             alt="Ilustración de contacto" 
@@ -51,10 +51,12 @@ import TitleSection from "../common/TitleSection.astro";
         </figure>
 
         <!-- Información de contacto -->
-        <InfoContacto email={contactInfo.email} phone={contactInfo.phone} horario={contactInfo.horario} socialMedia={contactInfo.socialMedia} whatsapp={true}/>
+        <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+          <InfoContacto email={contactInfo.email} phone={contactInfo.phone} horario={contactInfo.horario} socialMedia={contactInfo.socialMedia} whatsapp={true}/>
+        </div>
 
-         <img src="/christmas/letter.png" alt="" class="absolute right-0 bottom-0 w-20 h-20 lg:w-26 lg:h-26 hidden md:block"/>
       </aside>
+      <img src="/christmas/letter.png" alt="" class="absolute right-0 bottom-0 w-20 h-20 lg:w-26 lg:h-26 hidden md:block" data-aos="fade-in" data-aos-duration="500" data-aos-delay="300"/>
     </div>
   </div>
 </section>

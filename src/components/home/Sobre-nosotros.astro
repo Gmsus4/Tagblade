@@ -11,8 +11,10 @@ import Proceso from "./Proceso.astro";
   </div>
   
   <div class="max-w-screen-xl mx-auto lg:py-16 py-12 relative z-10">
-    <TitleSection title={titles.sobreNosotros.title} />
-    <div class="grid gap-16 m-auto items-center mt-10">
+    <div data-aos="fade-down" data-aos-duration="800">
+      <TitleSection title={titles.sobreNosotros.title} />
+    </div>
+    <div class="grid gap-16 m-auto items-center mt-10" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
       <div class="h-full z-10 relative">
         <div class="absolute -left-4 -top-4 w-24 h-24 bg-primary-hover/10 dark:bg-surface/10 rounded-full"></div>
         <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary-hover/10 dark:bg-surface/10 rounded-full"></div>
@@ -22,7 +24,7 @@ import Proceso from "./Proceso.astro";
     
     <div class="mt-20 space-y-16">
       <div class="flex lg:flex-row flex-col lg:gap-20 gap-10">
-        <article class="z-1">
+        <article class="z-1" data-aos="fade-right" data-aos-duration="700">
           <h3 class="text-primary font-extrabold mb-2 text-2xl relative">
             Nuestro enfoque
             <div class="absolute -left-3 top-0 w-1 h-8 bg-primary-hover dark:bg-surface rounded-r-md"></div>
@@ -32,7 +34,7 @@ import Proceso from "./Proceso.astro";
           </p>
         </article>
 
-        <article class="z-1">
+        <article class="z-1" data-aos="fade-left" data-aos-duration="700">
           <h3 class="text-primary font-extrabold mb-2 text-2xl relative text-right">
             Nuestra historia
             <div class="absolute -right-3 top-0 w-1 h-8 bg-primary-hover dark:bg-surface rounded-l-md"></div>
@@ -43,7 +45,7 @@ import Proceso from "./Proceso.astro";
         </article>
       </div>
     </div>
-    <article class="mt-16">
+    <article class="mt-16" data-aos="fade-up" data-aos-duration="700">
         <h3 class="text-primary font-extrabold mb-2 text-2xl relative">
           Mirando hacia adelante
           <div class="absolute -left-3 top-0 w-1 h-8 bg-primary-hover dark:bg-surface rounded-r-md"></div>
@@ -60,6 +62,8 @@ import Proceso from "./Proceso.astro";
           Cada paso está pensado para dar <span class="font-medium text-primary-hover dark:text-surface">seguridad, acompañamiento y resultados medibles</span>.
         </p>
       </article>
-    <Proceso />
+    <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+      <Proceso />
+    </div>
   </div>
 </section>
