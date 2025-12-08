@@ -59,14 +59,28 @@ import { navbarLinks } from "../../js/navbarLinks";
 
   // Marcar enlace activo según la URL
   function setActiveLink() {
-    const currentUrl = window.location.pathname + window.location.hash;
+    // Normalizar URLs (quitar barra final para comparar)
+    const normalize = (url: string) => url.replace(/\/$/, '') || '/';
+    
+    const currentPath = normalize(window.location.pathname);
+    const currentHash = window.location.hash;
+    const currentFull = currentPath + currentHash;
+    
     const links = document.querySelectorAll('#navbar-default a');
 
     links.forEach(link => {
       const href = link.getAttribute('href');
+      if (!href) return;
+
       link.classList.remove('active');
 
-      if (href === currentUrl || href === window.location.pathname) {
+      // Normalizar href del link
+      const normalizedHref = normalize(href.split('#')[0]);
+      const linkHash = href.includes('#') ? '#' + href.split('#')[1] : '';
+      const fullHref = normalizedHref + linkHash;
+
+      // Comparar rutas normalizadas
+      if (fullHref === currentFull || normalizedHref === currentPath) {
         link.classList.add('active');
       }
     });
