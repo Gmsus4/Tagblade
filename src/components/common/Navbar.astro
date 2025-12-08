@@ -27,13 +27,18 @@ import { navbarLinks } from "../../js/navbarLinks";
 </nav>
 
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.querySelector('[data-collapse-toggle]');
+<script>
+  // Función para inicializar todo
+  function initNavbar() {
+    const toggleButton = document.querySelector('[data-collapse-toggle]') as HTMLElement;
     const menu = document.getElementById('navbar-default');
 
+    if (!toggleButton || !menu) return;
+
+    // Cerrar menú al hacer click fuera
     document.addEventListener('click', (event) => {
-      const isClickInside = toggleButton.contains(event.target) || menu.contains(event.target);
+      const target = event.target as Node;
+      const isClickInside = toggleButton.contains(target) || menu.contains(target);
       const isVisible = !menu.classList.contains('hidden');
 
       if (!isClickInside && isVisible) {
@@ -41,6 +46,7 @@ import { navbarLinks } from "../../js/navbarLinks";
       }
     });
 
+    // Cerrar menú al hacer click en enlaces (mobile)
     const navLinks = menu.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -49,38 +55,63 @@ import { navbarLinks } from "../../js/navbarLinks";
         }
       });
     });
-  });
+  }
 
   // Marcar enlace activo según la URL
-  const setActiveLink = () => {
+  function setActiveLink() {
     const currentUrl = window.location.pathname + window.location.hash;
     const links = document.querySelectorAll('#navbar-default a');
 
     links.forEach(link => {
       const href = link.getAttribute('href');
-
-      // Quitar clase
       link.classList.remove('active');
 
-      // Comparación ruta y hash
       if (href === currentUrl || href === window.location.pathname) {
         link.classList.add('active');
       }
     });
-  };
-
-  setActiveLink();
-  window.addEventListener('hashchange', setActiveLink);
-
+  }
 
   // Toggle de copos de nieve
-  const btn = document.getElementById("toggleSnow");
-  const snow = document.getElementById("snowflakes");
+  function initSnowToggle() {
+    const btn = document.getElementById("toggleSnow") as HTMLElement;
+    const snow = document.getElementById("snowflakes");
 
-  btn.addEventListener("click", () => {
-    snow.classList.toggle("hidden");
-    localStorage.setItem("snow-active", snow.classList.contains("hidden") ? "0" : "1");
+    if (!btn || !snow) return;
+
+    // Restaurar estado guardado
+    const snowActive = localStorage.getItem("snow-active");
+    if (snowActive === "0") {
+      snow.classList.add("hidden");
+    }
+
+    btn.addEventListener("click", () => {
+      snow.classList.toggle("hidden");
+      localStorage.setItem("snow-active", snow.classList.contains("hidden") ? "0" : "1");
+    });
+  }
+
+  // Inicializar todo cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar();
+      setActiveLink();
+      initSnowToggle();
+    });
+  } else {
+    // DOM ya está listo
+    initNavbar();
+    setActiveLink();
+    initSnowToggle();
+  }
+
+  // Actualizar enlace activo en cambios de hash
+  window.addEventListener('hashchange', setActiveLink);
+
+  // Re-inicializar después de navegación (para SPAs de Astro)
+  document.addEventListener('astro:page-load', () => {
+    initNavbar();
+    setActiveLink();
+    initSnowToggle();
   });
 </script>
-
-
