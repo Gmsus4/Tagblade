@@ -1,54 +1,146 @@
 ---
-import Logo from "../common/Logo.astro";
+import { contactInfo } from "../../js/contactInfo";
+const socialMedia = contactInfo.socialMedia;
+const currentYear = new Date().getFullYear();
+const footerLinks = {
+  servicios: [
+    { label: "Desarrollo Web", href: "/servicios" },
+    { label: "Diseño UI/UX", href: "/servicios#diseno" },
+    { label: "Optimización SEO", href: "/servicios#seo" },
+    { label: "Mantenimiento Web", href: "/planes#partner" }
+  ],
+  empresa: [
+    { label: "Proyectos", href: "/proyectos" },
+    { label: "Sobre Nosotros", href: "/sobre-nosotros" },
+    { label: "Planes y Precios", href: "/planes" },
+    { label: "Contacto", href: "/contacto" }
+  ],
+  recursos: [
+    { label: "Preguntas Frecuentes", href: "/faqs" },
+    { label: "Proceso de Trabajo", href: "/planes#proceso" },
+    // { label: "Casos de Éxito", href: "/proyectos#casos" }
+  ],
+  legal: [
+    { label: "Términos y condiciones", href: "/terminos-condiciones" },
+    { label: "Aviso de privacidad", href: "/privacidad" }
+  ]
+};
 ---
 
-<footer class="md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background" aria-label="Footer">
-    <div class=" mx-auto w-full max-w-screen-xl pt-20 pb-6 lg:py-8 px-4">
-      <div class="md:flex md:justify-between">
-        <div class="mb-6 md:mb-0">
-          <Logo loading={"lazy"}/>
+<footer class="relative bg-background-secondary dark:bg-dark-surface">
+  <div class="relative max-w-screen-xl mx-auto px-10 py-12 lg:py-16">
+    <!-- Main footer content -->
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 lg:gap-12 mb-12">
+      <!-- Brand + descripción + redes (siempre a la izquierda en desktop) -->
+      <div class="xl:col-span-4 space-y-8">
+        <div class="space-y-5">
+          <a href="/" class="inline-flex items-center gap-3 group">
+            <img src="/tagblade.jpg" alt="" class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
+            <!-- <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-white font-bold text-xl">T</span>
+            </div> -->
+            <span class="text-2xl font-bold text-text-primary dark:text-background">Tagblade</span>
+          </a>
+          
+          <p class="text-text-secundary dark:text-text-btnScroll leading-relaxed max-w-sm text-base">
+            Transformamos ideas en experiencias digitales excepcionales. Desarrollo web moderno con tecnologías de vanguardia.
+          </p>
         </div>
-        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-          <div>
-            <h2 class="mb-6 text-sm font-semibold text-dark-background uppercase dark:text-background">Recursos</h2>
-            <ul class="text-gray-500 dark:text-gray-400 font-medium">
-              <li class="mb-4">
-                <a href="/blog" class="hover:underline" 
-                >Blog</a>
-              </li>
-              <li>
-                <a href="/guia-de-estilos" class="hover:underline">Guía de estilos</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Síguenos</h2>
-            <ul class="text-gray-500 dark:text-gray-400 font-medium">
-              <li class="mb-4">
-                <a href="https://x.com/Tagbladex" class="hover:underline" target="_blank" rel="noopener noreferrer">X</a>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/tagblade" class="hover:underline" target="_blank" rel="noopener noreferrer">Instagram</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-            <ul class="text-gray-500 dark:text-gray-400 font-medium">
-              <li class="mb-4">
-                <a href="/privacidad" class="hover:underline">Aviso de privacidad</a>
-              </li>
-              <li>
-                <a href="/terminos-condiciones" class="hover:underline">Términos y condiciones</a>
-              </li>
-            </ul>
-          </div>
+
+        <!-- Redes sociales -->
+        <div class="flex flex-wrap gap-3">
+          { socialMedia!.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                  <a href={item.url} target="_blank" class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary/20 hover:bg-primary hover:scale-110 flex items-center justify-center text-primary hover:text-white transition-all duration-300 group" aria-label={item.name}>
+                      <Icon class="h-6 w-6" />
+                  </a>
+              )} )
+          }
         </div>
       </div>
-      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-      <div class="sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="/" class="hover:underline">Tagblade™</a>. Todos los derechos reservados.</span>
+
+      <!-- Enlaces – Mejor distribución según pantalla -->
+      <div class="xl:col-span-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 gap-8 lg:gap-10">
+        <!-- Servicios -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider">
+            Servicios
+          </h3>
+          <ul class="space-y-3">
+            {footerLinks.servicios.map((link) => (
+              <li>
+                <a 
+                  href={link.href}
+                  class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group">
+                  <span class="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Empresa -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider">
+            Empresa
+          </h3>
+          <ul class="space-y-3">
+            {footerLinks.empresa.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group">
+                  <span class="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Recursos -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider">
+            Recursos
+          </h3>
+          <ul class="space-y-3">
+            {footerLinks.recursos.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group">
+                  <span class="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider">
+            Legal
+          </h3>
+          <ul class="space-y-3">
+            {footerLinks.legal.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group">
+                  <span class="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
-  </footer>
-  
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <p class="text-sm text-text-secundary dark:text-text-btnScroll">
+        © {currentYear} <span class="font-semibold text-primary">Tagblade</span>. Todos los derechos reservados.
+      </p>
+      
+      <div class="flex items-center justify-center gap-2 text-sm text-text-secundary dark:text-text-btnScroll">
+        <span>Hecho con</span>
+        <span class="text-red-500 animate-pulse">❤️</span>
+        <span>en México</span>
+      </div>
+    </div>
+  </div>
+</footer>

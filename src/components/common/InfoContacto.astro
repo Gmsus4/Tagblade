@@ -19,99 +19,78 @@ const {
   socialMedia
 } = Astro.props;
 
+
+const info = [
+    { 
+        name: "Email", 
+        href: `mailto:${email}`,
+        title: "Correo electrónico",
+        text: email,
+        icon:  Email,
+    },
+    { 
+        name: "Teléfono", 
+        href: `tel:${phone}`,
+        title: "Teléfono",
+        text: `+52 ${phone}`,
+        icon:  Phone,
+    },
+    { 
+        name: "WhatsApp", 
+        href: `https://wa.me/52${phone}`,
+        title: "WhatsApp",
+        text: `+52 ${phone}`,
+        icon:  Whatsapp,
+    },
+    { 
+        name: "Horario de atención", 
+        href: null,
+        title: "Horario de atención",
+        text: horario,
+        icon:  Clock,
+    },
+];
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 gap-x-10 px-0 py-6">
   <!-- <h3 class="md:text-2xl col-span-1 md:col-span-2 lg:col-span-1 xl:col-span-2 text-dark-background dark:text-white text-2xl">
     Información de Contacto
   </h3> -->
-
-   {email && (
-        <a target="_blank" href={`mailto:${email}`} class="flex items-center gap-4 group">
-            <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
-                <Email class="text-primary"/>
-            </div>
-            <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Correo electrónico</p>
-                <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
-                    {email}
-                </span>
-            </div>
-        </a>
-   )}
-
-  {
-    phone && (
-        <a target="_blank" href={`tel:${phone}`} class="flex items-center gap-4 group">
-            <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
-                <Phone class="text-primary"/>
-            </div>
-            <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Teléfono</p>
-                <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
-                    +52 {phone}
-                </span>
-            </div>
-        </a>
-    )
-  }
-
-  {
-    whatsapp && (
-         <a href={`https://wa.me/52${phone}`} class="flex items-center gap-4 group">
-            <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
-                <Whatsapp class="text-primary"/>
-            </div>
-            <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400">WhatsApp</p>
-                <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
-                    +52 {phone}
-                </span>
-            </div>
-        </a>
-    )  
-  }
-
-
-  {
-    horario && (
-        <div class="flex items-center gap-4">
-            <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
-                <Clock class="text-primary"/>
-            </div>
-            <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                    Horario de atención
-                </p>
-                <p class="text-dark-background dark:text-background">
-                    {horario}
-                </p>
-            </div>
-        </div>
-    )
-  }
-
-  {
-    socialMedia && (
-        socialMedia.map((media, index) => {
-            const Icon = media.icon;
+    {
+        info.map((item, index) => {
+            const Icon = item.icon;
             return (
-            <a target="_blank" href={media.url} class="flex items-center gap-4 group">
-                <div class="bg-primary/10 dark:bg-primary/20 p-3 rounded-sm">
-                    <Icon class="h-6 w-6 text-primary"/>                    
-                </div>
-                <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                        {media.name}
-                    </p>
-                    <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
-                        Ir al perfil
-                    </span>
-                </div>
-            </a>
+                <a href={item.href} target="_blank" class="flex items-center gap-4 justify-start text-primary hover:text-white group">
+                    <div class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary/20 group-hover:bg-primary group-hover:scale-110 grid place-items-center transition-all duration-300">
+                        <Icon />
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">{item.title}</p>
+                        <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
+                            {item.text}
+                        </span>
+                    </div>
+                </a>
             )
         })
-    )
-  }
-
+    }
+    
+    {
+        socialMedia!.map((item, index) => {
+            const Icon = item.icon;
+            return (
+                <a href={item.url} target="_blank" class="flex items-center gap-4 justify-start text-primary hover:text-white group">
+                    <div class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary/20 group-hover:bg-primary group-hover:scale-110 grid place-items-center transition-all duration-300">
+                        <Icon class="h-6 w-6" />
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">{item.name}</p>
+                        <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
+                            Ir al perfil
+                        </span>
+                    </div>
+                </a>
+            )
+        })
+    }
 </div>

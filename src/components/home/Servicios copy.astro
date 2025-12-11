@@ -1,0 +1,172 @@
+---
+import { titles } from '../../js/titles';
+import { servicios } from '../../js/servicios';
+import TitleSection from '../common/TitleSection.astro';
+
+const serviceSlugMap = {
+  "Diseño web": "diseno-web",
+  "Desarrollo web": "desarrollo-web",
+  "Dominio y hosting": "dominio-hosting",
+  "Optimización de velocidad": "optimizacion-velocidad",
+  "Mantenimiento web": "mantenimiento-web",
+  "Asesoría técnica": "asesoria-tecnica"
+};
+---
+<section
+  id="servicios"
+  class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
+  aria-label="Sección de Servicios"
+>
+  <div class="max-w-screen-xl mx-auto lg:py-16 lg:p-12 px-0 py-12">
+    <div data-aos="fade-down" data-aos-duration="700">
+      <TitleSection title={titles.servicios.title} />
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative mt-10">
+      {
+        servicios.map((servicio, index) => {
+          const Icon = servicio.icon;
+          const slug = serviceSlugMap[servicio.title as keyof typeof serviceSlugMap];
+          return (
+            <a 
+              href={`/servicios/${slug}`}
+              class="service-card rounded-xl bg-white dark:bg-dark-surface p-8 md:p-10 transition-all duration-300 group relative overflow-hidden border border-gray-200/50 dark:border-gray-700/50 no-underline block"
+              data-aos="fade-up" 
+              data-aos-duration="800" 
+              data-aos-delay={index * 100}>              
+              {/* Efecto de hielo sutil */}
+              <div class="ice-overlay absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700"></div>
+              
+              {/* Etiqueta de categoría */}
+              <p class={`relative z-10 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-3 ${servicio.color ?? 'bg-green-100 text-green-800 dark:bg-gray-700 dark:text-green-400'}`}>
+                {servicio.title}
+              </p>
+              
+              {/* Título del servicio */}
+              <h3 class="dark:text-white text-2xl mb-3 relative z-10 group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300">
+                {servicio.subtitle}
+                <div class="h-1 w-12 bg-primary/40 mt-2 transition-all duration-300 group-hover:w-20 group-hover:bg-primary/60"></div>
+              </h3>
+              
+              <p class="text-text-secundary dark:text-gray-300 text-md relative z-10 mb-4">{servicio.description}</p>
+              
+              {/* Indicador de "Ver más" */}
+              <div class="relative z-10 flex items-center gap-2 text-primary font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span>Ver más detalles</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </div>
+              
+              {/* Muérdagos decorativos */}
+              <img src="/christmas/mistletoe.png" alt="" class="mistletoe absolute rotate-135 -right-4 -bottom-4 w-14 h-14 lg:w-14 lg:h-14 hidden md:block transition-all duration-500 z-10"/>
+              <img src="/christmas/mistletoe.png" alt="" class="mistletoe absolute rotate-225 -left-4 -bottom-4 w-14 h-14 lg:w-14 lg:h-14 hidden md:block transition-all duration-500 z-10"/>
+              <img src="/christmas/mistletoe.png" alt="" class="mistletoe absolute rotate-310 -left-4 -top-4 w-14 h-14 lg:w-14 lg:h-14 hidden md:block transition-all duration-500 z-10"/>
+              <img src="/christmas/mistletoe.png" alt="" class="mistletoe absolute rotate-45 -right-4 -top-4 w-14 h-14 lg:w-14 lg:h-14 hidden md:block transition-all duration-500 z-10"/>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-card {
+    position: relative;
+  }
+
+  /* Hover suave y elegante */
+  .service-card:hover {
+    border-color: rgba(147, 197, 253, 0.4);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.12);
+    transform: translateY(-3px);
+  }
+
+  /* Efecto de hielo muy sutil */
+  .ice-overlay {
+    background: 
+      radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(147, 197, 253, 0.1) 0%, transparent 60%);
+  }
+
+  .service-card:hover .ice-overlay {
+    opacity: 1;
+  }
+
+  /* Brillo sutil en el borde */
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    padding: 1px;
+    background: linear-gradient(135deg, 
+      rgba(147, 197, 253, 0.2),
+      rgba(186, 230, 253, 0.15),
+      rgba(147, 197, 253, 0.2)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Pequeñas partículas de escarcha */
+  .service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    background-image: 
+      radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+    background-size: 80px 80px;
+    background-position: 0 0;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+  }
+
+  .service-card:hover::after {
+    opacity: 0.2;
+    animation: gentle-frost 20s linear infinite;
+  }
+
+  @keyframes gentle-frost {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 80px;
+    }
+  }
+
+  /* Efecto muy sutil en los muérdagos */
+  .service-card:hover .mistletoe {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+  }
+
+  /* Mantener las rotaciones originales en hover */
+  @media (min-width: 768px) {
+    .service-card:hover .mistletoe:nth-of-type(1) {
+      transform: rotate(135deg) scale(1.05);
+    }
+    
+    .service-card:hover .mistletoe:nth-of-type(2) {
+      transform: rotate(225deg) scale(1.05);
+    }
+    
+    .service-card:hover .mistletoe:nth-of-type(3) {
+      transform: rotate(310deg) scale(1.05);
+    }
+    
+    .service-card:hover .mistletoe:nth-of-type(4) {
+      transform: rotate(45deg) scale(1.05);
+    }
+  }
+</style>

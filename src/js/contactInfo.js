@@ -11,7 +11,7 @@ export const contactInfo = {
   horario: "Lunes a Viernes: 9:00 - 18:00",
   socialMedia: [
     { name: "@tagblade", url: "https://www.instagram.com/tagblade/", icon: Instagram },
-    { name: "@TagbladeOficial", url: "https://www.x.com/Tagbladex", icon: X },
+    { name: "@TagbladeOficial", url: "https://www.x.com/TagbladeOficial", icon: X },
     { name: "@tagblade", url: "https://www.tiktok.com/@tagblade", icon: Tiktok },
     { name: "@TagbladeOficial", url: "https://www.facebook.com/TagbladeOficial", icon: Facebook },
   ]

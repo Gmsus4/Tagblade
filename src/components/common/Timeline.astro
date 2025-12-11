@@ -1,0 +1,298 @@
+---
+import TitleSection from '../common/TitleSection.astro';
+
+const timelineSteps = [
+  {
+    number: "01",
+    title: "Primer Contacto",
+    duration: "1-2 días",
+    description: "Conocemos tu proyecto, objetivos y necesidades específicas.",
+    details: [
+      "Entrevista inicial para entender tu visión",
+      "Análisis de referencias y ejemplos que te gusten",
+      "Evaluación de requerimientos técnicos",
+      "Definición del alcance del proyecto"
+    ],
+    icon: "💬"
+  },
+  {
+    number: "02",
+    title: "Propuesta y Acuerdo",
+    duration: "2-3 días",
+    description: "Presentamos una propuesta formal detallada con tiempos y costos.",
+    details: [
+      "Propuesta en PDF con alcance completo",
+      "Desglose de entregables y tiempos",
+      "Definición de formas de pago",
+      "Firma de acuerdo y anticipo inicial"
+    ],
+    icon: "📋"
+  },
+  {
+    number: "03",
+    title: "Investigación y Planeación",
+    duration: "3-5 días",
+    description: "Recopilamos materiales y definimos la estructura de tu sitio.",
+    details: [
+      "Recopilación de branding y contenidos",
+      "Análisis de competencia y referencias",
+      "Creación del mapa de sitio",
+      "Wireframes y estructura visual"
+    ],
+    icon: "🔍"
+  },
+  {
+    number: "04",
+    title: "Diseño Visual",
+    duration: "5-7 días",
+    description: "Creamos el diseño personalizado alineado a tu marca.",
+    details: [
+      "Propuesta de diseño en Figma",
+      "Presentación de secciones clave",
+      "Rondas de ajustes según feedback",
+      "Aprobación final del diseño"
+    ],
+    icon: "🎨"
+  },
+  {
+    number: "05",
+    title: "Desarrollo",
+    duration: "1-3 semanas",
+    description: "Transformamos el diseño en un sitio web funcional y optimizado.",
+    details: [
+      "Maquetación responsive (móvil y desktop)",
+      "Implementación de funcionalidades",
+      "Optimización de velocidad y SEO",
+      "Pruebas en múltiples navegadores"
+    ],
+    icon: "⚡"
+  },
+  {
+    number: "06",
+    title: "Revisión con Cliente",
+    duration: "3-5 días",
+    description: "Revisas el sitio en un entorno de prueba y solicitamos ajustes.",
+    details: [
+      "Acceso a versión temporal del sitio",
+      "Reunión de revisión y feedback",
+      "Implementación de ajustes finales",
+      "Confirmación de aprobación"
+    ],
+    icon: "✅"
+  },
+  {
+    number: "07",
+    title: "Publicación",
+    duration: "1-2 días",
+    description: "Lanzamos tu sitio web al mundo con dominio y hosting configurados.",
+    details: [
+      "Configuración de dominio y hosting",
+      "Subida de archivos finales",
+      "Activación de certificado SSL",
+      "Pruebas finales en producción"
+    ],
+    icon: "🚀"
+  },
+  {
+    number: "08",
+    title: "Entrega y Soporte",
+    duration: "Continuo",
+    description: "Recibis todos los accesos y comenzamos el período de soporte.",
+    details: [
+      "Entrega de accesos y documentación",
+      "Instrucciones de uso básico",
+      "Inicio del período de soporte incluido",
+      "Seguimiento y ajustes menores"
+    ],
+    icon: "🎁"
+  }
+];
+---
+
+<section 
+  id="proceso" 
+  class="relative flex items-center justify-center min-h-screen bg-background dark:bg-dark-background scroll-mt-12 overflow-hidden" 
+  aria-label="Proceso de trabajo">
+  
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 pointer-events-none opacity-30">
+    <div class="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-300/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative max-w-screen-xl mx-auto px-4 lg:py-16 p-12 py-12 flex w-full flex-col items-center justify-center z-10">
+    <div data-aos="fade-down" data-aos-duration="700">
+      <TitleSection title="Nuestro Proceso" />
+    </div>
+    
+    <p class="text-center text-text-secundary dark:text-text-btnScroll mt-4 mb-16 max-w-2xl" data-aos="fade-up" data-aos-duration="700">
+      Un proceso transparente y estructurado desde el primer contacto hasta el lanzamiento de tu proyecto.
+    </p>
+
+    <div class="w-full max-w-5xl">
+      {timelineSteps.map((step, index) => (
+        <div 
+          class="timeline-item relative flex gap-6 lg:gap-12 pb-12 last:pb-0"
+          data-aos="fade-up" 
+          data-aos-duration="600" 
+          data-aos-delay={index * 80}>
+          
+          <!-- Timeline line -->
+          <div class="timeline-line absolute left-[23px] lg:left-[31px] top-[60px] w-0.5 h-[calc(100%-60px)] bg-gradient-to-b from-primary/40 via-primary/20 to-transparent last:hidden"></div>
+          
+          <!-- Number circle -->
+          <div class="timeline-number flex-shrink-0 relative z-10">
+            <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 border-4 border-primary-hover dark:border-dark-primary-hover">
+              <span class="text-xl lg:text-2xl font-bold text-white">{step.number}</span>
+            </div>
+          </div>
+
+          <!-- Content card -->
+          <div class="timeline-content flex-1 bg-background-secondary/50 dark:bg-dark-surface/50 rounded-2xl p-6 lg:p-8 border-2 border-primary/10 dark:border-primary/20 hover:border-primary/30 dark:hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 group">
+            
+            <!-- Header -->
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+              <h3 class="text-xl lg:text-2xl font-bold text-text-primary dark:text-background group-hover:text-primary transition-colors duration-300">
+                {step.title}
+              </h3>
+            </div>
+
+            <!-- Description -->
+            <p class="text-base lg:text-lg text-text-secundary dark:text-text-btnScroll mb-6 leading-relaxed">
+              {step.description}
+            </p>
+
+            <!-- Details list -->
+            <ul class="space-y-3">
+              {step.details.map((detail) => (
+                <li class="flex gap-3 items-start group/item">
+                  <div class="flex-shrink-0 w-5 h-5 mt-0.5 rounded-full bg-primary/20 dark:bg-primary/30 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                    <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm lg:text-base text-text-primary dark:text-border-input flex-1">
+                    {detail}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- Decorative corner element -->
+            <div class="absolute top-4 right-4 w-16 h-16 opacity-5 dark:opacity-10 pointer-events-none">
+              <svg viewBox="0 0 100 100" class="w-full h-full text-primary">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="10 5"/>
+                <circle cx="50" cy="50" r="25" fill="currentColor" opacity="0.3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Final CTA -->
+    <div class="mt-16 text-center" data-aos="fade-up" data-aos-duration="700">
+      <div class="inline-flex flex-col items-center gap-4 p-8 bg-gradient-to-br from-primary/10 to-blue-400/10 dark:from-primary/20 dark:to-blue-400/20 rounded-2xl border-2 border-primary/30">
+        <p class="text-lg lg:text-xl text-text-primary dark:text-background font-medium max-w-md">
+          ¿Listo para comenzar tu proyecto?
+        </p>
+        <a 
+          href="/contacto" 
+          class="inline-flex items-center gap-2 px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30">
+          Iniciar Proceso
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline-content {
+    position: relative;
+  }
+
+  .timeline-content::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 1rem;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+      rgba(59, 130, 246, 0.1),
+      rgba(147, 197, 253, 0.2),
+      rgba(59, 130, 246, 0.1)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .timeline-content:hover::before {
+    opacity: 1;
+  }
+
+  /* Animated gradient on number */
+  .timeline-number > div {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .timeline-number > div::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .timeline-item:hover .timeline-number > div::before {
+    opacity: 1;
+    animation: shine 1.5s ease-in-out;
+  }
+
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+  }
+
+  /* Pulse animation for timeline line */
+  .timeline-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(59, 130, 246, 0.6), transparent);
+    animation: pulse-line 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-line {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .snowflake,
+    .timeline-line::after,
+    .timeline-number > div::before {
+      animation: none;
+    }
+  }
+</style>

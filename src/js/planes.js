@@ -1,7 +1,21 @@
+const priceEsencial = 4999;
+const discountEsencial = 40;
+const discountedPriceEsencial = priceEsencial - (priceEsencial * discountEsencial) / 100;
+
+// console.log(`Precio WEB ESENCIAL original: $${priceEsencial}`);
+// console.log(`Descuento WEB ESENCIAL: ${discountEsencial}%`);
+// console.log(`Precio con descuento WEB ESENCIAL: $${discountedPriceEsencial}`);
+
+const priceProfesional = 8999;
+const discountProfesional = 30;
+const discountedPriceProfesional = priceProfesional - (priceProfesional * discountProfesional) / 100;
+
 export const planes = [
   {
     name: "WEB ESENCIAL",
     price: 4999,
+    discountedPrice: Math.trunc(discountedPriceEsencial),
+    discount: discountEsencial,
     description: "Presencia digital profesional.",
     duration: "Pago único",
     currency: "$",
@@ -20,6 +34,8 @@ export const planes = [
   {
     name: "WEB PROFESIONAL",
     price: 8999,
+    discountedPrice: Math.trunc(discountedPriceProfesional), 
+    discount: discountProfesional,
     description: "Solución web completa con CMS.",
     duration: "Pago único",
     currency: "$",
