@@ -6,14 +6,14 @@ const footerLinks = {
   servicios: [
     { label: "Desarrollo Web", href: "/servicios" },
     { label: "Diseño UI/UX", href: "/servicios#diseno" },
-    { label: "Optimización SEO", href: "/servicios#seo" },
-    { label: "Mantenimiento Web", href: "/planes#partner" }
+    // { label: "Optimización SEO", href: "/servicios#seo" },
+    { label: "Mantenimiento Web", href: "/planes#partner" },
   ],
   empresa: [
     { label: "Proyectos", href: "/proyectos" },
     { label: "Sobre Nosotros", href: "/sobre-nosotros" },
     { label: "Planes y Precios", href: "/planes" },
-    { label: "Contacto", href: "/contacto" }
+    { label: "Contacto", href: "/contacto" },
   ],
   recursos: [
     { label: "Preguntas Frecuentes", href: "/faqs" },
@@ -22,8 +22,8 @@ const footerLinks = {
   ],
   legal: [
     { label: "Términos y condiciones", href: "/terminos-condiciones" },
-    { label: "Aviso de privacidad", href: "/privacidad" }
-  ]
+    { label: "Aviso de privacidad", href: "/privacidad" },
+  ],
 };
 ---
 
@@ -35,108 +35,167 @@ const footerLinks = {
       <div class="xl:col-span-4 space-y-8">
         <div class="space-y-5">
           <a href="/" class="inline-flex items-center gap-3 group">
-            <img src="/tagblade.jpg" alt="" class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
+            <img
+              src="/tagblade.jpg"
+              alt=""
+              class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300"
+            />
             <!-- <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
               <span class="text-white font-bold text-xl">T</span>
             </div> -->
-            <span class="text-2xl font-bold text-text-primary dark:text-background">Tagblade</span>
+            <span
+              class="text-2xl font-bold text-text-primary dark:text-background"
+              >Tagblade</span
+            >
           </a>
-          
-          <p class="text-text-secundary dark:text-text-btnScroll leading-relaxed max-w-sm text-base">
-            Transformamos ideas en experiencias digitales excepcionales. Desarrollo web moderno con tecnologías de vanguardia.
+
+          <p
+            class="text-text-secundary dark:text-text-btnScroll leading-relaxed max-w-sm text-base"
+          >
+            Transformamos ideas en experiencias digitales excepcionales.
+            Desarrollo web moderno con tecnologías de vanguardia.
           </p>
         </div>
 
         <!-- Redes sociales -->
         <div class="flex flex-wrap gap-3">
-          { socialMedia!.map((item, index) => {
+          {
+            socialMedia!.map((item, index) => {
               const Icon = item.icon;
               return (
-                  <a href={item.url} target="_blank" class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary/20 hover:bg-primary hover:scale-110 flex items-center justify-center text-primary hover:text-white transition-all duration-300 group" aria-label={item.name}>
-                      <Icon class="h-6 w-6" />
-                  </a>
-              )} )
+                <a
+                  href={item.url}
+                  target="_blank"
+                  class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary/20 hover:bg-primary hover:scale-110 flex items-center justify-center text-primary hover:text-white transition-all duration-300 group"
+                  aria-label={item.name}
+                >
+                  <Icon class="h-6 w-6" />
+                </a>
+              );
+            })
           }
         </div>
       </div>
 
       <!-- Enlaces – Mejor distribución según pantalla -->
-      <div class="xl:col-span-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 gap-8 lg:gap-10">
+      <div
+        class="xl:col-span-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 gap-8 lg:gap-10"
+      >
         <!-- Servicios -->
         <div class="space-y-4">
-          <h3 class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider">
+          <h3
+            class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider"
+          >
             Servicios
           </h3>
           <ul class="space-y-3">
-            {footerLinks.servicios.map((link) => (
-              <li>
-                <a 
-                  href={link.href}
-                  class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group">
-                  <span class="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
-                </a>
-              </li>
-            ))}
+            {
+              footerLinks.servicios.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group"
+                  >
+                    <span class="group-hover:translate-x-1 transition-transform duration-200">
+                      {link.label}
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
 
         <!-- Empresa -->
         <div class="space-y-4">
-          <h3 class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider">
+          <h3
+            class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider"
+          >
             Empresa
           </h3>
           <ul class="space-y-3">
-            {footerLinks.empresa.map((link) => (
-              <li>
-                <a href={link.href} class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group">
-                  <span class="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
-                </a>
-              </li>
-            ))}
+            {
+              footerLinks.empresa.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group"
+                  >
+                    <span class="group-hover:translate-x-1 transition-transform duration-200">
+                      {link.label}
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
 
         <!-- Recursos -->
         <div class="space-y-4">
-          <h3 class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider">
+          <h3
+            class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider"
+          >
             Recursos
           </h3>
           <ul class="space-y-3">
-            {footerLinks.recursos.map((link) => (
-              <li>
-                <a href={link.href} class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group">
-                  <span class="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
-                </a>
-              </li>
-            ))}
+            {
+              footerLinks.recursos.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group"
+                  >
+                    <span class="group-hover:translate-x-1 transition-transform duration-200">
+                      {link.label}
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
 
         <!-- Legal -->
         <div class="space-y-4">
-          <h3 class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider">
+          <h3
+            class="text-sm font-semibold text-text-primary dark:text-background uppercase tracking-wider"
+          >
             Legal
           </h3>
           <ul class="space-y-3">
-            {footerLinks.legal.map((link) => (
-              <li>
-                <a href={link.href} class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group">
-                  <span class="group-hover:translate-x-1 transition-transform duration-200">{link.label}</span>
-                </a>
-              </li>
-            ))}
+            {
+              footerLinks.legal.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-text-secundary dark:text-border-input hover:text-primary dark:hover:text-primary transition-colors duration-200 text-sm inline-flex items-center gap-1 group"
+                  >
+                    <span class="group-hover:translate-x-1 transition-transform duration-200">
+                      {link.label}
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>
     </div>
 
     <!-- Bottom bar -->
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+    <div
+      class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
+    >
       <p class="text-sm text-text-secundary dark:text-text-btnScroll">
-        © {currentYear} <span class="font-semibold text-primary">Tagblade</span>. Todos los derechos reservados.
+        © {currentYear}
+        <span class="font-semibold text-primary">Tagblade</span>. Todos los
+        derechos reservados.
       </p>
-      
-      <div class="flex items-center justify-center gap-2 text-sm text-text-secundary dark:text-text-btnScroll">
+
+      <div
+        class="flex items-center justify-center gap-2 text-sm text-text-secundary dark:text-text-btnScroll"
+      >
         <span>Hecho con</span>
         <span class="text-red-500 animate-pulse">❤️</span>
         <span>en México</span>
