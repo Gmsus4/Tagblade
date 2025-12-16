@@ -1,70 +1,88 @@
 ---
-import Image from "astro/components/Image.astro";
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/common/Navbar.astro";
+import Image from "astro/components/Image.astro"
+import Layout from "../layouts/Layout.astro"
+import Navbar from "../components/common/Navbar.astro"
 
-import "../styles/global.css";
-import '@fontsource-variable/onest';
-import { contactInfo } from "../js/contactInfo";
-import Footer from "../components/home/Footer.astro";
+import "../styles/global.css"
+import "@fontsource-variable/onest"
+import { contactInfo } from "../js/contactInfo"
+import Footer from "../components/home/Footer.astro"
+import TitleSection from "../components/common/TitleSection.astro"
+import Check from "../components/icons/Check.astro"
 ---
 
 <Layout>
   <div class="bg-background dark:bg-dark-background w-full min-h-screen">
-    <Navbar isLinksOutside={true}/>
-    
+    <Navbar />
+
     <!-- Header con imagen -->
     <div class="flex lg:flex-row flex-col items-center justify-center m-auto lg:w-5xl w-full gap-20 px-10 py-16 pb-0 pt-28">
       <div class="lg:w-3/5">
-        <h1 class="text-primary lg:text-4xl text-3xl mb-10 font-bold">Términos y Condiciones de Tagblade</h1>
-        <h2 class="text-text dark:text-dark-text text-xl mb-8">Conoce las reglas y condiciones que rigen el uso de nuestros servicios y plataforma.</h2>
-        <div class="flex flex-col gap-3 mb-10">
-          <p class="bg-primary bg-opacity-10 p-4 rounded-lg text-white hover:bg-opacity-20 cursor-pointer transition-all">✓ Derechos y obligaciones</p>
-          <p class="bg-primary bg-opacity-10 p-4 rounded-lg text-white hover:bg-opacity-20 cursor-pointer transition-all">✓ Limitaciones de responsabilidad</p>
+        <TitleSection title="Políticas y términos legales" subtitle="Conoce las reglas y condiciones que rigen el uso de nuestros servicios y plataforma." titleHeader="Términos y Condiciones" isWidthFull={true} />
+        <div class="flex flex-col gap-3 my-10">
+          <div class="flex items-start gap-3 py-2 px-3 rounded border border-subtitle-dark/20 dark:border-subtitle-light/20">
+            <Check class="w-5 h-5 text-primary dark:text-primary-bright flex-shrink-0 mt-0.5" />
+            <span class="text-text-dark dark:text-text-light/80 text-sm">Derechos y obligaciones</span>
+          </div>
+          <div class="flex items-start gap-3 py-2 px-3 rounded border border-subtitle-dark/20 dark:border-subtitle-light/20">
+            <Check class="w-5 h-5 text-primary dark:text-primary-bright flex-shrink-0 mt-0.5" />
+            <span class="text-text-dark dark:text-text-light/80 text-sm">Limitaciones de responsabilidad</span>
+          </div>
         </div>
       </div>
-      <div class="lg:w-2/5 flex justify-center">
-        <Image src={"/terms.svg"} alt={"Documento legal"} width={420} height={520} loading={"eager"}/>
+      <div class="lg:w-2/5  justify-center hidden lg:flex">
+        <Image src={"/terms.svg"} alt={"Documento legal"} width={420} height={520} loading={"eager"} />
       </div>
     </div>
 
-    <div class="max-w-5xl mx-auto md:px-10 px-4 pb-20">
-      <div class="bg-background dark:bg-dark-surface p-8 rounded-xl">
-        <h2 class="text-2xl text-primary dark:text-dark-primary font-bold mb-6">Términos y Condiciones</h2>
-        <p class="text-subtle-text dark:text-dark-subtle-text mb-6">Última actualización: 27 de abril de 2025</p>
+    <div class="max-w-5xl mx-auto pb-20">
+      <div class="bg-background dark:bg-dark-background p-8 rounded-xl">
+        <h2 class="text-2xl text-primary dark:text-primary-bright font-bold mb-6">Términos y Condiciones</h2>
+        <p class="text-text-dark dark:text-text-light/80 mb-6">Última actualización: 27 de abril de 2025</p>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">1. Introducción</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            Bienvenido a Tagblade. Estos Términos y Condiciones rigen tu uso de nuestro sitio web, ubicado en www.tagblade.com, así como todos los servicios relacionados proporcionados por Tagblade (en adelante, "nosotros", "nuestro", o "Tagblade").
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">1. Introducción</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            Bienvenido a Tagblade. Estos Términos y Condiciones rigen tu uso de nuestro sitio web, ubicado en www.tagblade.com, así como todos los servicios relacionados proporcionados por Tagblade
+            (en adelante, "nosotros", "nuestro", o "Tagblade").
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            Al acceder o utilizar nuestro sitio web y servicios, aceptas estar legalmente obligado por estos Términos y Condiciones. Si no estás de acuerdo con alguno de estos términos, te pedimos que no utilices nuestro sitio web y servicios.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            Al acceder o utilizar nuestro sitio web y servicios, aceptas estar legalmente obligado por estos Términos y Condiciones. Si no estás de acuerdo con alguno de estos términos, te pedimos que
+            no utilices nuestro sitio web y servicios.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">2. Definiciones</h3>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
-            <li><span class="font-semibold">"Usuario"</span>: cualquier persona que acceda, navegue o utilice de cualquier manera nuestro sitio web o servicios.</li>
-            <li><span class="font-semibold">"Cliente"</span>: usuario que contrata o adquiere cualquiera de nuestros servicios de desarrollo web o diseño.</li>
-            <li><span class="font-semibold">"Contenido"</span>: incluye, sin limitación, todo el texto, gráficos, fotografías, logotipos, ilustraciones, iconos, imágenes, clips de audio y video, descargas digitales, compilaciones de datos y software.</li>
-            <li><span class="font-semibold">"Servicios"</span>: todos los servicios de desarrollo web, diseño, consultoría y productos digitales ofrecidos por Tagblade.</li>
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">2. Definiciones</h3>
+          <ul class="list-disc pl-6 text-text-dark dark:text-text-light/80 mb-4">
+            <li>
+              <span class="font-semibold">"Usuario"</span>: cualquier persona que acceda, navegue o utilice de cualquier manera nuestro sitio web o servicios.
+            </li>
+            <li>
+              <span class="font-semibold">"Cliente"</span>: usuario que contrata o adquiere cualquiera de nuestros servicios de desarrollo web o diseño.
+            </li>
+            <li>
+              <span class="font-semibold">"Contenido"</span>: incluye, sin limitación, todo el texto, gráficos, fotografías, logotipos, ilustraciones, iconos, imágenes, clips de audio y video,
+              descargas digitales, compilaciones de datos y software.
+            </li>
+            <li>
+              <span class="font-semibold">"Servicios"</span>: todos los servicios de desarrollo web, diseño, consultoría y productos digitales ofrecidos por Tagblade.
+            </li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">3. Uso del Sitio Web</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">3. Uso del Sitio Web</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
             3.1 <span class="font-semibold">Elegibilidad</span>: Para utilizar nuestros servicios, debes tener al menos 18 años o la mayoría de edad legal en tu jurisdicción, lo que sea mayor.
           </p>
-          <!-- <p class="text-text dark:text-dark-text mb-4">
+          <!-- <p class="text-text-dark dark:text-text-light/80 mb-4">
             3.2 <span class="font-semibold">Registro de cuenta</span>: Algunos servicios de Tagblade requieren el registro de una cuenta. Al registrarte, aceptas proporcionar información precisa, actual y completa. Eres responsable de mantener la confidencialidad de tu contraseña y de todas las actividades que ocurran bajo tu cuenta.
           </p> -->
-          <p class="text-text dark:text-dark-text mb-4">
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
             3.2 <span class="font-semibold">Uso prohibido</span>: Aceptas no utilizar nuestro sitio web o servicios para:
           </p>
-          <ul class="list-disc pl-10 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-10 text-text-dark dark:text-text-light/80 mb-4">
             <li>Violar cualquier ley aplicable, regulación o estos Términos.</li>
             <li>Infringir los derechos de propiedad intelectual u otros derechos de terceros.</li>
             <li>Transmitir material que sea dañino, amenazante, abusivo, acosador, difamatorio, vulgar, obsceno o de otro modo objetable.</li>
@@ -74,175 +92,211 @@ import Footer from "../components/home/Footer.astro";
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">4. Servicios y Productos</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            4.1 <span class="font-semibold">Descripción de servicios</span>: Tagblade ofrece servicios de desarrollo web, diseño UI/UX, consultoría tecnológica y otros productos digitales. Las descripciones específicas, alcances, plazos y precios de cada servicio serán establecidos en un contrato por separado o propuesta aceptada por las partes.
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">4. Servicios y Productos</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            4.1 <span class="font-semibold">Descripción de servicios</span>: Tagblade ofrece servicios de desarrollo web, diseño UI/UX, consultoría tecnológica y otros productos digitales. Las
+            descripciones específicas, alcances, plazos y precios de cada servicio serán establecidos en un contrato por separado o propuesta aceptada por las partes.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            4.2 <span class="font-semibold">Modificaciones de servicios</span>: Nos reservamos el derecho de modificar, suspender o discontinuar cualquier aspecto de nuestros servicios en cualquier momento. Te notificaremos sobre cualquier cambio material que afecte los servicios contratados.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            4.2 <span class="font-semibold">Modificaciones de servicios</span>: Nos reservamos el derecho de modificar, suspender o discontinuar cualquier aspecto de nuestros servicios en cualquier
+            momento. Te notificaremos sobre cualquier cambio material que afecte los servicios contratados.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            4.3 <span class="font-semibold">Personalización</span>: Los servicios se adaptarán a las necesidades específicas de cada cliente según lo acordado. Cualquier solicitud de modificación al alcance original puede implicar costos adicionales y extensiones de plazo.
-          </p>
-        </section>
-
-        <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">5. Precios y Pagos</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            5.1 <span class="font-semibold">Precios</span>: Los precios de nuestros servicios se establecerán en una cotización o propuesta específica para cada cliente. Todos los precios se expresan en pesos Mexicanos MXN y no incluyen impuestos aplicables, a menos que se indique lo contrario.
-          </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            5.2 <span class="font-semibold">Condiciones de pago</span>: Los pagos deben realizarse según los términos establecidos en la propuesta o contrato específico. Generalmente requerimos un anticipo antes de comenzar el trabajo, con pagos adicionales programados en hitos acordados.
-          </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            5.3 <span class="font-semibold">Métodos de pago</span>: Aceptamos pagos mediante transferencia bancaria, tarjetas de crédito/débito y otros métodos de pago especificados en nuestra plataforma o acuerdos.
-          </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            5.4 <span class="font-semibold">Pagos atrasados</span>: Los pagos atrasados pueden estar sujetos a cargos por intereses de acuerdo con las leyes aplicables. Nos reservamos el derecho de suspender los servicios hasta que se reciban los pagos pendientes.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            4.3 <span class="font-semibold">Personalización</span>: Los servicios se adaptarán a las necesidades específicas de cada cliente según lo acordado. Cualquier solicitud de modificación al
+            alcance original puede implicar costos adicionales y extensiones de plazo.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">6. Propiedad Intelectual</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            6.1 <span class="font-semibold">Nuestros derechos</span>: Todo el contenido presente en nuestro sitio web, incluidos textos, gráficos, logotipos, imágenes, así como la compilación de estos, es propiedad de Tagblade o de nuestros proveedores de contenido y está protegido por leyes de propiedad intelectual. Algunos recursos visuales han sido utilizados y extraídos de plataformas como <a target="_blank" class="hover:underline text-blue-500" href="https://www.pexels.com/">Pexels</a>, <a target="_blank" class="hover:underline text-blue-500" href="https://undraw.co/">unDraw</a> e <a target="_blank" class="hover:underline text-blue-500" href="https://iconify.design/">Iconify</a>, respetando sus respectivas licencias de uso.
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">5. Precios y Pagos</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            5.1 <span class="font-semibold">Precios</span>: Los precios de nuestros servicios se establecerán en una cotización o propuesta específica para cada cliente. Todos los precios se expresan
+            en pesos Mexicanos MXN y no incluyen impuestos aplicables, a menos que se indique lo contrario.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            6.2 <span class="font-semibold">Licencia limitada</span>: Te otorgamos una licencia limitada, no exclusiva, no transferible y revocable para acceder y utilizar nuestro sitio web para fines personales y no comerciales.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            5.2 <span class="font-semibold">Condiciones de pago</span>: Los pagos deben realizarse según los términos establecidos en la propuesta o contrato específico. Generalmente requerimos un
+            anticipo antes de comenzar el trabajo, con pagos adicionales programados en hitos acordados.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            6.3 <span class="font-semibold">Derechos sobre trabajos entregados</span>: La transferencia de derechos de propiedad intelectual sobre los trabajos entregados se regirá por lo establecido en el contrato específico. A menos que se acuerde lo contrario por escrito:
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            5.3 <span class="font-semibold">Métodos de pago</span>: Aceptamos pagos mediante transferencia bancaria, tarjetas de crédito/débito y otros métodos de pago especificados en nuestra
+            plataforma o acuerdos.
           </p>
-          <ul class="list-disc pl-10 text-text dark:text-dark-text mb-4">
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            5.4 <span class="font-semibold">Pagos atrasados</span>: Los pagos atrasados pueden estar sujetos a cargos por intereses de acuerdo con las leyes aplicables. Nos reservamos el derecho de
+            suspender los servicios hasta que se reciban los pagos pendientes.
+          </p>
+        </section>
+
+        <section class="mb-8">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">6. Propiedad Intelectual</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            6.1 <span class="font-semibold">Nuestros derechos</span>: Todo el contenido presente en nuestro sitio web, incluidos textos, gráficos, logotipos, imágenes, así como la compilación de
+            estos, es propiedad de Tagblade o de nuestros proveedores de contenido y está protegido por leyes de propiedad intelectual. Algunos recursos visuales han sido utilizados y extraídos de
+            plataformas como <a target="_blank" class="hover:underline text-blue-500" href="https://www.pexels.com/">Pexels</a>, <a
+              target="_blank"
+              class="hover:underline text-blue-500"
+              href="https://undraw.co/">unDraw</a
+            > e <a target="_blank" class="hover:underline text-blue-500" href="https://iconify.design/">Iconify</a>, respetando sus respectivas licencias de uso.
+          </p>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            6.2 <span class="font-semibold">Licencia limitada</span>: Te otorgamos una licencia limitada, no exclusiva, no transferible y revocable para acceder y utilizar nuestro sitio web para fines
+            personales y no comerciales.
+          </p>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            6.3 <span class="font-semibold">Derechos sobre trabajos entregados</span>: La transferencia de derechos de propiedad intelectual sobre los trabajos entregados se regirá por lo establecido
+            en el contrato específico. A menos que se acuerde lo contrario por escrito:
+          </p>
+          <ul class="list-disc pl-10 text-text-dark dark:text-text-light/80 mb-4">
             <li>La transferencia de derechos de propiedad intelectual está condicionada al pago total de los servicios.</li>
             <li>Nos reservamos el derecho de utilizar los trabajos entregados como parte de nuestro portafolio y para fines promocionales.</li>
             <li>Los componentes pre-existentes o herramientas utilizadas en el desarrollo siguen siendo propiedad de Tagblade o de sus respectivos propietarios.</li>
           </ul>
-          <p class="text-text dark:text-dark-text mb-4">
-            6.4 <span class="font-semibold">Material del cliente</span>: El cliente conserva todos los derechos sobre su contenido y materiales proporcionados a Tagblade. Al proporcionarnos estos materiales, nos otorgas una licencia mundial, no exclusiva y libre de regalías para usar, reproducir y modificar dichos materiales con el único propósito de prestar los servicios contratados.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            6.4 <span class="font-semibold">Material del cliente</span>: El cliente conserva todos los derechos sobre su contenido y materiales proporcionados a Tagblade. Al proporcionarnos estos
+            materiales, nos otorgas una licencia mundial, no exclusiva y libre de regalías para usar, reproducir y modificar dichos materiales con el único propósito de prestar los servicios
+            contratados.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">7. Confidencialidad</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">7. Confidencialidad</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
             7.1 Cada parte se compromete a mantener la confidencialidad de toda la información confidencial recibida de la otra parte relacionada con su negocio, planes, clientes o productos.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            7.2 Esta obligación de confidencialidad sobrevivirá a la terminación de nuestros servicios por un período de 5 años.
-          </p>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">7.2 Esta obligación de confidencialidad sobrevivirá a la terminación de nuestros servicios por un período de 5 años.</p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">8. Limitación de Responsabilidad</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            8.1 En la medida máxima permitida por la ley aplicable, Tagblade no será responsable por daños indirectos, incidentales, especiales, consecuentes o punitivos, o cualquier pérdida de beneficios o ingresos, ya sea incurrida directa o indirectamente, o cualquier pérdida de datos, uso, fondo de comercio u otras pérdidas intangibles.
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">8. Limitación de Responsabilidad</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            8.1 En la medida máxima permitida por la ley aplicable, Tagblade no será responsable por daños indirectos, incidentales, especiales, consecuentes o punitivos, o cualquier pérdida de
+            beneficios o ingresos, ya sea incurrida directa o indirectamente, o cualquier pérdida de datos, uso, fondo de comercio u otras pérdidas intangibles.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            8.2 Nuestra responsabilidad total derivada de o en relación con estos Términos o del uso o imposibilidad de usar el sitio web o servicios no excederá el monto total pagado por ti a Tagblade en los seis meses anteriores al evento que da lugar a la responsabilidad.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            8.2 Nuestra responsabilidad total derivada de o en relación con estos Términos o del uso o imposibilidad de usar el sitio web o servicios no excederá el monto total pagado por ti a
+            Tagblade en los seis meses anteriores al evento que da lugar a la responsabilidad.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            8.3 Las limitaciones de responsabilidad anteriores se aplicarán incluso si se ha advertido de la posibilidad de tales daños.
-          </p>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">8.3 Las limitaciones de responsabilidad anteriores se aplicarán incluso si se ha advertido de la posibilidad de tales daños.</p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">9. Garantías</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            9.1 <span class="font-semibold">Garantía limitada</span>: Tagblade garantiza que los servicios se prestarán con razonable cuidado y habilidad de acuerdo con las prácticas estándar de la industria.
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">9. Garantías</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            9.1 <span class="font-semibold">Garantía limitada</span>: Tagblade garantiza que los servicios se prestarán con razonable cuidado y habilidad de acuerdo con las prácticas estándar de la
+            industria.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            9.2 <span class="font-semibold">Período de garantía</span>: Ofrecemos un período de garantía de 30 días después de la entrega final para corregir cualquier error o defecto en nuestro trabajo sin costo adicional, siempre que dichos errores sean atribuibles a Tagblade.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            9.2 <span class="font-semibold">Período de garantía</span>: Ofrecemos un período de garantía de 30 días después de la entrega final para corregir cualquier error o defecto en nuestro
+            trabajo sin costo adicional, siempre que dichos errores sean atribuibles a Tagblade.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
             9.3 <span class="font-semibold">Exclusiones de garantía</span>: La garantía no cubre:
           </p>
-          <ul class="list-disc pl-10 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-10 text-text-dark dark:text-text-light/80 mb-4">
             <li>Problemas causados por modificaciones realizadas por el cliente o terceros.</li>
             <li>Uso indebido o fuera de las especificaciones acordadas.</li>
             <li>Problemas derivados de contenido o materiales proporcionados por el cliente.</li>
             <li>Problemas causados por software o servicios de terceros fuera de nuestro control.</li>
           </ul>
-          <p class="text-text dark:text-dark-text mb-4">
-            9.4 <span class="font-semibold">Descargo de responsabilidad</span>: Excepto por lo expresamente establecido en estos Términos, el sitio web y los servicios se proporcionan "tal cual" y "según disponibilidad", sin garantías de ningún tipo, expresas o implícitas.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            9.4 <span class="font-semibold">Descargo de responsabilidad</span>: Excepto por lo expresamente establecido en estos Términos, el sitio web y los servicios se proporcionan "tal cual" y
+            "según disponibilidad", sin garantías de ningún tipo, expresas o implícitas.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">10. Rescisión</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            10.1 <span class="font-semibold">Terminación por el Cliente</span>: Puedes terminar los servicios contratados en cualquier momento notificándonos por escrito. Sin embargo, serás responsable de pagar por todo el trabajo realizado hasta la fecha de terminación y cualquier gasto incurrido que no pueda ser cancelado.
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">10. Rescisión</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            10.1 <span class="font-semibold">Terminación por el Cliente</span>: Puedes terminar los servicios contratados en cualquier momento notificándonos por escrito. Sin embargo, serás
+            responsable de pagar por todo el trabajo realizado hasta la fecha de terminación y cualquier gasto incurrido que no pueda ser cancelado.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            10.2 <span class="font-semibold">Terminación por Tagblade</span>: Podemos terminar o suspender tu acceso a nuestros servicios inmediatamente, sin previo aviso ni responsabilidad, por cualquier razón, incluyendo, sin limitación, si incumples estos Términos.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            10.2 <span class="font-semibold">Terminación por Tagblade</span>: Podemos terminar o suspender tu acceso a nuestros servicios inmediatamente, sin previo aviso ni responsabilidad, por
+            cualquier razón, incluyendo, sin limitación, si incumples estos Términos.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            10.3 <span class="font-semibold">Efectos de la terminación</span>: Tras la terminación, tu derecho a utilizar los servicios cesará inmediatamente. Todas las disposiciones de estos Términos que por su naturaleza deberían sobrevivir a la terminación, sobrevivirán, incluidas, sin limitación, las disposiciones de propiedad, renuncias de garantía, indemnización y limitaciones de responsabilidad.
-          </p>
-        </section>
-
-        <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">11. Indemnización</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            Aceptas indemnizar, defender y eximir de responsabilidad a Tagblade y a sus funcionarios, directores, empleados, agentes, licenciantes y proveedores de servicios, de y contra cualquier reclamo, responsabilidad, daño, juicio, premio, pérdida, costo, gasto o tarifa (incluidos los honorarios razonables de abogados) que surjan de o estén relacionados con tu incumplimiento de estos Términos o tu uso del sitio web o los servicios, incluido, entre otros, cualquier uso de los contenidos, servicios o productos del sitio web que no sea el expresamente autorizado en estos Términos.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            10.3 <span class="font-semibold">Efectos de la terminación</span>: Tras la terminación, tu derecho a utilizar los servicios cesará inmediatamente. Todas las disposiciones de estos Términos
+            que por su naturaleza deberían sobrevivir a la terminación, sobrevivirán, incluidas, sin limitación, las disposiciones de propiedad, renuncias de garantía, indemnización y limitaciones de
+            responsabilidad.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">12. Legislación Aplicable</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            Estos Términos se regirán e interpretarán de acuerdo con las leyes de los Estados Unidos Mexicanos, sin dar efecto a ningún principio de conflicto de leyes. Cualquier disputa legal que surja de o en relación con estos Términos estará sujeta a la jurisdicción exclusiva de los tribunales competentes de la ciudad de Guadalajara, Jalisco, renunciando las partes a cualquier otro fuero que pudiera corresponderles por razón de su domicilio presente o futuro.
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">11. Indemnización</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            Aceptas indemnizar, defender y eximir de responsabilidad a Tagblade y a sus funcionarios, directores, empleados, agentes, licenciantes y proveedores de servicios, de y contra cualquier
+            reclamo, responsabilidad, daño, juicio, premio, pérdida, costo, gasto o tarifa (incluidos los honorarios razonables de abogados) que surjan de o estén relacionados con tu incumplimiento de
+            estos Términos o tu uso del sitio web o los servicios, incluido, entre otros, cualquier uso de los contenidos, servicios o productos del sitio web que no sea el expresamente autorizado en
+            estos Términos.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">13. Resolución de Disputas</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            13.1 <span class="font-semibold">Negociación amistosa</span>: En caso de cualquier disputa, controversia o reclamo que surja de o en relación con estos Términos, las partes intentarán primero resolver el asunto de manera amistosa mediante negociaciones de buena fe.
-          </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            13.2 <span class="font-semibold">Mediación</span>: Si las partes no pueden resolver la disputa mediante negociación dentro de los 30 días siguientes a la notificación por escrito de la controversia, la disputa se someterá a mediación conforme a las reglas del Centro de Justicia Alternativa del Poder Judicial del Estado de Jalisco o la institución que las partes acuerden mutuamente.
-          </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            13.3 <span class="font-semibold">Litigio</span>: Si la disputa no se resuelve mediante mediación, cualquiera de las partes podrá iniciar un procedimiento legal ante los tribunales competentes de Guadalajara, Jalisco, México, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">12. Legislación Aplicable</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            Estos Términos se regirán e interpretarán de acuerdo con las leyes de los Estados Unidos Mexicanos, sin dar efecto a ningún principio de conflicto de leyes. Cualquier disputa legal que
+            surja de o en relación con estos Términos estará sujeta a la jurisdicción exclusiva de los tribunales competentes de la ciudad de Guadalajara, Jalisco, renunciando las partes a cualquier
+            otro fuero que pudiera corresponderles por razón de su domicilio presente o futuro.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">14. Modificaciones a los Términos</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            Nos reservamos el derecho, a nuestro exclusivo criterio, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, haremos esfuerzos razonables para proporcionar al menos 30 días de aviso antes de que los nuevos términos entren en vigencia. Lo que constituye un cambio material será determinado a nuestro exclusivo criterio.
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">13. Resolución de Disputas</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            13.1 <span class="font-semibold">Negociación amistosa</span>: En caso de cualquier disputa, controversia o reclamo que surja de o en relación con estos Términos, las partes intentarán
+            primero resolver el asunto de manera amistosa mediante negociaciones de buena fe.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            Al continuar accediendo o utilizando nuestro sitio web o servicios después de que esas revisiones entren en vigencia, aceptas estar obligado por los términos revisados. Si no estás de acuerdo con los nuevos términos, deja de usar el sitio web y los servicios.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            13.2 <span class="font-semibold">Mediación</span>: Si las partes no pueden resolver la disputa mediante negociación dentro de los 30 días siguientes a la notificación por escrito de la
+            controversia, la disputa se someterá a mediación conforme a las reglas del Centro de Justicia Alternativa del Poder Judicial del Estado de Jalisco o la institución que las partes acuerden
+            mutuamente.
+          </p>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            13.3 <span class="font-semibold">Litigio</span>: Si la disputa no se resuelve mediante mediación, cualquiera de las partes podrá iniciar un procedimiento legal ante los tribunales
+            competentes de Guadalajara, Jalisco, México, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">15. Disposiciones Generales</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            15.1 <span class="font-semibold">Acuerdo completo</span>: Estos Términos constituyen el acuerdo completo entre tú y Tagblade con respecto a tu uso del sitio web y servicios, y reemplazan todos los acuerdos previos, orales o escritos.
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">14. Modificaciones a los Términos</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            Nos reservamos el derecho, a nuestro exclusivo criterio, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, haremos esfuerzos razonables para
+            proporcionar al menos 30 días de aviso antes de que los nuevos términos entren en vigencia. Lo que constituye un cambio material será determinado a nuestro exclusivo criterio.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            15.2 <span class="font-semibold">Divisibilidad</span>: Si alguna disposición de estos Términos se considera inválida o inaplicable, dicha disposición se interpretará de una manera consistente con la ley aplicable para reflejar, en la medida de lo posible, las intenciones originales de las partes, y las disposiciones restantes permanecerán en pleno vigor y efecto.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            Al continuar accediendo o utilizando nuestro sitio web o servicios después de que esas revisiones entren en vigencia, aceptas estar obligado por los términos revisados. Si no estás de
+            acuerdo con los nuevos términos, deja de usar el sitio web y los servicios.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            15.3 <span class="font-semibold">Renuncia</span>: Nuestra falta de ejercicio o aplicación de cualquier derecho o disposición de estos Términos no constituirá una renuncia a tal derecho o disposición.
+        </section>
+
+        <section class="mb-8">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">15. Disposiciones Generales</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            15.1 <span class="font-semibold">Acuerdo completo</span>: Estos Términos constituyen el acuerdo completo entre tú y Tagblade con respecto a tu uso del sitio web y servicios, y reemplazan
+            todos los acuerdos previos, orales o escritos.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            15.4 <span class="font-semibold">Cesión</span>: No puedes ceder o transferir estos Términos, por operación de ley o de otro modo, sin nuestro consentimiento previo por escrito. Cualquier intento de cesión o transferencia sin dicho consentimiento será nulo. Podemos ceder o transferir estos Términos, a nuestro exclusivo criterio, sin restricción.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            15.2 <span class="font-semibold">Divisibilidad</span>: Si alguna disposición de estos Términos se considera inválida o inaplicable, dicha disposición se interpretará de una manera
+            consistente con la ley aplicable para reflejar, en la medida de lo posible, las intenciones originales de las partes, y las disposiciones restantes permanecerán en pleno vigor y efecto.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
-            15.5 <span class="font-semibold">Notificaciones</span>: Cualquier notificación o comunicación requerida o permitida bajo estos Términos se hará por escrito y se enviará a la dirección de correo electrónico o dirección postal proporcionada por la otra parte.
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            15.3 <span class="font-semibold">Renuncia</span>: Nuestra falta de ejercicio o aplicación de cualquier derecho o disposición de estos Términos no constituirá una renuncia a tal derecho o
+            disposición.
+          </p>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            15.4 <span class="font-semibold">Cesión</span>: No puedes ceder o transferir estos Términos, por operación de ley o de otro modo, sin nuestro consentimiento previo por escrito. Cualquier
+            intento de cesión o transferencia sin dicho consentimiento será nulo. Podemos ceder o transferir estos Términos, a nuestro exclusivo criterio, sin restricción.
+          </p>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">
+            15.5 <span class="font-semibold">Notificaciones</span>: Cualquier notificación o comunicación requerida o permitida bajo estos Términos se hará por escrito y se enviará a la dirección de
+            correo electrónico o dirección postal proporcionada por la otra parte.
           </p>
         </section>
 
         <section>
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">16. Contacto</h3>
-          <p class="text-text dark:text-dark-text mb-4">
-            Si tienes preguntas sobre estos Términos, por favor contáctanos:
-          </p>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">16. Contacto</h3>
+          <p class="text-text-dark dark:text-text-light/80 mb-4">Si tienes preguntas sobre estos Términos, por favor contáctanos:</p>
+          <ul class="list-disc pl-6 text-text-dark dark:text-text-light/80 mb-4">
             <li>Correo electrónico: {contactInfo.email}</li>
             <li>Teléfono: +52 {contactInfo.phone}</li>
           </ul>

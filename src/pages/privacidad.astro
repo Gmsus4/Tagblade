@@ -2,65 +2,74 @@
 import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/common/Navbar.astro";
-import { navbarLinksOutside } from "../js/navbarLinks";
 import { contactInfo } from "../js/contactInfo";
 import "../styles/global.css";
 import '@fontsource-variable/onest';
 import Footer from "../components/home/Footer.astro";
+import Check from "../components/icons/Check.astro";
+import TitleSection from "../components/common/TitleSection.astro";
 ---
 
 <Layout>
   <div class="bg-background dark:bg-dark-background w-full min-h-screen">
-    <Navbar isLinksOutside={true}/>
+    <Navbar />
     
     <!-- Agregado padding-top para evitar que el navbar fixed tape el contenido -->
-    <div class="flex lg:flex-row flex-col items-center justify-center m-auto lg:w-5xl w-full gap-20 px-10 py-16 pt-28">
+    <div class="flex lg:flex-row flex-col items-center justify-center m-auto lg:w-5xl w-full gap-20 px-10 py-16 pb-0 pt-28">
       <div class="lg:w-3/5">
-        <h1 class="text-primary lg:text-4xl text-3xl mb-10 font-bold">Centro de Privacidad Tagblade</h1>
-        <h2 class="text-text dark:text-dark-text text-xl mb-8">Te explicamos de forma clara cómo manejamos y resguardamos tu información personal para brindarte un mejor servicio y una experiencia adaptada a ti.</h2>
-        <div class="flex flex-col gap-3 mb-10">
-          <p class="bg-primary bg-opacity-10 p-4 rounded-lg text-white text-lg">✓ Administra el uso de tus datos</p>
-          <p class="bg-primary bg-opacity-10 p-4 rounded-lg text-white text-lg">✓ Conoce tus derechos</p>
+        <TitleSection 
+          title="Tus datos están seguros con nosotros" 
+          subtitle="Descubre qué datos recopilamos y cómo los protegemos. Compromiso transparente con tu privacidad y seguridad." 
+          titleHeader="Aviso de Privacidad" isWidthFull={true} />
+        <div class="flex flex-col gap-3 my-10">
+          <div class="flex items-start gap-3 py-2 px-3 rounded border border-subtitle-dark/20 dark:border-subtitle-light/20">
+            <Check class="w-5 h-5 text-primary dark:text-primary-bright flex-shrink-0 mt-0.5" />
+            <span class="text-text-dark dark:text-text-light/80 text-sm">Derechos y obligaciones</span>
+          </div>
+          <div class="flex items-start gap-3 py-2 px-3 rounded border border-subtitle-dark/20 dark:border-subtitle-light/20">
+            <Check class="w-5 h-5 text-primary dark:text-primary-bright flex-shrink-0 mt-0.5" />
+            <span class="text-text-dark dark:text-text-light/80 text-sm">Limitaciones de responsabilidad</span>
+          </div>
         </div>
       </div>
-      <div class="lg:w-2/5 flex justify-center">
+      <div class="lg:w-2/5 justify-center hidden lg:flex">
         <Image src={"/personal-information.svg"} alt={"Información personal"} width={420} height={520} loading={"eager"}/>
       </div>
     </div>
 
-    <div class="max-w-5xl mx-auto md:px-10 px-4 pb-20">
+    <div class="max-w-5xl mx-auto pb-20">
       <!-- Eliminados los bordes y ajustados los colores -->
-      <div class="bg-background dark:bg-dark-surface p-8 rounded-xl">
-        <h2 class="text-2xl text-primary dark:text-dark-primary font-bold mb-6">Aviso de Privacidad</h2>
-        <p class="text-subtle-text dark:text-dark-subtle-text mb-6">Última actualización: 27 de abril de 2025</p>
+      <div class="bg-background dark:bg-dark-background p-8 rounded-xl">
+        <h2 class="text-2xl text-primary dark:text-primary-bright font-bold mb-6">Aviso de Privacidad</h2>
+        <p class="text-text-dark dark:text-text-light/80 mb-6">Última actualización: 27 de abril de 2025</p>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">1. Introducción</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">1. Introducción</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             En Tagblade, respetamos tu privacidad y nos comprometemos a proteger tus datos personales. Este aviso de privacidad te informará sobre cómo cuidamos tus datos personales cuando visitas nuestro sitio web y te informará sobre tus derechos de privacidad y cómo la ley te protege.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">2. Responsable del Tratamiento</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">2. Responsable del Tratamiento</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Tagblade es el responsable del tratamiento de los datos personales que nos proporciones a través de nuestro sitio web o por cualquier otro medio.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
+          <p class="text-text dark:text-text-light/80 mb-4">
             Datos de contacto:
           </p>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-6 text-text dark:text-text-light/80 mb-4">
             <li>Correo electrónico: {contactInfo.email}</li>
             <li>Teléfono: +52 {contactInfo.phone}</li>
           </ul>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">3. Datos Personales que Recopilamos</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">3. Datos Personales que Recopilamos</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Podemos recopilar, usar, almacenar y transferir diferentes tipos de datos personales sobre ti, que hemos agrupado de la siguiente manera:
           </p>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-6 text-text dark:text-text-light/80 mb-4">
             <li><span class="font-semibold">Datos de identidad:</span> nombre, apellidos, nombre de usuario o identificador similar.</li>
             <li><span class="font-semibold">Datos de contacto:</span> dirección de correo electrónico, números de teléfono y dirección postal.</li>
             <li><span class="font-semibold">Datos técnicos:</span> dirección IP, datos de inicio de sesión, tipo y versión del navegador, configuración de zona horaria, tipos y versiones de plug-ins del navegador, sistema operativo y plataforma.</li>
@@ -70,11 +79,11 @@ import Footer from "../components/home/Footer.astro";
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">4. Cómo Recopilamos tus Datos Personales</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">4. Cómo Recopilamos tus Datos Personales</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Utilizamos diferentes métodos para recopilar datos sobre ti, incluyendo:
           </p>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-6 text-text dark:text-text-light/80 mb-4">
             <li><span class="font-semibold">Interacciones directas:</span> datos que proporcionas al completar formularios en nuestro sitio web, al comunicarte con nosotros por correo postal, teléfono, correo electrónico o de otra manera.</li>
             <li><span class="font-semibold">Tecnologías automatizadas:</span> mientras interactúas con nuestro sitio web, podemos recopilar automáticamente datos técnicos sobre tu equipo y patrones de navegación mediante cookies y tecnologías similares.</li>
             <li><span class="font-semibold">Terceros:</span> podemos recibir datos personales sobre ti de varios terceros, como proveedores de análisis o redes publicitarias.</li>
@@ -82,11 +91,11 @@ import Footer from "../components/home/Footer.astro";
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">5. Finalidades del Tratamiento</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">5. Finalidades del Tratamiento</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Utilizaremos tus datos personales solo cuando la ley nos lo permita. Las finalidades más comunes para las que utilizaremos tus datos personales son:
           </p>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-6 text-text dark:text-text-light/80 mb-4">
             <li>Para registrarte como nuevo cliente.</li>
             <li>Para procesar y entregar tus pedidos de servicios de desarrollo web.</li>
             <li>Para gestionar nuestra relación contigo, incluyendo notificarte sobre cambios en nuestros términos o política de privacidad.</li>
@@ -99,11 +108,11 @@ import Footer from "../components/home/Footer.astro";
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">6. Base Legal para el Tratamiento</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">6. Base Legal para el Tratamiento</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Procesamos tus datos personales basándonos en las siguientes bases legales:
           </p>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-6 text-text dark:text-text-light/80 mb-4">
             <li><span class="font-semibold">Consentimiento:</span> cuando has dado tu consentimiento expreso para el tratamiento de tus datos personales para uno o varios fines específicos.</li>
             <li><span class="font-semibold">Ejecución de un contrato:</span> cuando el tratamiento es necesario para la ejecución de un contrato en el que eres parte.</li>
             <li><span class="font-semibold">Cumplimiento de una obligación legal:</span> cuando el tratamiento es necesario para el cumplimiento de una obligación legal aplicable a Tagblade.</li>
@@ -112,51 +121,51 @@ import Footer from "../components/home/Footer.astro";
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">7. Divulgación de tus Datos Personales</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">7. Divulgación de tus Datos Personales</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Podemos compartir tus datos personales con las siguientes categorías de destinatarios:
           </p>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-6 text-text dark:text-text-light/80 mb-4">
             <li>Proveedores de servicios que nos proporcionan servicios de TI y administración de sistemas.</li>
             <li>Asesores profesionales, incluyendo abogados, banqueros, auditores y aseguradores.</li>
             <li>Autoridades fiscales, reguladoras y otras autoridades.</li>
             <li>Terceros a los que podemos optar por vender, transferir o fusionar partes de nuestro negocio o nuestros activos.</li>
           </ul>
-          <p class="text-text dark:text-dark-text mb-4">
+          <p class="text-text dark:text-text-light/80 mb-4">
             Exigimos a todos los terceros que respeten la seguridad de tus datos personales y los traten de acuerdo con la ley. No permitimos a nuestros proveedores de servicios utilizar tus datos personales para sus propios fines y solo les permitimos procesar tus datos personales para fines específicos y de acuerdo con nuestras instrucciones.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">8. Transferencias Internacionales</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">8. Transferencias Internacionales</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Algunos de nuestros proveedores de servicios externos están ubicados fuera de tu jurisdicción. Al proporcionarnos tus datos personales, aceptas esta transferencia, almacenamiento o procesamiento. Tomaremos todas las medidas razonablemente necesarias para garantizar que tus datos se traten de forma segura y de acuerdo con este aviso de privacidad.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">9. Seguridad de Datos</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">9. Seguridad de Datos</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Hemos implementado medidas de seguridad apropiadas para evitar que tus datos personales se pierdan, se usen o se acceda de forma no autorizada, se modifiquen o se divulguen. Además, limitamos el acceso a tus datos personales a aquellos empleados, agentes, contratistas y otros terceros que tengan una necesidad comercial de conocerlos.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">10. Conservación de Datos</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">10. Conservación de Datos</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Solo conservaremos tus datos personales durante el tiempo necesario para cumplir con los fines para los que los recopilamos, incluyendo para satisfacer cualquier requisito legal, contable o de información.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
+          <p class="text-text dark:text-text-light/80 mb-4">
             Para determinar el período de conservación apropiado para los datos personales, consideramos la cantidad, naturaleza y sensibilidad de los datos personales, el riesgo potencial de daño por uso o divulgación no autorizados, los fines para los que procesamos tus datos personales y si podemos lograr esos fines a través de otros medios, así como los requisitos legales aplicables.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">11. Tus Derechos</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">11. Tus Derechos</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Bajo ciertas circunstancias, tienes derechos en relación con tus datos personales según las leyes de protección de datos. Estos derechos pueden incluir:
           </p>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-6 text-text dark:text-text-light/80 mb-4">
             <li><span class="font-semibold">Derecho de acceso:</span> solicitar acceso a tus datos personales.</li>
             <li><span class="font-semibold">Derecho de rectificación:</span> solicitar la corrección de tus datos personales que sean inexactos.</li>
             <li><span class="font-semibold">Derecho de supresión:</span> solicitar la eliminación de tus datos personales.</li>
@@ -165,38 +174,38 @@ import Footer from "../components/home/Footer.astro";
             <li><span class="font-semibold">Derecho a la portabilidad de los datos:</span> solicitar la transferencia de tus datos personales a ti o a un tercero.</li>
             <li><span class="font-semibold">Derecho a retirar el consentimiento:</span> retirar el consentimiento en cualquier momento.</li>
           </ul>
-          <p class="text-text dark:text-dark-text mb-4">
+          <p class="text-text dark:text-text-light/80 mb-4">
             Si deseas ejercer alguno de estos derechos, por favor contáctanos a través de privacy@tagblade.com.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">12. Cookies</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">12. Cookies</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Utilizamos cookies y tecnologías similares para distinguirte de otros usuarios de nuestro sitio web, lo que nos ayuda a proporcionarte una buena experiencia cuando navegas por nuestro sitio y también nos permite mejorarlo.
           </p>
-          <p class="text-text dark:text-dark-text mb-4">
+          <p class="text-text dark:text-text-light/80 mb-4">
             Puedes configurar tu navegador para rechazar todas o algunas cookies del navegador, o para alertarte cuando los sitios web configuran o acceden a cookies. Si desactivas o rechazas las cookies, ten en cuenta que algunas partes de este sitio web pueden volverse inaccesibles o no funcionar correctamente.
           </p>
         </section>
 
         <section class="mb-8">
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">13. Cambios a este Aviso de Privacidad</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">13. Cambios a este Aviso de Privacidad</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Podemos actualizar este aviso de privacidad de vez en cuando. La nueva versión se indicará con una fecha de actualización y la nueva versión será efectiva tan pronto como sea accesible. Te recomendamos que revises este aviso de privacidad periódicamente para estar informado sobre cómo protegemos tu información.
           </p>
         </section>
 
         <section>
-          <h3 class="text-xl text-primary dark:text-dark-primary font-semibold mb-4">14. Contacto</h3>
-          <p class="text-text dark:text-dark-text mb-4">
+          <h3 class="text-xl text-primary dark:text-primary-bright font-semibold mb-4">14. Contacto</h3>
+          <p class="text-text dark:text-text-light/80 mb-4">
             Si tienes preguntas sobre este aviso de privacidad o deseas ejercer tus derechos legales, por favor contáctanos:
           </p>
-          <ul class="list-disc pl-6 text-text dark:text-dark-text mb-4">
+          <ul class="list-disc pl-6 text-text dark:text-text-light/80 mb-4">
             <li>Correo electrónico: {contactInfo.email}</li>
             <li>Teléfono: +52 {contactInfo.phone}</li>
           </ul>
-          <p class="text-text dark:text-dark-text">
+          <p class="text-text dark:text-text-light/80">
             Tienes derecho a presentar una reclamación en cualquier momento ante la autoridad de protección de datos competente. Sin embargo, apreciaríamos la oportunidad de atender tus inquietudes antes de que te acerques a la autoridad de protección de datos, así que te pedimos que nos contactes en primera instancia.
           </p>
         </section>

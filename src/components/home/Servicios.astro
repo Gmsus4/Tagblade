@@ -5,12 +5,12 @@ import TitleSection from '../common/TitleSection.astro';
 ---
 <section
   id="servicios"
-  class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-70px)]"
+  class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-40px)]"
   aria-label="Sección de Servicios"
 >
-  <div class="max-w-screen-xl mx-auto lg:py-16 lg:p-12 px-0 py-12">
-    <div data-aos="fade-down" data-aos-duration="700">
-      <TitleSection title={titles.servicios.title} />
+  <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 py-12">
+    <div data-aos="fade-down" data-aos-duration="800">
+      <TitleSection title={titles.servicios.title} titleHeader={titles.servicios.titleHeader}/>
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative mt-10">
       {
@@ -18,7 +18,7 @@ import TitleSection from '../common/TitleSection.astro';
           const Icon = servicio.icon;
           return (
             <article 
-              class="service-card rounded-xl bg-white dark:bg-dark-surface p-8 md:p-10 transition-all duration-300 group relative overflow-hidden border border-gray-200/50 dark:border-gray-700/50"
+              class="service-card rounded-xl bg-white dark:bg-bg-surface p-8 md:p-10 transition-all duration-300 group relative overflow-hidden border border-gray-200/50 dark:border-gray-700/50"
               data-aos="fade-up" 
               data-aos-duration="800" 
               data-aos-delay={index * 100}>              
@@ -31,12 +31,12 @@ import TitleSection from '../common/TitleSection.astro';
               </p>
               
               {/* Título del servicio */}
-              <h3 class="dark:text-white text-2xl mb-3 relative z-10">
+              <h3 class="dark:text-text-light text-2xl mb-3 relative z-10">
                 {servicio.subtitle}
-                <div class="h-1 w-12 bg-primary/40 mt-2 transition-all duration-300 group-hover:w-20 group-hover:bg-primary/60"></div>
+                <div class="h-1 w-12 bg-primary mt-2 transition-all duration-300 group-hover:w-20 group-hover:bg-primary/60 dark:bg-primary-bright dark:group-hover:bg-primary-bright/60"></div>
               </h3>
               
-              <p class="text-text-secundary dark:text-gray-300 text-md relative z-10">{servicio.description}</p>
+              <p class="dark:text-text-light/75 text-subtitle-dark text-md relative z-10">{servicio.description}</p>
               
               {/* Muérdagos decorativos */}
               <img src="/christmas/mistletoe.png" alt="" class="mistletoe absolute rotate-135 -right-4 -bottom-4 w-14 h-14 lg:w-14 lg:h-14 hidden md:block transition-all duration-500 z-10"/>

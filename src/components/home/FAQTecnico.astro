@@ -12,14 +12,14 @@ import { faqTecnico } from "../../js/faq.js";
             style={`animation-delay: ${index * 50}ms`}
           >
             <div class="flex items-start gap-4">
-              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-primary font-semibold dark:bg-bg-surface flex items-center justify-center text-sm dark:text-primary-bright">
                 {index + 1}
               </span>
               <div class="flex-1">
-                <h3 class="text-lg sm:text-xl font-medium text-text-secundary dark:text-dark-text mb-2">
+                <h3 class="text-lg sm:text-xl font-medium dark:text-text-light text-text-dark mb-2">
                   {item.question}
                 </h3>
-                <p class="text-gray-600 dark:text-border-input leading-relaxed">
+                <p class="text-subtitle-dark dark:text-text-light/70 dark:text-border-input leading-relaxed">
                   {item.answer}
                 </p>
               </div>

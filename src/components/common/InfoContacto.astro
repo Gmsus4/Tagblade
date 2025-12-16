@@ -60,13 +60,13 @@ const info = [
         info.map((item, index) => {
             const Icon = item.icon;
             return (
-                <a href={item.href} target="_blank" class="flex items-center gap-4 justify-start text-primary hover:text-white group">
-                    <div class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary/20 group-hover:bg-primary group-hover:scale-110 grid place-items-center transition-all duration-300">
+                <a href={item.href} target="_blank" class="flex items-center gap-4 justify-start text-primary dark:text-primary-bright hover:text-text-light dark:hover:text-text-dark group">
+                    <div class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary-bright/10 group-hover:bg-primary dark:group-hover:bg-primary-bright group-hover:scale-110 grid place-items-center transition-all duration-300">
                         <Icon />
                     </div>
                     <div>
                         <p class="text-sm text-gray-500 dark:text-gray-400">{item.title}</p>
-                        <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
+                        <span class="text-text-dark dark:text-text-light group-hover:text-primary dark:group-hover:text-primary-bright transition-colors">
                             {item.text}
                         </span>
                     </div>
@@ -79,13 +79,13 @@ const info = [
         socialMedia!.map((item, index) => {
             const Icon = item.icon;
             return (
-                <a href={item.url} target="_blank" class="flex items-center gap-4 justify-start text-primary hover:text-white group">
-                    <div class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary/20 group-hover:bg-primary group-hover:scale-110 grid place-items-center transition-all duration-300">
+                <a href={item.url} target="_blank" class="flex items-center gap-4 justify-start text-primary dark:text-primary-bright hover:text-text-light dark:hover:text-text-dark group">
+                    <div class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary-bright/10 group-hover:bg-primary dark:group-hover:bg-primary-bright group-hover:scale-110 grid place-items-center transition-all duration-300">
                         <Icon class="h-6 w-6" />
                     </div>
                     <div>
                         <p class="text-sm text-gray-500 dark:text-gray-400">{item.name}</p>
-                        <span class="text-dark-background dark:text-background group-hover:text-primary dark:group-hover:text-primary transition-colors">
+                        <span class="text-text-dark dark:text-text-light group-hover:text-primary dark:group-hover:text-primary-bright transition-colors">
                             Ir al perfil
                         </span>
                     </div>

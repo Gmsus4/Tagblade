@@ -4,17 +4,23 @@ import LineDiv from './LineDiv.astro';
 interface Props {
   title: string;
   subtitle?: string;
+  titleHeader?: string;
+  isCenter?: boolean;
+  isWidthFull?: boolean;
 }
 
-const { title, subtitle,
-} = Astro.props;   
+const { title, subtitle, titleHeader, isCenter = false, isWidthFull = false } = Astro.props;   
 ---
-<div class="grid place-items-center max-w-3xl m-auto w-full">
+<!-- <div class="grid place-items-center max-w-3xl m-auto w-full">
   <div class="flex gap-4 items-center">
     <img src="/christmas/christmas-bell.png" alt="" class="w-10 h-10 mb-2 -rotate-12"/>
-    <h2 class="text-4xl dark:text-dark-text text-center">{title}</h2>
+    <h2 class="text-4xl text-left text-text-dark dark:text-text-light">{title}</h2>
     <img src="/christmas/christmas-bell.png" alt="" class="w-10 h-10 mb-2 rotate-12"/>
   </div>
-    <!-- <LineDiv /> -->
-    { subtitle ? ( <p class="text-xl sm:text-center mt-6 dark:text-gray-300">{subtitle}</p>) : <></> }
+    { subtitle ? ( <p class="text-xl sm:text-center mt-6 text-text-dark dark:text-text-light">{subtitle}</p>) : <></> }
+</div> -->
+<div class={`w-full ${isCenter ? 'md:grid md:place-items-center' : ''}`}>
+  { titleHeader ? ( <p class="uppercase dark:text-primary-bright text-primary mb-4 text-base md:text-lg text-left font-semibold">{titleHeader}</p>) : <></> }
+  <h2 class="text-4xl md:text-5xl text-left font-bold text-text-dark dark:text-text-light text-balance">{title}</h2>
+  { subtitle ? ( <p class={`text-base md:text-lg text-left mt-4 md:mt-6 text-subtitle-dark dark:text-subtitle-light text-pretty ${isWidthFull ? 'w-full' : 'md:w-3/6'}`}>{subtitle}</p>) : <></> }
 </div>

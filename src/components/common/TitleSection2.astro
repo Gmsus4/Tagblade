@@ -1,0 +1,20 @@
+---
+import LineDiv from './LineDiv.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const { title, subtitle,
+} = Astro.props;   
+---
+<div class="grid place-items-center max-w-3xl m-auto w-full">
+  <div class="flex gap-4 items-center">
+    <img src="/christmas/christmas-bell.png" alt="" class="w-10 h-10 mb-2 -rotate-12"/>
+    <h2 class="text-4xl text-center text-text-dark dark:text-text-light">{title}</h2>
+    <img src="/christmas/christmas-bell.png" alt="" class="w-10 h-10 mb-2 rotate-12"/>
+  </div>
+    <!-- <LineDiv /> -->
+    { subtitle ? ( <p class="text-xl sm:text-center mt-6 text-text-dark dark:text-text-light">{subtitle}</p>) : <></> }
+</div>

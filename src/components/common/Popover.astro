@@ -5,7 +5,7 @@ const { id, name, username, role, imageUrl, banner, socials = [] } = Astro.props
 
 <article class="relative inline-block" aria-labelledby={`profile-${id}-name`} aria-describedby={`profile-${id}-role`}>
   <!-- Main Avatar Card -->
-  <div class="relative bg-white parent-hover overflow-hidden shadow-lg dark:bg-dark-surface rounded-sm p-4 transition-all duration-500 ease-out">
+  <div class="relative bg-white dark:bg-bg-surface parent-hover overflow-hidden shadow-lg rounded-sm p-4 transition-all duration-500 ease-out">
     <!-- Header with Banner -->
     <div class="relative -mx-4 -mt-4 mb-4 h-20 sm:h-24 overflow-hidden">
       <Image
@@ -35,7 +35,7 @@ const { id, name, username, role, imageUrl, banner, socials = [] } = Astro.props
         </div>
         
         <!-- Verification Badge -->
-        <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center ring-2 ring-white dark:ring-gray-800" role="img" aria-label="Cuenta verificada">
+        <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-primary dark:bg-primary-bright rounded-full flex items-center justify-center ring-2 ring-white dark:ring-gray-800" role="img" aria-label="Cuenta verificada">
           <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
           </svg>
@@ -45,11 +45,11 @@ const { id, name, username, role, imageUrl, banner, socials = [] } = Astro.props
 
     <!-- Profile Info -->
     <div class="text-center mb-4">
-      <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1">{name}</h2>
-      <p class="text-sm text-primary font-bold mb-2">@{username}</p>
+      <h2 class="text-lg sm:text-xl font-bold dark:text-text-light text-text-dark mb-1">{name}</h2>
+      <p class="text-sm text-primary dark:text-primary-bright font-bold mb-2">@{username}</p>
       
       <!-- Role Chip -->
-      <div class="inline-flex items-center gap-2 bg-background-secondary dark:bg-dark-background rounded-full px-3 py-1 text-xs font-medium text-gray-700 dark:text-gray-300">
+      <div class="inline-flex items-center gap-2 bg-background-secondary dark:bg-dark-background rounded-full px-3 py-1 text-xs font-medium text-text-dark/75 dark:text-text-light/75">
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
@@ -70,9 +70,9 @@ const { id, name, username, role, imageUrl, banner, socials = [] } = Astro.props
                 target="_blank" 
                 rel="noopener noreferrer" 
                 title={social.name}
-                class="w-8 h-8 bg-background-secondary hover:bg-background-button dark:bg-dark-background dark:hover:bg-gray-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
+                class="w-8 h-8 bg-primary hover:bg-primary-bright  dark:bg-primary-bright dark:hover:bg-primary rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
               >
-                <Icon class="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                <Icon class="w-4 h-4 text-text-light dark:text-text-dark" />
               </a>
             );
           })}

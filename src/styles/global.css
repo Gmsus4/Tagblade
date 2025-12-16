@@ -10,60 +10,33 @@
 @theme {
   /* Modo Claro */
   --color-primary: #E9560A;              /* Color principal/acento (naranja) */
-  --color-background: #faf9f5;          /* Fondo principal de la aplicación */
-  --color-dark-background: #000;       /* Fondo principal muy oscuro y neutro */
-  --color-dark-surface: #151515;          /* Superficies como tarjetas (más claras para contraste) */
+  --color-primary-bright: #FF7A33;      /* Color principal claro */
+
+  --color-background: #fff;          /* Fondo principal de la aplicación */
+  --color-background2: #faf9f5;    
   
-  /* --color-primary: #E9560A;      */         /* Color principal/acento (naranja) */
-  /* --color-background: #faf9f5;  */         /* Fondo principal de la aplicación */
-  /* --color-dark-background: #262624; */       /* Fondo principal muy oscuro y neutro */
-  /* --color-dark-surface: #222222;       */
+  --color-background-secondary: #f5f4ed;    
 
-        /* === FONDOS === */
-        --color-background-secondary: #f5f4ed;        /* Fondo secundario/tarjetas */
-        --color-background-button: #eceadf;           /* Fondo de botones */
+  --color-bg-surface: #151515;   
+  --color-bg-surface2: #352d29;   
 
-        /* === COLORES DE MARCA === */
+  --color-dark-background: #0f0a08;       /* Fondo principal muy oscuro y neutro */
+  --color-dark-backgroundOK: #0f0a08;       /* Fondo principal muy oscuro y neutro */
+  --color-dark-background5: #12181f;       /* Fondo principal muy oscuro y neutro */
+  --color-dark-background3: #0e0a08;       /* Fondo principal muy oscuro y neutro */
+  --color-dark-background2: #1f1612;       /* Fondo principal muy oscuro y neutro */
+  --color-dark-background4: #000;       /* Fondo principal muy oscuro y neutro */
 
-        /* === BORDES === */
-        --color-border-default: #1f1e1d26;              /* Bordes generales */
-        --color-border-input: #dddddd;                /* Bordes de campos de entrada */
+  --color-dark-border: #2E2E2E;           /* Bordes oscuros apenas visibles pero funcionales */
 
-        /* === TEXTO === */
-        --color-text-primary: #141413;
-        --color-text-secundary: #3d3d3a;
-        --color-text-btnScroll: #73726c;
+  --color-text-light2: orange;               /* Tono muy ligero - Blanco */
+  --color-text-light: #fff;               /* Tono muy ligero - Blanco */
+  --color-text-dark2: blue;             /* Tono oscuro - Negro */
+  --color-text-dark: #181a1c;             /* Tono oscuro - Negro */
 
-        /* === INDICADORES/ESTADOS === */
-        --color-indicator-active: #9f9e9a;            /* Indicadores activos */
-        --color-indicator-inactive: #d5d5ce;          /* Indicadores inactivos */
-        
-        /* Modo Oscuro */
-       
-
-        /* --color-dark-surface: #30302e;     */      /* Superficies como tarjetas (más claras para contraste) */
-        --color-dark-primary: #F47B42;          /* Naranja suave pero cálido para mantener identidad */
-        --color-dark-primary-hover: #F5AA8C;    /* Variante clara del acento, para hovers o énfasis */
-        /* --color-dark-text: #F5F5F5;              */
-        --color-dark-text: #bdb9b1;             /* Texto principal muy claro para alto contraste */
-        --color-dark-subtle-text: #CCCCCC;      /* Texto secundario gris claro para jerarquía */
-        --color-dark-border: #2E2E2E;           /* Bordes oscuros apenas visibles pero funcionales */
-
-        /* --color-dark-background: #171717;     */
-
-
-
-        
-        --color-background2: #F8F4F0;        /* Fondo principal claro */
-        --color-backgroundOk: #fafafa;        /* Fondo principal claro */
-        --color-bgBlack: #141413;
-        --color-surface: #F7C8B5;           /* Superficies como tarjetas o secciones */
-        --color-primary-dark: #bd470a;           /* Naranja fuerte (botones/acento) */
-        --color-primary-hover: #F47B42;     /* Hover o variante más suave del acento */
-        --color-text: #1E1E1E;              /* Texto oscuro suave (no negro puro) */
-        --color-subtle-text: #4B4B4B;       /* Texto secundario, gris oscuro cálido */
-        --color-border: #F5AA8C;    
-      }
+  --color-subtitle-light: #fbe6db; 
+  --color-subtitle-dark: #545a61; 
+}
 
       
 html {
@@ -71,11 +44,15 @@ html {
 }
 
 body {
-    font-family: 'Inter Variable', sans-serif;
+    /* font-family: 'Inter Variable', sans-serif; */
+    /* font-family: 'Figtree Variable', sans-serif; */
     font-family: 'Onest Variable', sans-serif;
-    color: var(--color-text-primary);
-  }
+    color: var(--color-text-dark);
+}
 
+h1, h2 {
+    font-family: 'Figtree Variable', sans-serif;
+}
 
 /* ===== EFECTO DE CRISTAL EN LA IMAGEN ===== */
 .image-container {

@@ -15,17 +15,17 @@ import PlusIcon from "../icons/PlusIcon.astro"
                   aria-expanded="false"
                   aria-controls={`${index}-content`}
               >
-              <h3 class="text-lg dark:text-dark-text sm:text-xl  font-medium text-text-secundary pr-4">
+              <h3 class="text-lg dark:text-text-light sm:text-xl  font-medium text-text-secundary pr-4">
                   {item.question}
               </h3>
               <PlusIcon 
-                  class="faq-icon sm:w-8 sm:h-8 h-6 w-6 text-dark-text transition-transform duration-200 flex-shrink-0"
+                  class="faq-icon sm:w-8 sm:h-8 h-6 w-6 dark:text-text-light text-text-dark transition-transform duration-200 flex-shrink-0"
                   aria-hidden="true"
               />
               </button>
               <div class="faq-content overflow-hidden transition-all duration-300 max-h-0">
                   <div class="pb-6">
-                      <p class="dark:text-border-input text-md leading-relaxed"> {item.answer} </p>
+                      <p class="text-subtitle-dark dark:text-subtitle-light text-md leading-relaxed"> {item.answer} </p>
                   </div>
               </div>
           </article>

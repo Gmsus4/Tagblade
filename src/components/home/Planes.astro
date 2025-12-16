@@ -10,24 +10,23 @@ const images = [
 ];
 ---
 <section 
-  id="planes" class="flex items-center justify-center min-h-screen bg-background-secondary dark:bg-dark-background scroll-mt-12" aria-label="Sección de planes">
-  <div class="max-w-screen-xl mx-auto px-4 lg:py-16 p-12 py-12 flex w-full flex-col items-center justify-center">
-   <div data-aos="fade-down" data-aos-duration="700">
-     <TitleSection title={data.planes.title} />
+  id="planes" class="flex items-center md:px-20 sm:px-10 px-5 justify-center min-h-screen bg-background dark:bg-dark-background scroll-mt-12" aria-label="Sección de planes">
+  <div class="max-w-screen-xl mx-auto lg:py-16 py-12 relative z-10">
+   <div data-aos="fade-down" data-aos-duration="800">
+     <TitleSection title={data.planes.title} titleHeader={data.planes.titleHeader} isCenter={true} />
    </div>
-    
     <div class="mt-8 w-full m-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
       {
          planes.map((plan, index) => (
             <a href="/contacto" 
-               class={`plan-card relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} gap-10 bg-background/90 dark:bg-dark-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden transition-all duration-500 border-2 border-primary/20 dark:border-primary/30 cursor-pointer no-underline`}
+               class={`plan-card relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} gap-10 bg-background/90 dark:bg-bg-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden transition-all duration-500 border-2 border-primary/20 dark:border-primary/30 cursor-pointer no-underline`}
                data-aos="fade-up" 
                data-aos-duration="800" 
                data-aos-delay={index * 100}>
                
                {/* Badge de descuento */}
                {plan.discount && (
-                  <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg">
+                  <div class="absolute top-4 right-4 bg-primary dark:bg-primary-bright text-white px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg">
                      -{plan.discount}%
                   </div>
                )}
@@ -44,8 +43,8 @@ const images = [
                      {
                         plan.features.map((item, index) => (
                            <li class="flex gap-2 items-center justify-self-auto">
-                              <Check class="w-5 h-5 lg:w-6 lg:h-6 text-primary"/>
-                              <p class="text-sm dark:text-border-input lg:text-base">{item.label}</p>
+                              <Check class="w-5 h-5 lg:w-6 lg:h-6 text-primary dark:text-primary-bright"/>
+                              <p class="text-sm dark:text-text-light dark:text-border-input lg:text-base">{item.label}</p>
                            </li>
                         ))
                      }
@@ -54,19 +53,19 @@ const images = [
                <footer class="relative z-10">
                   {plan.discount ? (
                      <div class="flex items-center gap-2">
-                        <p class="text-lg dark:text-background font-medium text-text-secundary">
+                        <p class="text-lg text-text-dark dark:text-text-light font-medium text-text-secundary">
                            {plan.currency}{plan.discountedPrice}
                         </p>
-                        <p class="text-sm text-text-secundary dark:text-text-btnScroll line-through opacity-60">
+                        <p class="text-sm text-text-dark dark:text-text-light/70 line-through opacity-60">
                            {plan.currency}{plan.price}
                         </p>
                      </div>
                   ) : (
-                     <p class="text-lg dark:text-background font-medium text-text-secundary">
+                     <p class="text-lg text-text-dark dark:text-text-light font-medium text-text-secundary">
                         {plan.currency ? `${plan.currency}${plan.price}` : plan.price}
                      </p>
                   )}
-                  <p class="text-sm dark:text-text-btnScroll text-text-secundary">{plan.duration}</p>
+                  <p class="text-sm text-text-dark dark:text-text-light text-text-secundary">{plan.duration}</p>
                </footer>
                
                <img src={images[index]} alt="" class="plan-image absolute right-0 bottom-0 w-20 h-20 lg:w-26 lg:h-26 hidden md:block transition-transform duration-500 z-10"/>
