@@ -16,9 +16,6 @@ import { navbarLinks } from "../../js/navbarLinks";
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <Logo />
     <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse items-center lg:gap-6 gap-2">
-        <button id="toggleSnow" class="cursor-pointer">
-          <img src="/christmas/snowflake.png" alt="" class="w-5 h-5">
-        </button>
         <DarkModeToggle />
         <HamburgerButton />
     </div>
@@ -86,37 +83,16 @@ import { navbarLinks } from "../../js/navbarLinks";
     });
   }
 
-  // Toggle de copos de nieve
-  function initSnowToggle() {
-    const btn = document.getElementById("toggleSnow") as HTMLElement;
-    const snow = document.getElementById("snowflakes");
-
-    if (!btn || !snow) return;
-
-    // Restaurar estado guardado
-    const snowActive = localStorage.getItem("snow-active");
-    if (snowActive === "0") {
-      snow.classList.add("hidden");
-    }
-
-    btn.addEventListener("click", () => {
-      snow.classList.toggle("hidden");
-      localStorage.setItem("snow-active", snow.classList.contains("hidden") ? "0" : "1");
-    });
-  }
-
   // Inicializar todo cuando el DOM esté listo
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initNavbar();
       setActiveLink();
-      initSnowToggle();
     });
   } else {
     // DOM ya está listo
     initNavbar();
     setActiveLink();
-    initSnowToggle();
   }
 
   // Actualizar enlace activo en cambios de hash
@@ -126,6 +102,5 @@ import { navbarLinks } from "../../js/navbarLinks";
   document.addEventListener('astro:page-load', () => {
     initNavbar();
     setActiveLink();
-    initSnowToggle();
   });
 </script>
