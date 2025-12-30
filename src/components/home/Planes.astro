@@ -13,71 +13,54 @@ import TitleSection from '../common/TitleSection.astro';
     <div class="mt-8 w-full m-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
       {
          planes.map((plan, index) => (
-            <a href="/contacto" 
-               class={`plan-card relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} gap-10 bg-background/90 dark:bg-bg-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden transition-all duration-500 border-2 border-primary/10 dark:border-primary/10 cursor-pointer no-underline`}
-               data-aos="fade-up" 
-               data-aos-duration="800" 
-               data-aos-delay={index * 100}>
-               
-               {/* Badge de descuento */}
-               {plan.discount && (
-                  <div class="absolute top-4 right-4 bg-primary dark:bg-primary-bright text-white px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg">
-                     -{plan.discount}%
-                  </div>
-               )}
-               
-               <div class="flex flex-col gap-6 relative z-10">
-                  <header class="flex flex-col gap-2">
-                     <h3 class="text-xl dark:text-background font-semibold">{plan.name}</h3>
-                     <p class="text-start text-lg lg:text-sm text-primary dark:text-primary-bright">{plan.description}</p>
-                  </header>
-                  <ul class="flex flex-col w-full gap-2">
-                     {
-                        plan.features.map((item, index) => (
-                           <li class="flex gap-2 items-center justify-self-auto">
-                              <Check class="w-5 h-5 lg:w-6 lg:h-6 text-primary dark:text-primary-bright"/>
-                              <p class="text-sm dark:text-text-light dark:text-border-input lg:text-base">{item.label}</p>
-                           </li>
-                        ))
-                     }
-                  </ul>
-               </div>
-               <footer class="relative z-10">
-                  {plan.discount ? (
-                     <div class="flex items-center gap-2">
-                        <p class="text-lg text-text-dark dark:text-text-light font-medium text-text-secundary">
-                           {plan.currency}{plan.discountedPrice}
-                        </p>
-                        <p class="text-sm text-text-dark dark:text-text-light/70 line-through opacity-60">
-                           {plan.currency}{plan.price}
-                        </p>
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay={index * 100}>
+               <a href="/contacto" 
+                  class={`plan-card h-full relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} gap-10 bg-background/90 dark:bg-bg-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden transition-colors duration-1000 cursor-pointer no-underline group dark:hover:bg-primary-bright hover:bg-primary ease-in-out`}>
+                  
+                  {/* Badge de descuento */}
+                  {plan.discount && (
+                     <div class="absolute top-4 right-4 bg-primary dark:bg-primary-bright text-white group-hover:text-text-dark group-hover:bg-background dark:group-hover:text-text-light dark:group-hover:bg-dark-background transition-all duration-1000 px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg">
+                        -{plan.discount}%
                      </div>
-                  ) : (
-                     <p class="text-lg text-text-dark dark:text-text-light font-medium text-text-secundary">
-                        {plan.currency ? `${plan.currency}${plan.price}` : plan.price}
-                     </p>
                   )}
-                  <p class="text-sm text-text-dark dark:text-text-light text-text-secundary">{plan.duration}</p>
-               </footer>
-            </a>
+                  
+                  <div class="flex flex-col gap-6 relative z-10">
+                     <header class="flex flex-col gap-2">
+                        <h3 class="text-xl dark:text-background font-semibold group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">{plan.name}</h3>
+                        <p class="text-start text-lg lg:text-sm text-primary dark:text-primary-bright group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">{plan.description}</p>
+                     </header>
+                     <ul class="flex flex-col w-full gap-2">
+                        {
+                           plan.features.map((item, index) => (
+                              <li class="flex gap-2 items-center justify-self-auto">
+                                 <Check class="w-5 h-5 lg:w-6 lg:h-6 text-primary dark:text-primary-bright group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000"/>
+                                 <p class="text-sm dark:text-text-light dark:text-border-input lg:text-base group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">{item.label}</p>
+                              </li>
+                           ))
+                        }
+                     </ul>
+                  </div>
+                  <footer class="relative z-10">
+                     {plan.discount ? (
+                        <div class="flex items-center gap-2">
+                           <p class="text-lg text-text-dark dark:text-text-light font-medium text-text-secundary group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">
+                              {plan.currency}{plan.discountedPrice}
+                           </p>
+                           <p class="text-sm text-text-dark dark:text-text-light/70 line-through opacity-60 group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">
+                              {plan.currency}{plan.price}
+                           </p>
+                        </div>
+                     ) : (
+                        <p class="text-lg text-text-dark dark:text-text-light font-medium text-text-secundary group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">
+                           {plan.currency ? `${plan.currency}${plan.price}` : plan.price}
+                        </p>
+                     )}
+                     <p class="text-sm text-text-dark dark:text-text-light text-text-secundary group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">{plan.duration}</p>
+                  </footer>
+               </a>
+            </div>
          ))
       }
     </div>
   </div>
 </section>
-
-<style>
-  .plan-card {
-    position: relative;
-    transition: border-color 0.5s ease;
-  }
-
-  .plan-card:hover {
-    border-color: var(--color-primary);
-    z-index: 10;
-  }
-
-  .plan-card:hover .plan-image {
-    transform: scale(1.1) rotate(5deg);
-  }
-</style>
