@@ -22,5 +22,5 @@ const { title, subtitle, titleHeader, isCenter = false, isWidthFull = false } = 
 <div class={`w-full ${isCenter ? 'md:grid md:place-items-center' : ''}`}>
   { titleHeader ? ( <p class="uppercase dark:text-primary-bright text-primary mb-4 text-base md:text-lg text-left font-semibold">{titleHeader}</p>) : <></> }
   <h2 class="text-4xl md:text-5xl text-left font-bold text-text-dark dark:text-text-light text-balance">{title}</h2>
-  { subtitle ? ( <p class={`text-base md:text-lg text-left mt-4 md:mt-6 text-subtitle-dark dark:text-subtitle-light text-pretty ${isWidthFull ? 'w-full' : 'md:w-3/6'}`}>{subtitle}</p>) : <></> }
+  { subtitle ? ( <p class={`text-base md:text-lg text-left mt-4 md:mt-6 text-subtitle-dark dark:text-text-light/80 text-pretty ${isWidthFull ? 'w-full' : 'md:w-3/6'}`}>{subtitle}</p>) : <></> }
 </div>
