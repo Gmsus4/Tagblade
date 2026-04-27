@@ -5,7 +5,7 @@ import Check from '../icons/Check.astro'
 import TitleSection from '../common/TitleSection.astro';
 ---
 <section 
-  id="planes" class="flex items-center md:px-20 sm:px-10 px-5 justify-center lg:py-22 bg-background dark:bg-dark-background scroll-mt-12" aria-label="Sección de planes">
+  id="planes" class="flex items-center md:px-20 sm:px-10 px-5 justify-center min-h-[calc(100svh-64px)] bg-background dark:bg-dark-background scroll-mt-12" aria-label="Sección de planes">
   <div class="max-w-screen-xl mx-auto lg:py-0 py-12 relative z-10">
    <div data-aos="fade-down" data-aos-duration="800">
      <TitleSection title={data.planes.title} titleHeader={data.planes.titleHeader} isCenter={true} />
@@ -15,7 +15,7 @@ import TitleSection from '../common/TitleSection.astro';
          planes.map((plan, index) => (
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay={index * 100}>
                <a href="/contacto" 
-                  class={`plan-card h-full relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} ${plan.target && "bg-primary xl:scale-110 dark:bg-primary-bright"} gap-10 bg-background/90 dark:bg-bg-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden transition-colors duration-1000 cursor-pointer no-underline group ease-in-out`}>
+                  class={`plan-card h-full relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} ${plan.target && "bg-primary xl:scale-110 dark:bg-primary-bright"} gap-10 bg-background/90 dark:bg-bg-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden cursor-pointer no-underline group ease-in-out`}>
                   
                   {/* Badge de descuento */}
                   {plan.discount && (
