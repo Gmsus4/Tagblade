@@ -54,6 +54,10 @@ h1, h2 {
     font-family: 'Figtree Variable', sans-serif;
 }
 
+#home {
+  height: 100svh; /* small viewport height - no cambia al scrollear */
+}
+
 /* ===== EFECTO DE CRISTAL EN LA IMAGEN ===== */
 .image-container {
   position: relative;
