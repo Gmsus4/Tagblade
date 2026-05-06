@@ -11,30 +11,33 @@ import Code from "../icons/Code.astro";
 
 <section id="home" class="relative md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background bg-blend-multiply py-20 h-dvh flex items-center overflow-hidden" aria-label="Sección principal: inicio">
   <!-- Contenido principal del hero -->
-  <div class="w-full max-w-screen-xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-20">
+  <div class="w-full max-w-screen-lg mx-auto grid lg:grid-cols-12 gap-12 items-center z-20">
     <!-- Columna izquierda: Texto y CTA -->
-    <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+    <div class="flex flex-col items-center lg:items-start text-center lg:text-left col-span-7
+    ">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-hover text-sm font-medium mb-6">
         <Check class="w-5 h-5"/>
         Diseño web profesional
       </div>
       
-      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-text-dark dark:text-text-light md:text-5xl lg:text-6xl">
+      <h1 class="mb-4 text-5xl font-extrabold tracking-tight leading-none text-text-dark dark:text-text-light md:text-5xl lg:text-6xl">
         Tu sitio web, <span class="text-primary">construido para durar</span>.
       </h1>
       
-      <p class="mb-8 text-lg font-normal text-gray-700 text-text-secundary1 dark:text-background/80 max-w-2xl">
-        Diseñamos y desarrollamos sitios web que combinan rendimiento, estética y propósito para impulsar tu negocio al siguiente nivel.
+      <p class="mb-8 text-2xl font-normal text-gray-700 text-text-secundary1 dark:text-background/80 max-w-2xl">
+        <!-- Diseñamos y desarrollamos sitios web que combinan rendimiento, estética y propósito para impulsar tu negocio al siguiente nivel. -->
+        Creamos sitios web que combinan rendimiento, diseño y propósito para impulsar tu proyecto.
       </p>
       
-      <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-        <Button className="bg-primary dark:bg-primary-bright dark:text-dark-background text-text-light font-bold" title="Ver nuestros planes" url="/planes" icon={Code} iconSize="6" iconColor="dark:text-text-dark text-text-light "/>
-        <Button className="bg-primary dark:bg-primary-bright dark:text-dark-background text-text-light font-bold" title="Envíanos un WhatsApp" url={`https://wa.me/52${contactInfo.phone}`} icon={ Whatsapp } iconSize="6" iconColor="dark:text-text-dark text-text-light "/>
+      <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 items-center gap-4">
+        <Button className="bg-primary dark:bg-primary-bright dark:text-dark-background text-text-light font-bold py-4 px-6 hover:bg-primary-bright dark:hover:bg-primary" title="Ver nuestros planes" url="/planes" />
+        <!-- <Button className="bg-primary dark:bg-primary-bright dark:text-dark-background text-text-light font-bold" title="Envíanos un WhatsApp" url={`https://wa.me/52${contactInfo.phone}`} icon={ Whatsapp } iconSize="6" iconColor="dark:text-text-dark text-text-light "/> -->
+        <a href={`https://wa.me/52${contactInfo.phone}`} class="font-bold text-primary hover:text-primary-bright dark:text-primary-bright dark:hover:text-primary">Envíanos un Whatsapp</a>
       </div>
     </div>  
     
     <!-- Columna derecha: Ilustración o mockup -->
-    <div class="hidden lg:flex justify-center items-center relative">
+    <div class="hidden lg:flex justify-center items-center relative col-span-5">
       <!-- Mockup de dispositivos -->
       <div class="relative w-full max-w-md">
         <!-- Laptop mockup -->

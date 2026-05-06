@@ -53,23 +53,23 @@ const info = [
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 gap-x-10 px-0 py-6">
-  <!-- <h3 class="md:text-2xl col-span-1 md:col-span-2 lg:col-span-1 xl:col-span-2 text-dark-background dark:text-white text-2xl">
-    Información de Contacto
-  </h3> -->
     {
         info.map((item, index) => {
             const Icon = item.icon;
             return (
                 <a href={item.href} target="_blank" class="flex items-center gap-4 justify-start text-primary dark:text-primary-bright hover:text-text-light dark:hover:text-text-dark group">
-                    <div class="w-11 h-11 rounded-xl bg-primary/10 dark:bg-primary-bright/10 group-hover:bg-primary dark:group-hover:bg-primary-bright group-hover:scale-110 grid place-items-center transition-all duration-300">
+                    <div class="w-11 h-11 shrink-0 rounded-xl bg-primary/10 dark:bg-primary-bright/10 group-hover:bg-primary dark:group-hover:bg-primary-bright group-hover:scale-110 grid place-items-center transition-all duration-300">
                         <Icon />
                     </div>
-                    <div>
+                    <div class="min-w-0 flex-1">
                         <p class="text-sm text-gray-500 dark:text-gray-400">{item.title}</p>
-                        <span class="text-text-dark dark:text-text-light group-hover:text-primary dark:group-hover:text-primary-bright transition-colors">
+                        <span class="text-text-dark block truncate dark:text-text-light group-hover:text-primary dark:group-hover:text-primary-bright transition-colors">
                             {item.text}
-                        </span>
+                        </span> 
                     </div>
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                        {item.text}
+                    </span>
                 </a>
             )
         })

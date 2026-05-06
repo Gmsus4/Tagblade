@@ -4,85 +4,23 @@ import { proyectos } from '../../js/proyectos';
 import TitleSection from '../common/TitleSection.astro';
 ---
 
-<section id="proyectos" class="md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-40px)]" aria-label="Sección de Proyectos">
-  <div class="max-w-screen-xl mx-auto px-0 lg:py-16 p-12 relative py-12">
+<section id="proyectos" class="md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background grid place-items-center" aria-label="Sección de Proyectos">
+  <div class="max-w-screen-lg w-full px-0 lg:py-16 p-12 py-12">
     <div data-aos="fade-down" data-aos-duration="800">
-      <TitleSection title={titles.proyectos.title} titleHeader={titles.proyectos.titleHeader}/>
+      <TitleSection title={titles.proyectos.title} titleHeader={titles.proyectos.titleHeader} isCenter={true}/>
     </div>
-
-    <!-- Grid mejorado de proyectos -->
-    <div class="grid gap-6 mt-10 grid-cols-[repeat(auto-fit,minmax(300px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
-      {proyectos.map((proyecto, index) => (
-        <div 
-          class="rounded-xl bg-background/90 dark:bg-bg-surface shadow-lg overflow-hidden transition-all duration-300 group relative border border-gray-200/50 dark:border-gray-700/50"
-          data-aos="zoom-in" 
-          data-aos-duration="600" 
-          data-aos-delay={index * 80}>
-          
-          <div class="relative overflow-hidden h-48">
-            <img 
-              src={proyecto.urlImage} 
-              alt={`Imagen de ${proyecto.title}`} 
-              class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" 
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            
-            <span class="absolute top-3 right-3 bg-primary/90 dark:bg-primary-bright text-white text-xs px-3 py-1 rounded-full shadow-sm z-20">
-              {proyecto.type}
-            </span>
-          </div>
-          
-          {/* Contenido del proyecto */}
-          <div class="p-6 relative z-20">
-
-            {/* Titulo del proyecto */}
-            <h3 class="text-xl font-semibold dark:text-white mb-2 group-hover:text-primary dark:group-hover:text-primary-bright transition-colors duration-300">
-              {proyecto.title}
-              <div class="h-1 w-8 bg-primary dark:bg-primary-bright mt-2 transition-all duration-300 group-hover:w-16 group-hover:bg-primary/60 dark:group-hover:bg-primary-bright/60"></div>
-            </h3>
-            
-            {/* Descripcion del proyecto */}
-            <p class="text-sm text-text-secundary dark:text-gray-300 mb-4">
-              {proyecto.description}
-            </p>
-            
-            {/* Tecnologías */}
-            <div class="flex flex-wrap gap-2 mb-4 cursor-default">
-              {proyecto.technologies.map((tech) => (
-                <span 
-                  class="text-xs bg-background-secondary text-text-secundary dark:bg-dark-background dark:text-gray-200 px-2 py-1 rounded-full"
-                >
-                  {tech}
-                </span>
-              ))}
+    <div class="grid gap-4 mt-10 md:grid-cols-3 grid-cols-2">
+      { proyectos.map((proyecto, index) => (
+        <a href={proyecto.urlPage} class="grid gap-4 group" data-aos="zoom-in" data-aos-duration="600" data-aos-delay={index * 80}>
+          <div class="relative rounded-2xl overflow-hidden relative">
+            <img src={proyecto.urlImage} class="w-full h-full object-cover"/>
+            <img src={proyecto.urlImageMobile} class="w-full h-full object-cover absolute top-5 left-30"/>
+            <div class="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+              <p class="text-white text-sm text-center">{proyecto.description}</p>
             </div>
-            
-           {/* Link estilizado */}
-            <a 
-              href={proyecto.urlPage} 
-              target="_blank" 
-              rel="noopener"
-              class="group/link inline-flex items-center gap-1 text-sm font-medium text-primary dark:text-primary-bright hover:underline transition-colors mt-2"
-            >
-              <span>Visitar página web</span>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                stroke-width="2" 
-                stroke-linecap="round" 
-                stroke-linejoin="round"
-                class="transform transition-transform duration-300 group-hover/link:translate-x-1"
-              >
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
-            </a>
           </div>
-        </div>
+          <p class="text-gray-800 dark:text-gray-400 text-center font-bold text-sm group-hover:text-primary dark:group-hover:text-primary-bright">{proyecto.title}</p>
+        </a>
       ))}
     </div>
   </div>

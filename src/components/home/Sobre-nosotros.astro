@@ -1,19 +1,21 @@
 ---
+import { Image } from "astro:assets";
 import { titles } from "../../js/titles";
 import Team from "../common/Team.astro";
 import TitleSection from "../common/TitleSection.astro";
 import Proceso from "./Proceso.astro";
 ---
-<section id="about-us" class="relative md:px-20 sm:px-10 px-5 lg:scroll-mt-18 scroll-mt-12 w-full bg-background dark:bg-dark-background flex items-center justify-center lg:min-h-[calc(100vh-40px)] overflow-hidden" aria-label="Sección Sobre Nosotros">
+<section id="about-us" class="md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background" aria-label="Sección Sobre Nosotros">
   <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none" aria-hidden="true">
     <div class="absolute top-20 left-10 w-64 h-64 bg-primary-hover/5 dark:bg-surface/5 rounded-full blur-3xl"></div>
     <div class="absolute bottom-20 right-10 w-80 h-80 bg-primary-hover/5 dark:bg-surface/5 rounded-full blur-3xl"></div>
   </div>
-  
-  <div class="max-w-screen-xl mx-auto lg:py-16 py-12 relative z-10">
+
+  <div class="max-w-screen-lg mx-auto lg:py-16 py-12 relative z-10">
     <div data-aos="fade-down" data-aos-duration="800">
-      <TitleSection title={titles.sobreNosotros.title} titleHeader={titles.sobreNosotros.titleHeader}/>
+      <TitleSection title={titles.sobreNosotros.title} titleHeader={titles.sobreNosotros.titleHeader} isCenter={true}/>
     </div>
+
     <div class="grid gap-16 m-auto items-center mt-10" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
       <div class="h-full z-10 relative">
         <div class="absolute -left-4 -top-4 w-24 h-24 bg-primary-hover/10 dark:bg-surface/10 rounded-full"></div>
@@ -22,54 +24,52 @@ import Proceso from "./Proceso.astro";
       </div>
     </div>
     
-    <div class="mt-20 space-y-16">
-      <div class="flex lg:flex-row flex-col lg:gap-20 gap-10">
-        <article class="z-1" data-aos="fade-up" data-aos-duration="700">
-          <h3 class="text-primary dark:text-primary-bright font-extrabold mb-2 text-2xl relative">
-            Nuestro enfoque
-            <div class="absolute -left-3 top-0 w-1 h-8 bg-primary-hover dark:bg-surface rounded-r-md"></div>
-          </h3>
-          <p class="mt-4 text-text-secundary dark:text-background/90 text-lg leading-relaxed max-w-3xl">
-            En Tagblade priorizamos la <span class="font-medium text-primary dark:text-primary-bright">claridad, funcionalidad y escalabilidad</span>. Comenzamos con la escucha activa del cliente, seguida de una planificación estratégica y ejecución detallada con mentalidad orientada al usuario.
+    <!-- Historia, Método, Visión -->
+    <div class="mt-6 grid grid-cols-12 items-center lg:gap-20 gap-0">
+      <div class="divide-y divide-gray-200/60 dark:divide-gray-700/40 lg:col-span-8 col-span-12">
+        <article class="py-4" data-aos="fade-up" data-aos-duration="700">
+          <h3 class="text-text-dark dark:text-text-light font-bold text-2xl mb-4">Nuestra historia</h3>
+          <p class="text-text-secundary dark:text-background/60 text-lg leading-relaxed max-w-2xl">
+            Tagblade nació de una idea simple: construir sitios web con intención. Fernando Gómez convirtió esa idea en una forma de trabajo, donde la tecnología se combina con criterio, detalle y una visión clara de lo que cada proyecto necesita.
           </p>
         </article>
 
-        <article class="z-1" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
-          <h3 class="text-primary dark:text-primary-bright font-extrabold mb-2 text-2xl relative lg:text-right">
-            Nuestra historia
-            <div class="absolute lg:-right-3 -left-3 lg:left-auto top-0 w-1 h-8 bg-primary-hover dark:bg-surface lg:rounded-l-md rounded-r-md"></div>
-          </h3>
-          <p class="mt-4 text-text-dark dark:text-background/90 text-lg leading-relaxed max-w-3xl lg:text-right">
-            Tagblade nació con la idea de crear sitios web con intención y precisión. Fernando Gómez convirtió esa idea en una marca que combina <span class="font-medium text-primary dark:text-primary-bright">tecnología, visión humana y compromiso</span> por cada detalle.
+        <article class="py-4" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+          <h3 class="text-text-dark dark:text-text-light font-bold text-2xl mb-4">Nuestro método</h3>
+          <p class="text-text-secundary dark:text-background/60 text-lg leading-relaxed max-w-2xl">
+            Cada proyecto comienza escuchando. Luego, estructuramos, diseñamos y construimos con una mentalidad orientada al usuario. No seguimos plantillas rígidas: creamos soluciones que se ajustan a cada caso.
+          </p>
+        </article>
+
+        <article class="py-4" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+          <h3 class="text-text-dark dark:text-text-light font-bold text-2xl mb-4">Mirando hacia adelante</h3>
+          <p class="text-text-secundary dark:text-background/60 text-lg leading-relaxed max-w-2xl">
+            No solo pensamos en lo que necesitas hoy. Pensamos en lo que vendrá después. Nuestro compromiso es crear soluciones que se mantengan útiles, flexibles y relevantes con el tiempo. Porque una buena web no solo lanza, evoluciona.
           </p>
         </article>
       </div>
+
+      <div class="lg:col-span-4 col-span-12 grid place-items-center py-16 md:py-0 gap-6">
+        <Image
+          src={"/tagblade.jpg"}
+          alt=""
+          class="object-cover rounded-4xl md:w-full"
+          width={200}
+          height={200}
+          loading="lazy"
+          data-aos="fade-up" data-aos-duration="700" data-aos-delay="100"
+        />
+        <h3 class="text-4xl font-bold dark:text-white" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">Tagblade</h3>
+      </div>
     </div>
-    <article class="mt-16" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
-        <h3 class="text-primary dark:text-primary-bright font-extrabold mb-2 text-2xl relative">
-          Mirando hacia adelante
-          <div class="absolute -left-3 top-0 w-1 h-8 bg-primary-hover dark:bg-surface rounded-r-md"></div>
-        </h3>
-        <p class="mt-4 text-text-dark dark:text-background/90 text-lg leading-relaxed">
-          En Tagblade no solo pensamos en los proyectos actuales, también en los que están por venir. 
-          Nuestro compromiso es acompañar a cada cliente en la evolución de su marca digital, asegurando que 
-          las soluciones que construimos hoy se mantengan <span class="font-medium text-primary dark:text-primary-bright">flexibles, escalables y listas para crecer</span>. 
-        </p>
-        <p class="mt-4 text-text-dark dark:text-background/90 text-lg leading-relaxed">
-          Para los futuros proyectos seguimos un proceso claro y transparente: 
-          descubrimos oportunidades, definimos objetivos, diseñamos y programamos con precisión, 
-          y finalmente entregamos soluciones listas para impactar. 
-          Cada paso está pensado para dar <span class="font-medium text-primary dark:text-primary-bright">seguridad, acompañamiento y resultados medibles</span>.
-        </p>
-      </article>
-    <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
+
+    <!-- <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
       <Proceso />
-    </div>
+    </div> -->
   </div>
 </section>
 
 <style>
-  /* Prevenir overflow horizontal causado por AOS */
   #about-us {
     overflow-x: clip;
   }

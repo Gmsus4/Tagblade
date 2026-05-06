@@ -1,25 +1,26 @@
 ---
 import { titles as data } from '../../js/titles';
-import { planes } from '../../js/planes'
+import { mensual, planes } from '../../js/planes'
 import Check from '../icons/Check.astro'
 import TitleSection from '../common/TitleSection.astro';
 ---
 <section 
-  id="planes" class="flex items-center md:px-20 sm:px-10 px-5 justify-center min-h-[calc(100svh-64px)] bg-background dark:bg-dark-background scroll-mt-12" aria-label="Sección de planes">
-  <div class="max-w-screen-xl mx-auto lg:py-0 py-12 relative z-10">
+  id="planes" class="py-16 lg:py-24 md:px-20 sm:px-10 px-5 bg-background dark:bg-dark-background" aria-label="Sección de planes">
+  <div class="max-w-screen-lg mx-auto relative z-10 max-w-screen-lg mx-auto w-full">
    <div data-aos="fade-down" data-aos-duration="800">
      <TitleSection title={data.planes.title} titleHeader={data.planes.titleHeader} isCenter={true} />
    </div>
-    <div class="mt-8 w-full m-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 md:pt-8">
+
+    <!-- Planes de pago único -->
+    <div class="mt-4 w-full m-auto grid grid-cols-1 sm:grid-cols-2 gap-6 md:pt-8">
       {
          planes.map((plan, index) => (
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay={index * 100}>
                <a href="/contacto" 
-                  class={`plan-card h-full relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} ${plan.target && "bg-primary xl:scale-110 dark:bg-primary-bright"} gap-10 bg-background/90 dark:bg-bg-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden cursor-pointer no-underline group ease-in-out`}>
-                  
-                  {/* Badge de descuento */}
+                  class={`plan-card h-full relative p-6 lg:p-6 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} ${plan.target && "bg-primary dark:bg-primary-bright"} gap-10 bg-background/90 dark:bg-bg-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden cursor-pointer no-underline group ease-in-out`}>
+               
                   {plan.discount && (
-                     <div class={`${plan.target ? "bg-white dark:bg-dark-background !text-dark-background dark:!text-white" : "bg-primary dark:bg-primary-bright"} absolute top-4 right-4  text-white transition-all duration-1000 px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg`}>
+                     <div class={`${plan.target ? "bg-white dark:bg-dark-background !text-dark-background dark:!text-white" : "bg-primary dark:bg-primary-bright"} absolute top-4 right-4 text-white transition-all duration-1000 px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg`}>
                         -{plan.discount}%
                      </div>
                   )}
@@ -31,7 +32,7 @@ import TitleSection from '../common/TitleSection.astro';
                      </header>
                      <ul class="flex flex-col w-full gap-2">
                         {
-                           plan.features.map((item, index) => (
+                           plan.features.map((item) => (
                               <li class="flex gap-2 items-center justify-self-auto">
                                  <Check class={`${plan.target && "text-white dark:!text-dark-background"} w-5 h-5 lg:w-6 lg:h-6 text-primary dark:text-primary-bright transition-all duration-1000`}/>
                                  <p class={`${plan.target && "text-white dark:!text-dark-background"} text-sm dark:text-text-light dark:text-border-input lg:text-base transition-all duration-1000`}>{item.label}</p>
@@ -62,66 +63,42 @@ import TitleSection from '../common/TitleSection.astro';
          ))
       }
     </div>
-  </div>
-</section>
 
-<!-- <section 
-  id="planes" class="flex items-center md:px-20 sm:px-10 px-5 justify-center min-h-screen bg-background dark:bg-dark-background scroll-mt-12" aria-label="Sección de planes">
-  <div class="max-w-screen-xl mx-auto lg:py-16 py-12 relative z-10">
-   <div data-aos="fade-down" data-aos-duration="800">
-     <TitleSection title={data.planes.title} titleHeader={data.planes.titleHeader} isCenter={true} />
-   </div>
-    <div class="mt-8 w-full m-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+    <!-- Plan mensual: mismo diseño, ancho completo -->
+    <div class="mt-6 grid grid-cols-1 gap-6">
       {
-         planes.map((plan, index) => (
+         mensual.map((plan, index) => (
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay={index * 100}>
-               <a href="/contacto" 
-                  class={`plan-card h-full relative p-6 lg:p-10 ${index === 2 ? 'sm:col-span-2 xl:col-span-1' : ''} gap-10 bg-background/90 dark:bg-bg-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden transition-colors duration-1000 cursor-pointer no-underline group dark:hover:bg-primary-bright hover:bg-primary ease-in-out`}>
-                  
-                  {/* Badge de descuento */}
-                  {plan.discount && (
-                     <div class="absolute top-4 right-4 bg-primary dark:bg-primary-bright text-white group-hover:text-text-dark group-hover:bg-background dark:group-hover:text-text-light dark:group-hover:bg-dark-background transition-all duration-1000 px-3 py-1 rounded-full text-xs font-bold z-20 shadow-lg">
-                        -{plan.discount}%
-                     </div>
-                  )}
-                  
+               <a href="/contacto"
+                  class={`plan-card col-span-2 h-full relative p-6 lg:p-6 gap-10 bg-background/90 dark:bg-bg-surface rounded-2xl shadow-lg flex flex-col justify-between overflow-hidden cursor-pointer no-underline group ease-in-out`}>
+
                   <div class="flex flex-col gap-6 relative z-10">
                      <header class="flex flex-col gap-2">
-                        <h3 class="text-xl dark:text-background font-semibold group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">{plan.name}</h3>
-                        <p class="text-start text-lg lg:text-sm text-primary dark:text-primary-bright group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">{plan.description}</p>
+                        <h3 class="text-xl dark:text-background font-semibold transition-all duration-1000">{plan.name}</h3>
+                        <p class="text-start text-lg lg:text-sm text-primary dark:text-primary-bright transition-all duration-1000">{plan.description}</p>
                      </header>
-                     <ul class="flex flex-col w-full gap-2">
+                     <ul class="grid grid-cols-1 sm:grid-cols-2 w-full gap-2">
                         {
-                           plan.features.map((item, index) => (
-                              <li class="flex gap-2 items-center justify-self-auto">
-                                 <Check class="w-5 h-5 lg:w-6 lg:h-6 text-primary dark:text-primary-bright group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000"/>
-                                 <p class="text-sm dark:text-text-light dark:text-border-input lg:text-base group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">{item.label}</p>
+                           plan.features.map((item) => (
+                              <li class="flex gap-2 items-center">
+                                 <Check class="w-5 h-5 lg:w-6 lg:h-6 text-primary dark:text-primary-bright transition-all duration-1000"/>
+                                 <p class="text-sm dark:text-text-light dark:text-border-input lg:text-base transition-all duration-1000">{item.label}</p>
                               </li>
                            ))
                         }
                      </ul>
                   </div>
                   <footer class="relative z-10">
-                     {plan.discount ? (
-                        <div class="flex items-center gap-2">
-                           <p class="text-lg text-text-dark dark:text-text-light font-medium text-text-secundary group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">
-                              {plan.currency}{plan.discountedPrice}
-                           </p>
-                           <p class="text-sm text-text-dark dark:text-text-light/70 line-through opacity-60 group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">
-                              {plan.currency}{plan.price}
-                           </p>
-                        </div>
-                     ) : (
-                        <p class="text-lg text-text-dark dark:text-text-light font-medium text-text-secundary group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">
-                           {plan.currency ? `${plan.currency}${plan.price}` : plan.price}
-                        </p>
-                     )}
-                     <p class="text-sm text-text-dark dark:text-text-light text-text-secundary group-hover:text-text-light dark:group-hover:text-dark-background transition-all duration-1000">{plan.duration}</p>
+                     <p class="text-lg text-text-dark dark:text-text-light font-medium text-text-secundary transition-all duration-1000">
+                        {plan.currency}{plan.price}
+                     </p>
+                     <p class="text-sm text-text-dark dark:text-text-light text-text-secundary transition-all duration-1000">{plan.duration}</p>
                   </footer>
                </a>
             </div>
          ))
       }
     </div>
+
   </div>
-</section> -->
+</section>

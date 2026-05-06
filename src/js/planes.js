@@ -53,7 +53,10 @@ export const planes = [
       { label: "Entrega en 4-6 semanas", included: true }
     ]
   },
-  {
+];
+
+export const mensual = [
+    {
     name: "PARTNER DIGITAL",
     price: 999,
     description: "Mantenimiento continuo.",
@@ -72,4 +75,4 @@ export const planes = [
       { label: "Pequeñas mejoras y ajustes incluidos", included: true }
     ]
   }
-];
+]

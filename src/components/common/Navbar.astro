@@ -6,101 +6,87 @@ import LinksNavbar from "./LinksNavbar.astro";
 import { navbarLinks } from "../../js/navbarLinks";
 ---
 
-<style>
-  ul li a.active{
-    color: var(--color-primary);
-  }
-</style>
-
 <nav class="bg-background dark:bg-dark-background fixed w-full top-0 start-0 border-b border-gray-200 dark:border-dark-border z-50">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <Logo />
-    <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse items-center lg:gap-6 gap-2">
-        <DarkModeToggle />
-        <HamburgerButton />
+  <div class="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
+
+    <div class="flex items-center gap-8">
+      <Logo />
+      <!-- Desktop -->
+      <div class="hidden lg:block">
+        <LinksNavbar links={navbarLinks} />
+      </div>
     </div>
-    <LinksNavbar links={ navbarLinks }/>
+
+    <div class="flex lg:order-2 items-center lg:gap-6 gap-2">
+      <DarkModeToggle />
+      <HamburgerButton />
+    </div>
+
+    <!-- Mobile: este es el único con id, arranca hidden -->
+    <div id="navbar-default" class="hidden w-full lg:hidden">
+      <LinksNavbar links={navbarLinks} />
+    </div>
+
   </div>
 </nav>
 
-
 <script>
-  // Función para inicializar todo
   function initNavbar() {
     const toggleButton = document.querySelector('[data-collapse-toggle]') as HTMLElement;
     const menu = document.getElementById('navbar-default');
 
     if (!toggleButton || !menu) return;
 
-    // Cerrar menú al hacer click fuera
+    toggleButton.addEventListener('click', () => {
+      const isHidden = menu.classList.toggle('hidden');
+      toggleButton.setAttribute('aria-expanded', String(!isHidden));
+    });
+
     document.addEventListener('click', (event) => {
       const target = event.target as Node;
-      const isClickInside = toggleButton.contains(target) || menu.contains(target);
-      const isVisible = !menu.classList.contains('hidden');
-
-      if (!isClickInside && isVisible) {
-        toggleButton.click();
+      if (!toggleButton.contains(target) && !menu.contains(target)) {
+        menu.classList.add('hidden');
+        toggleButton.setAttribute('aria-expanded', 'false');
       }
     });
 
-    // Cerrar menú al hacer click en enlaces (mobile)
-    const navLinks = menu.querySelectorAll('a');
-    navLinks.forEach(link => {
+    menu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        if (window.innerWidth < 1024 && !menu.classList.contains('hidden')) {
-          toggleButton.click();
-        }
+        menu.classList.add('hidden');
+        toggleButton.setAttribute('aria-expanded', 'false');
       });
     });
   }
 
-  // Marcar enlace activo según la URL
   function setActiveLink() {
-    // Normalizar URLs (quitar barra final para comparar)
     const normalize = (url: string) => url.replace(/\/$/, '') || '/';
-    
     const currentPath = normalize(window.location.pathname);
     const currentHash = window.location.hash;
-    const currentFull = currentPath + currentHash;
-    
-    const links = document.querySelectorAll('#navbar-default a');
 
-    links.forEach(link => {
+    document.querySelectorAll('nav a').forEach(link => {
       const href = link.getAttribute('href');
       if (!href) return;
 
       link.classList.remove('active');
 
-      // Normalizar href del link
       const normalizedHref = normalize(href.split('#')[0]);
       const linkHash = href.includes('#') ? '#' + href.split('#')[1] : '';
-      const fullHref = normalizedHref + linkHash;
 
-      // Comparar rutas normalizadas
-      if (fullHref === currentFull || normalizedHref === currentPath) {
+      if (normalizedHref + linkHash === currentPath + currentHash || normalizedHref === currentPath) {
         link.classList.add('active');
       }
     });
   }
 
-  // Inicializar todo cuando el DOM esté listo
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initNavbar();
-      setActiveLink();
-    });
-  } else {
-    // DOM ya está listo
+  function init() {
     initNavbar();
     setActiveLink();
   }
 
-  // Actualizar enlace activo en cambios de hash
-  window.addEventListener('hashchange', setActiveLink);
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', init)
+    : init();
 
-  // Re-inicializar después de navegación (para SPAs de Astro)
-  document.addEventListener('astro:page-load', () => {
-    initNavbar();
-    setActiveLink();
-  });
+  window.addEventListener('hashchange', setActiveLink);
+  document.addEventListener('astro:page-load', init);
 </script>
