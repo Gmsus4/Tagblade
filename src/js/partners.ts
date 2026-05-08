@@ -56,62 +56,62 @@ export const partners: Partner[] = [
       },
     ]
   },
-  { 
-    id: 'fernando1',
-    name: 'Fernando Gómez',
-    username: 'gmsus4',
-    role: 'Front-end',
-    imageUrl: '/partners/fer.webp',
-    imageUrlHover: '/partners/fer-hover.jpg',
-    song: "Just The Way You Are Milky",
-    songUrl: "https://open.spotify.com/intl-es/track/7K3Lc3TfSR14aTOjIH7TUj?si=5842762ab8aa488e",
-    banner: "/partners/cover-fer.webp",
-    description: "Arregla un bug… y aparecen dos nuevos.",
-    socials: [
-      {
-        name: 'Instagram',
-        url: 'https://www.instagram.com/gmsus4/',
-        icon: Instagram
-      },
-      {
-        name: 'Spotify',
-        url: 'https://open.spotify.com/user/f3rnandogm',
-        icon: Spotify
-      },
-      {
-        name: 'Linkedin',
-        url: 'https://www.linkedin.com/in/fergomezmontes/',
-        icon: Linkedin
-      },
-    ]
-  },
-  { 
-    id: 'fernando2',
-    name: 'Fernando Gómez',
-    username: 'gmsus4',
-    role: 'Front-end',
-    imageUrl: '/partners/fer.webp',
-    imageUrlHover: '/partners/fer-hover.jpg',
-    song: "Just The Way You Are Milky",
-    songUrl: "https://open.spotify.com/intl-es/track/7K3Lc3TfSR14aTOjIH7TUj?si=5842762ab8aa488e",
-    banner: "/partners/cover-fer.webp",
-    description: "Arregla un bug… y aparecen dos nuevos.",
-    socials: [
-      {
-        name: 'Instagram',
-        url: 'https://www.instagram.com/gmsus4/',
-        icon: Instagram
-      },
-      {
-        name: 'Spotify',
-        url: 'https://open.spotify.com/user/f3rnandogm',
-        icon: Spotify
-      },
-      {
-        name: 'Linkedin',
-        url: 'https://www.linkedin.com/in/fergomezmontes/',
-        icon: Linkedin
-      },
-    ]
-  },
+  // { 
+  //   id: 'fernando1',
+  //   name: 'Fernando Gómez',
+  //   username: 'gmsus4',
+  //   role: 'Front-end',
+  //   imageUrl: '/partners/fer.webp',
+  //   imageUrlHover: '/partners/fer-hover.jpg',
+  //   song: "Just The Way You Are Milky",
+  //   songUrl: "https://open.spotify.com/intl-es/track/7K3Lc3TfSR14aTOjIH7TUj?si=5842762ab8aa488e",
+  //   banner: "/partners/cover-fer.webp",
+  //   description: "Arregla un bug… y aparecen dos nuevos.",
+  //   socials: [
+  //     {
+  //       name: 'Instagram',
+  //       url: 'https://www.instagram.com/gmsus4/',
+  //       icon: Instagram
+  //     },
+  //     {
+  //       name: 'Spotify',
+  //       url: 'https://open.spotify.com/user/f3rnandogm',
+  //       icon: Spotify
+  //     },
+  //     {
+  //       name: 'Linkedin',
+  //       url: 'https://www.linkedin.com/in/fergomezmontes/',
+  //       icon: Linkedin
+  //     },
+  //   ]
+  // },
+  // { 
+  //   id: 'fernando2',
+  //   name: 'Fernando Gómez',
+  //   username: 'gmsus4',
+  //   role: 'Front-end',
+  //   imageUrl: '/partners/fer.webp',
+  //   imageUrlHover: '/partners/fer-hover.jpg',
+  //   song: "Just The Way You Are Milky",
+  //   songUrl: "https://open.spotify.com/intl-es/track/7K3Lc3TfSR14aTOjIH7TUj?si=5842762ab8aa488e",
+  //   banner: "/partners/cover-fer.webp",
+  //   description: "Arregla un bug… y aparecen dos nuevos.",
+  //   socials: [
+  //     {
+  //       name: 'Instagram',
+  //       url: 'https://www.instagram.com/gmsus4/',
+  //       icon: Instagram
+  //     },
+  //     {
+  //       name: 'Spotify',
+  //       url: 'https://open.spotify.com/user/f3rnandogm',
+  //       icon: Spotify
+  //     },
+  //     {
+  //       name: 'Linkedin',
+  //       url: 'https://www.linkedin.com/in/fergomezmontes/',
+  //       icon: Linkedin
+  //     },
+  //   ]
+  // },
 ]
