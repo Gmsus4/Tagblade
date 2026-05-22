@@ -66,5 +66,28 @@ export const proyectos = [
         "Páginas legales (términos y privacidad)",
         "Diseño editorial con tipografía display de alto impacto"
     ]
+  },
+  {
+    title: "Mybeat",
+    description: "Diario deportivo para corredores, ciclistas y caminantes que registra métricas mediante archivos GPX. Permite compartir el progreso con amigos o profesionales de la salud a través de un perfil público, destacando por su privacidad geográfica al proteger las rutas exactas del usuario.",
+    technologies: ["Next.js", "Tailwind CSS", "Vercel"],
+    urlImage: "/proyects/mybeat.webp",
+    urlImageMobile: "/proyects/mybeat-mobile.webp",
+    type: "Completado",
+    urlPage: "https://www.mybeat.me/",
+    features: [
+      "Carga y procesamiento de archivos GPX (hasta 8 MB)",
+      "Visualización de métricas deportivas: distancia, ritmo, duración, elevación y parciales",
+      "Mapa interactivo con trazo de ruta GPS",
+      "Control granular de privacidad por actividad (mapa, ritmo, frecuencia cardíaca, calorías)",
+      "Perfil público compartible por username",
+      "Búsqueda de perfiles públicos por username exacto (sin directorio ni sugerencias)",
+      "Dashboard personal con historial de actividades",
+      "Guía integrada para exportar GPX desde Strava, Garmin y Adidas Running",
+      "Soporte para métricas de sensores: frecuencia cardíaca y cadencia cuando están en el GPX",
+      "Optimización SEO con meta tags, Open Graph y Twitter Cards",
+      "Páginas legales (política de privacidad y condiciones del servicio)",
+      "Diseño responsivo con enfoque en salud y deporte"
+    ]
   }
 ];
