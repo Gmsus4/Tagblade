@@ -89,5 +89,28 @@ export const proyectos = [
       "Páginas legales (política de privacidad y condiciones del servicio)",
       "Diseño responsivo con enfoque en salud y deporte"
     ]
+  },
+  {
+    title: "LyriCLI",
+    description: "Herramienta de línea de comandos open source escrita en Python que detecta automáticamente la canción que estás escuchando y muestra sus letras sincronizadas en tiempo real directamente en la terminal. Compatible con Windows (via Windows Media Session) y Linux (via MPRIS). Sin interfaces gráficas ni configuración extra.",
+    technologies: ["Python", "Rich", "pyfiglet", "lrclib.net API", "MPRIS", "Windows Media Session", "Vercel"],
+    urlImage: "/proyects/lyricli.webp",
+    urlImageMobile: "/proyects/lyricli-mobile.webp",
+    type: "Completado",
+    urlPage: "https://lyricli.vercel.app/",
+    features: [
+      "Auto-detección de la canción en reproducción sin configuración adicional",
+      "Letras sincronizadas en tiempo real usando el formato LRC con timestamps precisos",
+      "Integración con lrclib.net para obtener letras de cualquier canción",
+      "Compatibilidad con Windows Media Session y MPRIS en Linux",
+      "Detección automática de cambio de canción sin reiniciar el proceso",
+      "Renderizado en terminal con Rich: tipografía grande, colores neón y efecto glitch",
+      "Modo manual con flags --artist y --title para búsqueda directa",
+      "Soporte para Python 3.8+",
+      "Compatible con Spotify y cualquier reproductor de música",
+      "Instalación sencilla vía pip y git clone",
+      "Licencia MIT · Open Source en GitHub",
+      "Landing page con documentación de instalación paso a paso para Windows y Linux"
+    ]
   }
 ];
