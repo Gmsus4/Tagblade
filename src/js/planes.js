@@ -1,5 +1,5 @@
 const priceEsencial = 6999;
-const discountEsencial = 30;
+const discountEsencial = 10;
 const discountedPriceEsencial = priceEsencial - (priceEsencial * discountEsencial) / 100;
 
 // console.log(`Precio WEB ESENCIAL original: $${priceEsencial}`);
@@ -25,7 +25,7 @@ export const planes = [
       { label: "Diseño personalizado a tu marca", included: true },
       { label: "Desarrollo con React/Next.js", included: true },
       { label: "SEO técnico optimizado", included: true },
-      { label: "Hosting premium (1 año)", included: true },
+      { label: "Hosting (1 año)", included: true },
       { label: "Dominio .com incluido (1 año)", included: true },
       { label: "3 meses de soporte técnico", included: true },
       { label: "Entrega en 2-3 semanas", included: true }
