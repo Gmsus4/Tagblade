@@ -14,7 +14,7 @@ import TitleSection from '../common/TitleSection.astro';
         <a href={proyecto.urlPage} class="grid gap-4 group" data-aos="zoom-in" data-aos-duration="600" data-aos-delay={index * 80}>
           <div class="relative rounded-2xl overflow-hidden relative">
             <img src={proyecto.urlImage} class="w-full h-full object-cover"/>
-            <img src={proyecto.urlImageMobile} class="w-full h-full object-cover absolute top-5 left-30"/>
+            <img src={proyecto.urlImageMobile} class="w-full h-full object-cover absolute top-5 left-30 hidden xl:flex"/>
             <div class="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
               <p class="text-white text-sm text-center">{proyecto.description}</p>
             </div>
