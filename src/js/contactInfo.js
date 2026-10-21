@@ -6,7 +6,7 @@ import X from "../components/icons/X.astro";
 // Datos de contacto
 export const contactInfo = {
   email: "contact.tagblade@gmail.com",
-  phone: "3861112341",
+  phone: "3351415751",
   mensajeInicial: "",
   horario: "Lunes a Viernes: 9:00 - 18:00",
   socialMedia: [
